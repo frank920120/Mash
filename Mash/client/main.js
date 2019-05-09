@@ -1,22 +1,16 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
-import './main.html';
-
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "../imports/ui/containers/App";
+import "./main.css";
+import "./main.html";
+import * as serviceWorker from "./serviceWorker";
+import { Meteor } from "meteor/meteor";
+Meteor.startup(() => {
+  // code to run on server at startup
+  ReactDOM.render(<App />, document.getElementById("root"));
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
