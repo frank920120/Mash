@@ -3,26 +3,40 @@ import { Artists } from "../../api/artists";
 Meteor.startup(() => {
   if (Artists.find().count() === 0) {
     Artists.insert({
-        fullname: '12345',
-        description: '12345',
-        email:'123456@red.com',
-    
-        // location:{
-        //     coords:{
-        //         //tbd from google maps api 
-    
-        //     }
-        // },
-        
-        // reviews: {
-        //     text: '',
-        //     reviewer: ''
-        // },
-    
-        // //ie: guitar, drums 
-        // specialties: [],
-        // //ie: rock, classical 
-        // genre: [],
+        fullname: 'Alice',
+        description: 'Hi I am a singer.',
+        email:'alice@red.com',
+        location:{
+            lat:null,
+            lng:null
+        }, 
+        reviews: [{
+            text: 'Good Job!',
+            reviewer: 'Bob'
+        }],
+       //ie: guitar, drums 
+        specialties: ['singing'],
+        //ie: rock, classical 
+        genre: ['rock'],
+        musicWorks:[]
+    });
+    Artists.insert({
+        fullname: 'Bob',
+        description: 'Hi I am a drumer.',
+        email:'bob@red.com',
+        location:{
+            lat:null,
+            lng:null
+        }, 
+        reviews: [{
+            text: 'Unbelievable!',
+            reviewer: 'Alice'
+        }],
+       //ie: guitar, drums 
+        specialties: ['drums'],
+        //ie: rock, classical 
+        genre: ['rock'],
+        musicWorks:[]
     });
   }
 });
