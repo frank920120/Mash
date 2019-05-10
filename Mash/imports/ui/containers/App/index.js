@@ -1,16 +1,15 @@
 import React, { Component, Fragment } from "react";
-import LandingPageContainer from "../../pages/LangingPage";
-import Menu from "../../component/menu";
+import { BrowserRouter } from "react-router-dom";
+import Layout from "../../component/routes/Layout";
 class App extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
-      <Fragment>
-        <Menu />
-        <LandingPageContainer />
-      </Fragment>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     );
   }
 }
