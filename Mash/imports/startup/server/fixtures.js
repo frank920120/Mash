@@ -5,6 +5,7 @@ Meteor.startup(() => {
     Artists.insert({
         fullname: 'Alice',
         email:'alice@red.com',
+        imageurl:'https://loremflickr.com/320/240',
         description: 'Hi I am a singer.',
         location:{
             lat:null,
@@ -23,6 +24,7 @@ Meteor.startup(() => {
     Artists.insert({
         fullname: 'Bob',
         description: 'Hi I am a drumer.',
+        imageurl:'https://loremflickr.com/320/240',
         email:'bob@red.com',
         location:{
             lat:null,

@@ -15,6 +15,7 @@ if (Meteor.isServer) {
  *  Updating profiles
  *  Input: Object user{
  *    description:'',
+ *    imageurl:'',
  *    location:{
  *        lat:...,
  *        lng:...
@@ -22,7 +23,7 @@ if (Meteor.isServer) {
  *     reviews: ['','',....],
  *     specialties:[],
  *      genre:[],
- *      musicWorks:[]}
+ *      musicWorks:[],}
  *  Call:  Meteor.call('artists.updateProfile',user);
  */
 Meteor.methods({
@@ -99,8 +100,6 @@ Meteor.methods({
  * Get users by filter {specialties,genre,musicWorks number, review number, distance}
  */
 
-
-
 /**
  * Get user by filter {musicWorks number}
  */
@@ -114,6 +113,14 @@ Meteor.methods({
  */
 
 /**
+ * Get all user Locations by filter {}
  *
- * Get all user Locations by filter {distance}
  */
+Meteor.methods({
+  "artists.getLocationsByFilter"() {
+    if (!this.userId) {
+      throw new Meteor.Error("Please Login.");
+    }
+    return Artists.find({}, { location: 1 });
+  }
+});
