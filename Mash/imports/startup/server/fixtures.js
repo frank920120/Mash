@@ -15,7 +15,7 @@ Meteor.startup(() => {
             reviewer: 'Bob'
         }],
        //ie: guitar, drums 
-        specialties: ['singing'],
+        specialties: ['singing','dancing','b-box'],
         //ie: rock, classical 
         genre: ['rock'],
         musicWorks:[]
@@ -33,7 +33,7 @@ Meteor.startup(() => {
             reviewer: 'Alice'
         }],
        //ie: guitar, drums 
-        specialties: ['drums'],
+        specialties: ['drums','dancing','reading'],
         //ie: rock, classical 
         genre: ['rock'],
         musicWorks:[]
