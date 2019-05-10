@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router";
-import DiretoryContainer from "../../pages/Directory";
+import DirectoryContainer from "../../pages/Directory";
 import LandingPageContainer from "../../pages/LangingPage";
 import ProfileContainer from "../../pages/Profile";
-import PerferenceContainer from "../../pages/Perference";
+import PreferenceContainer from "../../pages/Preference";
 import Menu from "../menu";
 
 export default () => (
@@ -14,13 +14,13 @@ export default () => (
         exact
         path="/directory"
         name="directory"
-        component={DiretoryContainer}
+        component={DirectoryContainer}
       />
       <Route
         exact
-        path="/perference"
-        name="perference"
-        component={PerferenceContainer}
+        path="/preference"
+        name="preference"
+        component={PreferenceContainer}
       />
       <Route
         exact
