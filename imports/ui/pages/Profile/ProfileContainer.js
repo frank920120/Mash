@@ -1,7 +1,8 @@
 import React from "react";
+import Profile from "./Profile";
 
 const ProfileContainer = () => {
-  return <div>This is ProfileContainer Page</div>;
+  return <Profile />;
 };
 
 export default ProfileContainer;
