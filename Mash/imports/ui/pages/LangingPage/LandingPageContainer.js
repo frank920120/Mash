@@ -1,7 +1,7 @@
 import React from "react";
-
+import HomeBanner from "../../component/HomeBanner";
 const LandingPageContainer = () => {
-  return <div>This is Landing Page</div>;
+  return <HomeBanner />;
 };
 
 export default LandingPageContainer;

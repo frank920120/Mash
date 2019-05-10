@@ -13,17 +13,18 @@ function Menu(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.appbar} position="static">
+        <div className={classes.cover} />
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             className={classes.menuButton}
             color="inherit"
             aria-label="Menu"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            LOGO HERE
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
