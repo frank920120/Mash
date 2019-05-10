@@ -113,7 +113,7 @@ Meteor.methods({
  */
 
 /**
- * Get all user Locations by filter {}
+ * Get all user Locations 
  *
  */
 Meteor.methods({
