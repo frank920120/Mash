@@ -4,8 +4,8 @@ Meteor.startup(() => {
   if (Artists.find().count() === 0) {
     Artists.insert({
         fullname: 'Alice',
-        description: 'Hi I am a singer.',
         email:'alice@red.com',
+        description: 'Hi I am a singer.',
         location:{
             lat:null,
             lng:null
