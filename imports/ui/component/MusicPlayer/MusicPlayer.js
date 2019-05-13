@@ -1,6 +1,3 @@
-// import React from "react";
-// import PropTypes from "prop-types";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import {
@@ -70,10 +67,10 @@ const MusicPlayer = withSoundCloudAudio(props => {
             )}
           </IconButton>
           <div className={classes.trackInfo}>
-            <Typography variant="display5" className={classes.trackTitle}>
+            <Typography variant="overline" className={classes.trackTitle}>
               {track.title}
             </Typography>
-            <Typography variant="display7" className={classes.trackArtist}>
+            <Typography variant="caption" className={classes.trackArtist}>
               {track.user.username}
             </Typography>
           </div>
