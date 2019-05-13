@@ -4,20 +4,16 @@ import {
   Paper,
   Typography,
   Grid,
-  Divider,
   Card,
-  CardActionArea,
   Button,
-  CardMedia,
-  CardActions,
   Avatar,
   Chip
 } from "@material-ui/core";
 import styles from "./styles";
-import CardContent from "@material-ui/core/CardContent";
-// import Gravatar from "react-gravatar";
 import PropTypes from "prop-types";
 import MusicPlayer from "../../component/MusicPlayer";
+import Review from "../../component/Review";
+import { withTracker } from "meteor/react-meteor-data";
 
 function Profile(props, artist) {
   const { classes } = props;
@@ -31,76 +27,83 @@ function Profile(props, artist) {
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        <Grid container spacing={24}>
-          <Grid item xs={6} className={classes.picButton}>
-            <Avatar
-              alt={artist.fullname}
-              //   src={artist.profileurl}
-              src="https://loremflickr.com/320/240"
-              className={classes.avatar}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-            >
-              Connect
-            </Button>
-          </Grid>
-          <Grid item xs={6} className={classes.artistInfo}>
-            <Typography gutterBottom variant="h4" component="h1">
-              Jeffrey Star
-            </Typography>
-
-            <Typography component="p">Specialties:</Typography>
-            {specialties.map(specialty => (
-              <Chip
-                key={specialty.index}
-                label={specialty}
-                className={classes.specialtyChip}
+        <div className={classes.cover}>
+          <Grid container spacing={24}>
+            <Grid item xs={6} className={classes.picButton}>
+              <Avatar
+                alt={artist.fullname}
+                //   src={artist.profileurl}
+                src="https://loremflickr.com/320/240"
+                className={classes.avatar}
               />
-            ))}
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Connect
+              </Button>
+            </Grid>
+            <Grid item xs={6} className={classes.artistInfo}>
+              <Typography
+                className={classes.whiteText}
+                gutterBottom
+                variant="h4"
+                component="h1"
+              >
+                Jeffrey Star
+              </Typography>
 
-            <Typography component="p">Genres:</Typography>
-            {genres.map(genre => (
-              <Chip
-                key={genre.index}
-                label={genre}
-                className={classes.genreChip}
-              />
-            ))}
-          </Grid>
+              <Typography component="p" className={classes.whiteText}>
+                Specialties:
+              </Typography>
+              {specialties.map((specialty, index) => (
+                <Chip
+                  key={index}
+                  label={specialty}
+                  className={classes.specialtyChip}
+                />
+              ))}
 
-          <Grid item xs={12}>
-            <Typography component="p">
-              Lorem ipsum bio here Lorem ipsum bio here Lorem ipsum bio here
-              Lorem ipsum bio here Lorem ipsum bio here Lorem ipsum bio here
-            </Typography>
-          </Grid>
+              <Typography component="p" className={classes.whiteText}>
+                Genres:
+              </Typography>
+              {genres.map((genre, index) => (
+                <Chip key={index} label={genre} className={classes.genreChip} />
+              ))}
+            </Grid>
 
-          <Grid item xs={7}>
-            <Paper className={classes.paper}>
-              <Typography component="header">Past music works:</Typography>
-              <MusicPlayer
-                clientId={clientId}
-                resolveUrl={resolveUrl}
-                onReady={() => console.log("track is loaded!")}
-              />
-              <MusicPlayer
-                clientId={clientId}
-                resolveUrl="https://soundcloud.com/vira-talisa-dharmawan/ill-be-home-for-christmas"
-                onReady={() => console.log("track is loaded!")}
-              />
-            </Paper>
-          </Grid>
+            <Grid item xs={12}>
+              <Typography component="p" className={classes.whiteText}>
+                Lorem ipsum bio here Lorem ipsum bio here Lorem ipsum bio here
+                Lorem ipsum bio here Lorem ipsum bio here Lorem ipsum bio here
+              </Typography>
+            </Grid>
 
-          <Grid item xs={5}>
-            <Paper className={classes.paper}>
-              {" "}
-              <Typography component="header">Reviews:</Typography>{" "}
-            </Paper>
+            <Grid item xs={7}>
+              <Paper className={classes.paper}>
+                <Typography component="header">Past music works:</Typography>
+                <MusicPlayer
+                  clientId={clientId}
+                  resolveUrl={resolveUrl}
+                  onReady={() => console.log("track is loaded!")}
+                />
+                <MusicPlayer
+                  clientId={clientId}
+                  resolveUrl="https://soundcloud.com/vira-talisa-dharmawan/ill-be-home-for-christmas"
+                  onReady={() => console.log("track is loaded!")}
+                />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={5}>
+              <Typography component="header" className={classes.whiteText}>
+                Reviews:
+              </Typography>
+              <Review />
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       </Card>
     </div>
   );
@@ -135,3 +138,15 @@ Profile.defaultProps = {
 };
 
 export default withStyles(styles)(Profile);
+
+// export default withStyles(styles)(
+//   withTracker(() => {
+//     Meteor.call("artists.getAllUsers", null, (err, res) => {
+//       if (err) {
+//         console.log("Error", err);
+//       } else {
+//         return { res };
+//       }
+//     });
+//   })(Profile)
+// );

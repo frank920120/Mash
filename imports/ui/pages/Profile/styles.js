@@ -6,8 +6,8 @@ const styles = {
     backgroundColor: "#0E0B16"
   },
   card: {
-    margin: 80,
-    padding: 30,
+    marginTop: 100,
+    marginBottom: 100,
     maxWidth: "80%",
     borderStyle: "solid",
     borderWidth: 3,
@@ -15,11 +15,14 @@ const styles = {
     borderColor: "#4717F6",
     backgroundColor: "#0E0B16"
 
-    // background: "linear-gradient(90deg, #5E239D 0%, rgba(196, 196, 196, 0) 56.77%);"
+    // background: "linear-gradient(90deg, #5E239D 0%, rgba(196, 196, 196, 0) 70%);"
   },
-  typography: {
-    color: "white"
+  cover: {
+    zIndex: -1,
+    padding: 30,
+    background: "linear-gradient(0deg, #5E239D 0%, rgba(196, 196, 196, 0) 70%);"
   },
+
   picButton: {
     display: "flex",
     flexDirection: "column",
@@ -29,7 +32,6 @@ const styles = {
   artistInfo: {
     marginTop: 40
   },
-
   button: {
     marginTop: 30
   },
@@ -45,6 +47,9 @@ const styles = {
   },
   specialtyChip: {
     margin: 10
+  },
+  whiteText: {
+    color: "white"
   }
 };
 
