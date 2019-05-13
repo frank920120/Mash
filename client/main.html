@@ -7,7 +7,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -32,4 +32,24 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <!-- prevent google map overwrites the fonts -->
+  <script>
+    const head = document.getElementsByTagName("head")[0];
+
+    // Save the original method
+    const insertBefore = head.insertBefore;
+
+    // Replace it!
+    head.insertBefore = function(newElement, referenceElement) {
+      if (
+        newElement.href &&
+        newElement.href.indexOf("//fonts.googleapis.com/css?family=Roboto") > -1
+      ) {
+        console.info("Prevented Roboto from loading!");
+        return;
+      }
+
+      insertBefore.call(head, newElement, referenceElement);
+    };
+  </script>
 </body>
