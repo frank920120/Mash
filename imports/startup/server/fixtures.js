@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Artists } from "../../api/artists";
+import { Collaborations } from "../../api/collaborations";
 Meteor.startup(() => {
   if (Artists.find().count() === 0) {
     Artists.insert({
@@ -49,6 +50,17 @@ Meteor.startup(() => {
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
+    });
+  }
+  if (Collaborations.find().count() === 0) {
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
     });
   }
 });

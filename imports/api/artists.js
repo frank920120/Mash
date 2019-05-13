@@ -12,6 +12,24 @@ if (Meteor.isServer) {
 }
 
 /**
+ * Subscribe all users
+ *  Meteor.subscribe('allusers');
+ */
+if (Meteor.isServer) {
+  Meteor.publish("allusers", function profilePublication() {
+    return Artists.find({},  { emails: 0, services: 0 });
+  });
+}
+// import { withTracker } from "meteor/react-meteor-data";
+// import {Artists} from "../../../api/artists";
+// export default withTracker(() => {
+//   Meteor.subscribe('allusers');
+//   return {
+//     allUsers: Artists.find({}).fetch(),
+//   };
+// })(App);
+
+/**
  *  Updating profiles
  *  Input: Object user{
  *    description:'',
