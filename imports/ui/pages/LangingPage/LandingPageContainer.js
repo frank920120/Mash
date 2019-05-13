@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import HomeBanner from "../../component/HomeBanner";
 import HomeDes from "../../component/HomeDes";
 import HomeMap from "../../component/HomeMap";
+import Footer from "../../component/Footer";
 import { withTracker } from "meteor/react-meteor-data";
 import { Artists } from "../../../api/artists";
 import { Meteor } from "meteor/meteor";
@@ -12,6 +13,7 @@ const LandingPageContainer = ({ profile }) => {
       <HomeBanner />
       <HomeDes />
       <HomeMap />
+      <Footer />
     </Fragment>
   );
 };
