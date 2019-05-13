@@ -10,7 +10,8 @@ import {
   Button,
   CardMedia,
   CardActions,
-  Avatar
+  Avatar,
+  Chip
 } from "@material-ui/core";
 import styles from "./styles";
 import CardContent from "@material-ui/core/CardContent";
@@ -23,6 +24,10 @@ function Profile(props, artist) {
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
   const resolveUrl = "https://soundcloud.com/lyricalvalue/clearly";
 
+  //placeholder artist data
+  const skills = ["vocals", "beatboxing"];
+  const genres = ["rock", "folk", "R&B"];
+
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
@@ -30,17 +35,27 @@ function Profile(props, artist) {
           <Grid item xs={6} className={classes.picButton}>
             <Avatar
               alt={artist.fullname}
-              src={artist.profileurl}
+              //   src={artist.profileurl}
+              src="https://loremflickr.com/320/240"
               className={classes.avatar}
             />
-            <Button size="small" color="primary">
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
               Connect
             </Button>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className={classes.artistInfo}>
             <Typography gutterBottom variant="h5" component="h2">
               Jeffrey Star
             </Typography>
+
+            <Typography component="p">Genres:</Typography>
+            {genres.map(genre => (
+              <Chip label={genre} className={classes.chip} />
+            ))}
           </Grid>
 
           <Grid item xs={12}>

@@ -14,6 +14,10 @@ import { withSoundCloudAudio } from "react-soundplayer/addons";
 import PropTypes from "prop-types";
 import styles from "./styles";
 
+import { Meteor } from "meteor/meteor";
+import { Artists } from "../../../api/artists.js";
+import { withTracker } from "meteor/react-meteor-data";
+
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -35,6 +39,7 @@ const MusicPlayer = withSoundCloudAudio(props => {
     currentTime,
     duration
   } = props;
+
   const play = () => {
     if (playing) {
       soundCloudAudio.pause();
@@ -65,11 +70,6 @@ const MusicPlayer = withSoundCloudAudio(props => {
       <PlayButton className="custom-player-btn" onPlayClick={() => play()} />
 
       <button onClick={() => play()}>{playing ? "Pause" : "Play"}</button>
-      {/* <LinearProgress
-        variant="determinate"
-        value={(currentTime / duration) * 100 || 0}
-      /> */}
-
       <Progress
         className="mt1 mb1 rounded"
         innerClassName="rounded-left"
@@ -90,32 +90,14 @@ const MusicPlayer = withSoundCloudAudio(props => {
       />
     </div>
   );
-
-  // const { track, currentTime } = props;
-
-  // return (
-  //   <div className="custom-player">
-  //     <PlayButton
-  //       className="custom-player-btn"
-  //       onPlayClick={() => {
-  //         console.log("play button clicked!");
-  //       }}
-  //       {...props}
-  //     />
-  //     <h2 className="custom-player-title">
-  //       {track ? track.title : "Loading..."}
-  //     </h2>
-
-  //     <Timer
-  //       className="custom-player-timer"
-  //       duration={track ? track.duration / 1000 : 0}
-  //       currentTime={currentTime}
-  //       {...props}
-  //     />
-  //   </div>
-  // );
 });
 
 MusicPlayer.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(MusicPlayer);
+export default withStyles(styles, { withTheme: true })(
+  withTracker(() => {
+    return {
+      artists: Artists.find({}).fetch()
+    };
+  })(MusicPlayer)
+);
