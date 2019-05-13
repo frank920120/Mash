@@ -24,6 +24,9 @@ const styles = {
     justifyContent: "center",
     alignItems: "center"
   },
+  artistInfo: {
+    marginTop: 40
+  },
 
   button: {
     marginTop: 30
@@ -35,7 +38,10 @@ const styles = {
     width: 200,
     height: 200
   },
-  chip: {
+  genreChip: {
+    margin: 10
+  },
+  specialtyChip: {
     margin: 10
   }
 };
