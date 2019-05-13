@@ -21,7 +21,8 @@ const styles = theme => ({
     padding: 7,
     justifyContent: "space-between",
     alignItems: "center",
-    width: "100%"
+    width: "100%",
+    alignContent: "center"
   },
   details: {
     display: "flex",
