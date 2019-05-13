@@ -10,13 +10,15 @@ const styles = {
     padding: 30,
     maxWidth: "80%",
     borderStyle: "solid",
-    borderWidth: 5,
-    borderColor: "Blue"
+    borderWidth: 3,
+    borderRadius: 4,
+    borderColor: "#4717F6",
+    backgroundColor: "#0E0B16"
 
     // background: "linear-gradient(90deg, #5E239D 0%, rgba(196, 196, 196, 0) 56.77%);"
   },
-  Grid: {
-    padding: 20
+  typography: {
+    color: "white"
   },
   picButton: {
     display: "flex",
@@ -35,8 +37,8 @@ const styles = {
     height: 140
   },
   avatar: {
-    width: 200,
-    height: 200
+    width: 230,
+    height: 230
   },
   genreChip: {
     margin: 10

@@ -2,36 +2,48 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
-
-  grow: {
-    flexGrow: 1
+  audioCard: {
+    display: "flex",
+    padding: 10,
+    width: "100%",
+    justifyContent: "space-between",
+    borderStyle: "solid",
+    borderTopWidth: 2,
+    borderColor: "#e7dfdd"
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+  musicDisplay: {
+    display: "flex",
+    flexDirection: "column",
+    width: "82%"
   },
-  card: {
-    display: "flex"
+  controls: {
+    display: "flex",
+    padding: 7,
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%"
   },
   details: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   },
   content: {
     flex: "1 0 auto"
   },
-  cover: {
-    width: 151
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center"
-    // paddingLeft: theme.spacing.unit,
-    // paddingBottom: theme.spacing.unit
-  },
+
   playPauseIcon: {
-    height: 38,
-    width: 38
+    height: 30,
+    width: 30,
+    color: "#a239ca"
+  },
+  cover: {
+    height: 70,
+    width: 70
+  },
+  timer: {
+    fontSize: 13
   }
 });
 
