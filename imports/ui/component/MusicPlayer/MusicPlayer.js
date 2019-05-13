@@ -14,6 +14,10 @@ import { withSoundCloudAudio } from "react-soundplayer/addons";
 import PropTypes from "prop-types";
 import styles from "./styles";
 
+import { Meteor } from "meteor/meteor";
+import { Artists } from "../../../api/artists.js";
+import { withTracker } from "meteor/react-meteor-data";
+
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -35,6 +39,7 @@ const MusicPlayer = withSoundCloudAudio(props => {
     currentTime,
     duration
   } = props;
+
   const play = () => {
     if (playing) {
       soundCloudAudio.pause();
@@ -48,74 +53,59 @@ const MusicPlayer = withSoundCloudAudio(props => {
   }
 
   return (
-    <div>
-      <Typography variant="display3" gutterBottom>
-        {track.title}
-      </Typography>
-      <h3>{track.user.username}</h3>
-
-      <IconButton aria-label="Play/pause" onClick={() => play()}>
-        {playing ? (
-          <PauseIcon className={classes.playPauseIcon} />
-        ) : (
-          <PlayArrowIcon className={classes.playPauseIcon} />
-        )}
-      </IconButton>
-
-      <PlayButton className="custom-player-btn" onPlayClick={() => play()} />
-
-      <button onClick={() => play()}>{playing ? "Pause" : "Play"}</button>
-      {/* <LinearProgress
-        variant="determinate"
-        value={(currentTime / duration) * 100 || 0}
-      /> */}
-
-      <Progress
-        className="mt1 mb1 rounded"
-        innerClassName="rounded-left"
-        value={(currentTime / duration) * 100 || 0}
-        {...props}
-      />
-
-      <Timer
-        className="custom-player-timer"
-        duration={track ? track.duration / 1000 : 0}
-        currentTime={currentTime}
-        {...props}
-      />
+    <div className={classes.audioCard}>
       <CardMedia
         className={classes.cover}
-        image="https://loremflickr.com/320/240"
+        image={track.artwork_url}
         title="Live from space album cover"
       />
+
+      <div className={classes.musicDisplay}>
+        <div className={classes.controls}>
+          <IconButton aria-label="Play/pause" onClick={() => play()}>
+            {playing ? (
+              <PauseIcon className={classes.playPauseIcon} />
+            ) : (
+              <PlayArrowIcon className={classes.playPauseIcon} />
+            )}
+          </IconButton>
+          <div className={classes.trackInfo}>
+            <Typography variant="display5" className={classes.trackTitle}>
+              {track.title}
+            </Typography>
+            <Typography variant="display7" className={classes.trackArtist}>
+              {track.user.username}
+            </Typography>
+          </div>
+
+          <Timer
+            className={classes.timer}
+            duration={track ? track.duration / 1000 : 0}
+            currentTime={currentTime}
+            {...props}
+          />
+        </div>
+
+        <LinearProgress
+          variant="determinate"
+          value={(currentTime / duration) * 100 || 0}
+        />
+        {/* <Progress
+          className={classes.progressBar}
+          value={(currentTime / duration) * 100 || 0}
+          {...props}
+        /> */}
+      </div>
     </div>
   );
-
-  // const { track, currentTime } = props;
-
-  // return (
-  //   <div className="custom-player">
-  //     <PlayButton
-  //       className="custom-player-btn"
-  //       onPlayClick={() => {
-  //         console.log("play button clicked!");
-  //       }}
-  //       {...props}
-  //     />
-  //     <h2 className="custom-player-title">
-  //       {track ? track.title : "Loading..."}
-  //     </h2>
-
-  //     <Timer
-  //       className="custom-player-timer"
-  //       duration={track ? track.duration / 1000 : 0}
-  //       currentTime={currentTime}
-  //       {...props}
-  //     />
-  //   </div>
-  // );
 });
 
 MusicPlayer.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(MusicPlayer);
+export default withStyles(styles, { withTheme: true })(
+  withTracker(() => {
+    return {
+      artists: Artists.find({}).fetch()
+    };
+  })(MusicPlayer)
+);
