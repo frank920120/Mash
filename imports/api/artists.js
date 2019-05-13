@@ -56,7 +56,7 @@ Meteor.methods({
     return Artists.find(
       { fullname: { $regex: `.*${userName}.*` } },
       { services: 0 }
-    );
+    ).fetch();
   }
 });
 
@@ -70,7 +70,7 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error("Please Login.");
     }
-    return Artists.find({ _id: userId }, { emails: 0, services: 0 });
+    return Artists.find({ _id: userId }, { emails: 0, services: 0 }).fetch();
   }
 });
 
@@ -84,16 +84,18 @@ Meteor.methods({
  */
 Meteor.methods({
   "artists.getProfileByFilter"(filter) {
-    if (!this.userId) {
-      throw new Meteor.Error("Please Login.");
-    }
+    console.log("filter", filter);
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
+
     return Artists.find(
       {
         specialties: { $all: filter.specialties },
         genre: { $all: filter.genre }
       },
       { emails: 0, services: 0 }
-    );
+    ).fetch();
   }
 });
 /**
@@ -121,6 +123,31 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error("Please Login.");
     }
-    return Artists.find({}, { location: 1 });
+    return Artists.find({}, { location: 1 }).fetch();
   }
 });
+
+
+/**
+ * Get all users
+ *
+ */
+Meteor.methods({
+  "artists.getAllUsers"() {
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
+    return Artists.find({},  { emails: 0, services: 0 }).fetch();
+  }
+});
+
+//Example:
+// import { Meteor } from "meteor/meteor";
+// Meteor.call("artists.getAllUsers", null, (err, res) => {
+//   if (err) {
+//     console.log("Error", err);
+//   } else {
+//     // success!
+//     console.log("res", res);
+//   }
+// });
