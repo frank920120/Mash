@@ -10,7 +10,8 @@ import {
   Button,
   CardMedia,
   CardActions,
-  Avatar
+  Avatar,
+  Chip
 } from "@material-ui/core";
 import styles from "./styles";
 import CardContent from "@material-ui/core/CardContent";
@@ -23,6 +24,10 @@ function Profile(props, artist) {
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
   const resolveUrl = "https://soundcloud.com/lyricalvalue/clearly";
 
+  //placeholder artist data
+  const specialties = ["vocals", "guitar", "xylophone"];
+  const genres = ["rock", "folk", "R&B"];
+
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
@@ -30,17 +35,40 @@ function Profile(props, artist) {
           <Grid item xs={6} className={classes.picButton}>
             <Avatar
               alt={artist.fullname}
-              src={artist.profileurl}
+              //   src={artist.profileurl}
+              src="https://loremflickr.com/320/240"
               className={classes.avatar}
             />
-            <Button size="small" color="primary">
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
               Connect
             </Button>
           </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom variant="h5" component="h2">
+          <Grid item xs={6} className={classes.artistInfo}>
+            <Typography gutterBottom variant="h4" component="h1">
               Jeffrey Star
             </Typography>
+
+            <Typography component="p">Specialties:</Typography>
+            {specialties.map(specialty => (
+              <Chip
+                key={specialty.index}
+                label={specialty}
+                className={classes.specialtyChip}
+              />
+            ))}
+
+            <Typography component="p">Genres:</Typography>
+            {genres.map(genre => (
+              <Chip
+                key={genre.index}
+                label={genre}
+                className={classes.genreChip}
+              />
+            ))}
           </Grid>
 
           <Grid item xs={12}>
@@ -49,17 +77,28 @@ function Profile(props, artist) {
               Lorem ipsum bio here Lorem ipsum bio here Lorem ipsum bio here
             </Typography>
           </Grid>
-          <Grid item xs={6}>
+
+          <Grid item xs={7}>
             <Paper className={classes.paper}>
+              <Typography component="header">Past music works:</Typography>
               <MusicPlayer
                 clientId={clientId}
                 resolveUrl={resolveUrl}
                 onReady={() => console.log("track is loaded!")}
               />
+              <MusicPlayer
+                clientId={clientId}
+                resolveUrl="https://soundcloud.com/vira-talisa-dharmawan/ill-be-home-for-christmas"
+                onReady={() => console.log("track is loaded!")}
+              />
             </Paper>
           </Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}> Reviews </Paper>
+
+          <Grid item xs={5}>
+            <Paper className={classes.paper}>
+              {" "}
+              <Typography component="header">Reviews:</Typography>{" "}
+            </Paper>
           </Grid>
         </Grid>
       </Card>

@@ -4,38 +4,69 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import PauseIcon from "@material-ui/icons/Pause";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
+import { withSoundCloudAudio } from "react-soundplayer/addons";
+import {
+  PlayButton,
+  Timer,
+  Progress,
+  Icons,
+  VolumeControl
+} from "react-soundplayer/components";
 
-const MediaCard = ({ classes,title, author, imageurl, musicurl }) => (
+const MediaCard = withSoundCloudAudio(props => {
+  const {
+    classes,
+    soundCloudAudio,
+    playing,
+    track,
+    currentTime,
+    duration
+  } = props;
+  const play = () => {
+    if (playing) {
+      soundCloudAudio.pause();
+    } else {
+      soundCloudAudio.play();
+    }
+  };
+  if (!track) {
+    return <div>Loading...</div>;
+  }
+  return (
     <Card className={classes.card}>
-    <div className={classes.details}>
-    <img className={classes.image} src={imageurl}/>
-      <CardContent className={classes.content}>
-        <Typography component="h5" variant="h5">
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          {author}
-        </Typography>
-      </CardContent>
-      <div className={classes.controls}>
-        <IconButton aria-label="Previous">
-          <SkipPreviousIcon />
-        </IconButton>
-        <IconButton aria-label="Play/pause">
-          <PlayArrowIcon className={classes.playIcon} />
-        </IconButton>
-        <IconButton aria-label="Next">
-          <SkipNextIcon />
-        </IconButton>
+      <div className={classes.details}>
+        <img className={classes.image} src={track.artwork_url} />
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="h5">
+            {track.title}
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            {track.user.username}
+          </Typography>
+        </CardContent>
+        <div className={classes.controls}>
+          <IconButton aria-label="Play/pause" onClick={() => play()}>
+            {playing ? (
+              <PauseIcon className={classes.playPauseIcon} />
+            ) : (
+              <PlayArrowIcon className={classes.playPauseIcon} />
+            )}
+          </IconButton>
+          <Timer
+            className="custom-player-timer"
+            duration={track ? track.duration / 1000 : 0}
+            currentTime={currentTime}
+            {...props}
+          />
+          <Progress value={(currentTime / duration) * 100 || 0} {...props} />
+        </div>
       </div>
-    </div>
-  </Card>
+    </Card>
   );
-  
-  export default withStyles(styles)(MediaCard);
-  
+});
+
+export default withStyles(styles)(MediaCard);
