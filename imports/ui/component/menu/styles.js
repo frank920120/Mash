@@ -1,11 +1,16 @@
 const styles = {
   root: {
-    flexGrow: 1
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    flexGrow: 1,
+    zIndex: 99999999
   },
   appbar: {
     position: "relative",
     background: "#9b42f4",
-    mixBlendMode: "multiply"
+    height: 70
   },
   cover: {
     position: "absolute",
@@ -17,9 +22,13 @@ const styles = {
     background:
       "linear-gradient(90deg, #5E239D 0%, rgba(196, 196, 196, 0) 56.77%);"
   },
-
-  grow: {
-    flexGrow: 1
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  logo: {
+    width: 40,
+    height: 40
   },
   menuButton: {
     marginLeft: -12,

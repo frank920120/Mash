@@ -15,18 +15,16 @@ function Menu(props) {
     <div className={classes.root}>
       <AppBar className={classes.appbar} position="static">
         <div className={classes.cover} />
-        <Toolbar>
-          {/* <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            LOGO HERE
-          </Typography>
-          <Button color="inherit">Login</Button>
+        <Toolbar className={classes.toolbar}>
+          <img
+            className={classes.logo}
+            src="/branding/images/mash_logo.svg"
+            alt=""
+          />
+
+          <Button color="inherit">
+            <h1>Login</h1>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

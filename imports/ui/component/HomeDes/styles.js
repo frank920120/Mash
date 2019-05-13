@@ -1,30 +1,48 @@
 const styles = {
   desContainer: {
     width: "100%",
-    height: 400,
-    backgroundColor: "#9b42f4",
+    backgroundImage: "url('/images/HomeDes.png')",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
   },
+  parallax: {
+    width: "100%",
+    margin: 0,
+    padding: 0
+  },
   desContent: {
-    width: "70%"
+    paddingTop: 100,
+    width: "80%"
+  },
+  highlight: {
+    textDecoration: "underline"
   },
   desHeader: {
     color: "white",
-    fontFamily: "Mplus 1p",
-    fontWeight: 500,
-    fontSize: 45
+    fontWeight: 800,
+    fontSize: 60,
+    letterSpacing: 5
   },
   desPara: {
     color: "white",
-    fontFamily: "Mplus 1p",
-    fontWeight: 800,
-    fontSize: 18
+    fontWeight: 500,
+    fontSize: 18,
+    letterSpacing: 1
   },
   button: {
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 100,
+    backgroundColor: "#4f4af6",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#4f4af6"
+    }
   }
 };
 export default styles;

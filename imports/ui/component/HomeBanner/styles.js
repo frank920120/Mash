@@ -1,7 +1,7 @@
 const styles = {
   bannerContainer: {
     width: "100%",
-    height: "90vh"
+    height: "100vh"
   },
   imageContianer: {
     position: "relative",
@@ -14,7 +14,11 @@ const styles = {
     left: 0,
     width: "100%",
     height: "100%",
-    objectFit: "cover"
+    backgroundPosition: "center",
+    backgroundrepeat: "no-repeat",
+    backgroundSize: "cover",
+    willChange: "opacity",
+    backgroundAttachment: "fixed"
   },
   ContentContainer: {
     position: "absolute",
@@ -29,8 +33,6 @@ const styles = {
   text: {
     color: "white",
     letterSpacing: 5,
-    fontFamily: "Mplus 1p",
-    fontStyle: "normal",
     fontWeight: 900,
     fontSize: 155,
     lineHeight: "118.8%"
@@ -38,8 +40,6 @@ const styles = {
   subtext: {
     color: "white",
     letterSpacing: 5,
-    fontFamily: "Mplus 1p",
-    fontStyle: "normal",
     fontWeight: 800
   }
 };
