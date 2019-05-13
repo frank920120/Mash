@@ -29,7 +29,7 @@ function Profile(props, artist) {
       <Card className={classes.card}>
         <div className={classes.cover}>
           <Grid container spacing={24}>
-            <Grid item xs={6} className={classes.picButton}>
+            <Grid item xs={5} className={classes.picButton}>
               <Avatar
                 alt={artist.fullname}
                 //   src={artist.profileurl}
@@ -44,7 +44,7 @@ function Profile(props, artist) {
                 Connect
               </Button>
             </Grid>
-            <Grid item xs={6} className={classes.artistInfo}>
+            <Grid item xs={7} className={classes.artistInfo}>
               <Typography
                 className={classes.whiteText}
                 gutterBottom
