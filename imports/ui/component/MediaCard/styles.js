@@ -5,15 +5,17 @@ const styles = theme => ({
     },
     image:{
         position:'absolute',
-        width:'100%',
+        width:'50%',
         height:'100%',
-        left:0,
+        right:0,
         top:0,
-        opacity: '0.5'
+        opacity: '0.5',
+        objectFit: 'contain'
     },
     details: {
       display: 'flex',
       flexDirection: 'column',
+      padding:10
     },
     content: {
     zIndex:9999,
@@ -25,6 +27,7 @@ const styles = theme => ({
     controls: {
       display: 'flex',
       alignItems: 'center',
+      flexDirection: 'row',
       paddingLeft: theme.spacing.unit,
       paddingBottom: theme.spacing.unit,
     },

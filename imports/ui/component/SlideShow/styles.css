@@ -1,9 +1,11 @@
 .SlideShowWrapper{
   background-color: blueviolet;
   padding: 60px 60px;
+  padding-top: 30px;
   margin: 0 auto ;
 }
-.eachCard{
-  height:100px;
- 
+.CollaborationHeading{
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
 }

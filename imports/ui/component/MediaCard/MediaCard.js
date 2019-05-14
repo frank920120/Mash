@@ -62,7 +62,6 @@ const MediaCard = withSoundCloudAudio(props => {
             currentTime={currentTime}
             {...props}
           />
-          <Progress value={(currentTime / duration) * 100 || 0} {...props} />
         </div>
       </div>
     </Card>
