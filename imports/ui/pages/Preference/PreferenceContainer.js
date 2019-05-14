@@ -40,7 +40,7 @@ function PreferenceContainer({ classes, history }) {
       </Fade>
       <div className={classes.cover} />
       <div className={classes.formContainer}>
-        <Fade top duration={2000}>
+        <Fade left cascade duration={2000}>
           <h1 className={classes.header}>What's your musical style?</h1>
         </Fade>
         <Form

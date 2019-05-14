@@ -11,12 +11,29 @@ const styles = {
     width: "100%",
     height: 500
   },
+  info: {
+    backgroundColor: "red"
+  },
+  popupContainer: {
+    width: 150
+  },
   mapHeader: {
     fontWeight: 800,
     fontSize: 60,
     color: "black",
     padding: 60,
     marginTop: 60
+  },
+  popupTop: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  userImage: {
+    borderRadius: "50%"
+  },
+  username: {
+    margin: 0,
+    padding: 5
   }
 };
 

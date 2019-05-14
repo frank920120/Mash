@@ -16,7 +16,7 @@ export default class SlideShow extends Component {
     const { activeItemIndex } = this.state;
     return (
       <div className="SlideShowWrapper">
-        <h1 className="CollaborationHeading">Collablrations</h1>
+        <h1 className="CollaborationHeading">Collaborations</h1>
         <ItemsCarousel
           placeholderItem={<div style={{ height: 200, background: "#EEE" }} />}
           enablePlaceholder={true}
@@ -35,7 +35,7 @@ export default class SlideShow extends Component {
           rightChevron={
             <IconButton>
               <ChevronRight size={32} color="white" />
-            </IconButton >
+            </IconButton>
           }
           leftChevron={
             <IconButton>

@@ -6,13 +6,14 @@ import Footer from "../../component/Footer";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Collaborations } from "../../../api/collaborations";
+import { Artists } from "../../../api/artists";
 import SlideShow from "../../component/SlideShow";
-const LandingPageContainer = ({ collaborations }) => {
+const LandingPageContainer = ({ collaborations, users }) => {
   return (
     <Fragment>
       <HomeBanner />
       <HomeDes />
-      <HomeMap />
+      <HomeMap users={users} />
       <SlideShow media={collaborations} />
       <Footer />
     </Fragment>
@@ -21,7 +22,9 @@ const LandingPageContainer = ({ collaborations }) => {
 
 export default withTracker(() => {
   Meteor.subscribe("allCollaborations");
+  Meteor.subscribe("allusers");
   return {
-    collaborations: Collaborations.find({}).fetch()
+    collaborations: Collaborations.find({}).fetch(),
+    users: Artists.find({}).fetch()
   };
 })(LandingPageContainer);
