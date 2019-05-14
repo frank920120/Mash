@@ -1,62 +1,67 @@
-import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import React from "react";
+import { Form, Field } from "react-final-form";
+import { FieldArray } from "react-final-form-arrays";
+import arrayMutators from "final-form-arrays";
+import CheckboxGroup from "../../component/CheckBox";
 import styles from "./styles";
-class PreferenceContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      genre: [
-        { id: 1, value: "ROCK", isChecked: false },
-        { id: 2, value: "BLUES", isChecked: false },
-        { id: 3, value: "COUNTRY", isChecked: false },
-        { id: 4, value: "R&B", isChecked: false },
-        { id: 5, value: "POP", isChecked: false },
-        { id: 6, value: "JAZE", isChecked: false },
-        { id: 7, value: "FOLK", isChecked: false },
-        { id: 8, value: "CLASSICAL", isChecked: false },
-        { id: 9, value: "HIP HOP", isChecked: false },
-        { id: 10, value: "GRAVY", isChecked: false }
-      ]
-    };
-  }
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log("form submitted");
-  };
-  handleChange = e => {
-    const genre = this.state.genre.map(g => {
-      if (g.value === e.target.name) {
-        g.isChecked = !g.isChecked;
-      }
-    });
+import Fade from "react-reveal/Fade";
+import { withStyles } from "@material-ui/core/styles";
+const onSubmit = values => {
+  console.log(values);
+};
 
-    this.setState({ genre }, () => {
-      console.log(this.state.genre);
-    });
-  };
+const myOptions = [
+  "ROCK",
+  "BLUES",
+  "COUNTRY",
+  "R&B",
+  "POP",
+  "JAZZ",
+  "FOLK",
+  "CLASSICAL",
+  "HIP HOP",
+  "GRAVY",
+  "WORLD",
+  "PUNK"
+];
 
-  render() {
-    const { genre } = this.state;
-    const { classes } = this.props;
-    return (
-      <form className={classes.form} onSubmit={this.handleSubmit}>
-        {genre.map(g => (
-          <label key={g.id}>
-            {g.value}
-            <input
-              name={g.value}
-              type="checkbox"
-              checked={g.isChecked}
-              onChange={this.handleChange}
-            />
-          </label>
-        ))}
+function PreferenceContainer({ classes }) {
+  return (
+    <div className={classes.formWrapper}>
+      <Fade right duration={2000}>
+        <img
+          className={classes.guitor}
+          src="/images/Preference.png"
+          alt="guitor"
+        />
+      </Fade>
+      <div className={classes.cover} />
+      <div className={classes.formContainer}>
+        <Fade top duration={2000}>
+          <h1 className={classes.header}>What's your musical style?</h1>
+        </Fade>
+        <Form
+          onSubmit={onSubmit}
+          mutators={{
+            ...arrayMutators
+          }}
+          render={({ handleSubmit, form, submitting, pristine, values }) => (
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <FieldArray
+                name="genre"
+                component={CheckboxGroup}
+                options={myOptions}
+              />
 
-        <button type="Submit" value="Submit">
-          Submit
-        </button>
-      </form>
-    );
-  }
+              <a className={classes.submit} type="submit">
+                Submit
+              </a>
+            </form>
+          )}
+        />
+      </div>
+    </div>
+  );
 }
+
 export default withStyles(styles)(PreferenceContainer);
