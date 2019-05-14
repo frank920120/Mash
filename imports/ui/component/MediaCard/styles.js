@@ -1,7 +1,12 @@
 const styles = theme => ({
     card: {
       display: 'flex',
-      position:'relative'
+      position:'relative',
+      transition: 'all .2s ease-in-out', 
+      "&:hover":{
+        transform: 'scale(1.1)'
+      },
+      margin:20
     },
     SongName:{
       width:'50%',
