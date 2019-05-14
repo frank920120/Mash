@@ -1,21 +1,16 @@
 import { Meteor } from "meteor/meteor";
-export const Collaborations = new Mongo.Collection('collaborations');
+export const Collaborations = new Mongo.Collection("collaborations");
 
-Meteor.methods({
-    "collaborations.getAllCollaborations"() {
-      // if (!this.userId) {
-      //   throw new Meteor.Error("Please Login.");
-      // }
-      return Collaborations.find({}).fetch();
-    }
+if (Meteor.isServer) {
+  Meteor.publish("allCollaborations", function profilePublication() {
+    return Collaborations.find({});
   });
-//Example:
-// import { Meteor } from "meteor/meteor";
-// Meteor.call("collaborations.getAllCollaborations", null, (err, res) => {
-//   if (err) {
-//     console.log("Error", err);
-//   } else {
-//     // success!
-//     console.log("res", res);
-//   }
-// });
+}
+// import { withTracker } from "meteor/react-meteor-data";
+// import {Collaborations} from "../../../api/collaborations";
+// export default withTracker(() => {
+//   Meteor.subscribe('allCollaborations');
+//   return {
+//     allCollaborations: Collaborations.find({}).fetch(),
+//   };
+// })(...);
