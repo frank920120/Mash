@@ -2,7 +2,7 @@ const styles = theme => ({
     card: {
       display: 'flex',
       position:'relative',
-      transition: 'all .2s ease-in-out', 
+      transition: 'all .5s ease-in-out', 
       "&:hover":{
         transform: 'scale(1.1)'
       },
