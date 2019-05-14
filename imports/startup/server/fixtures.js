@@ -10,13 +10,8 @@ Meteor.startup(() => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna porttitor rhoncus dolor purus. Id nibh tortor id aliquet lectus proin. Et leo duis ut diam quam. Nisl nisi scelerisque eu ultrices vitae auctor eu. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Dui faucibus in ornare quam viverra. Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Neque sodales ut etiam sit amet. Eu volutpat odio facilisis mauris sit amet. Dui accumsan sit amet nulla facilisi morbi tempus. Suspendisse ultrices gravida dictum fusce ut placerat. Lectus proin nibh nisl condimentum id venenatis a condimentum vitae. Cras fermentum odio eu feugiat pretium nibh.",
       location: {
-<<<<<<< HEAD
-        lat: 49.263295,
-        lng: -123.13729
-=======
         lat: 49.260021,
         lng: -123.148652
->>>>>>> b40f15963ae59fd83ee2ae2d04a8cd1ef5fc482a
       },
       reviews: [
         {
@@ -54,10 +49,6 @@ Meteor.startup(() => {
       imageurl: "https://randomuser.me/api/portraits/men/15.jpg",
       email: "bob@red.com",
       location: {
-<<<<<<< HEAD
-        lat: 49.26782,
-        lng: -123.146216
-=======
         lat: 49.269108,
         lng: -123.156147
       },
@@ -97,7 +88,6 @@ Meteor.startup(() => {
       location: {
         lat: 49.286025,
         lng: -123.137772
->>>>>>> b40f15963ae59fd83ee2ae2d04a8cd1ef5fc482a
       },
       reviews: [
         {
