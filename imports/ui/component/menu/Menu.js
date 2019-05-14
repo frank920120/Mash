@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import styles from "./styles";
+import AccountForm from "../AccountForm";
 
 function Menu(props) {
   const { classes } = props;
@@ -22,9 +23,9 @@ function Menu(props) {
             alt=""
           />
 
-          <Button color="inherit">
-            <h1>Login</h1>
-          </Button>
+          {/* <AccountsUIWrapper /> */}
+          {/* check if there's a user logged in. If yes, logout, if not login/create account */}
+          <AccountForm />
         </Toolbar>
       </AppBar>
     </div>
