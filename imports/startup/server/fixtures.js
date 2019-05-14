@@ -9,8 +9,8 @@ Meteor.startup(() => {
       imageurl: "https://loremflickr.com/320/240",
       description: "Hi I am a singer.",
       location: {
-        lat: null,
-        lng: null
+        lat: 49.263295,
+        lng: -123.13729
       },
       reviews: [
         {
@@ -36,13 +36,118 @@ Meteor.startup(() => {
       imageurl: "https://loremflickr.com/320/240",
       email: "bob@red.com",
       location: {
-        lat: null,
-        lng: null
+        lat: 49.26782,
+        lng: -123.146216
       },
       reviews: [
         {
           text: "Unbelievable!",
           reviewer: "Alice"
+        }
+      ],
+      //ie: guitar, drums
+      specialties: ["drums", "dancing", "reading"],
+      //ie: rock, classical
+      genre: ["rock"],
+      musicWorks: []
+    });
+    Artists.insert({
+      fullname: "Cindy",
+      description: "Hi I am a Cindy.",
+      imageurl: "https://loremflickr.com/320/240",
+      email: "cindy@red.com",
+      location: {
+        lat: 49.270425,
+        lng: -123.133033
+      },
+      reviews: [
+        {
+          text: "amazing!",
+          reviewer: "Bob"
+        }
+      ],
+      //ie: guitar, drums
+      specialties: ["drums", "dancing", "reading"],
+      //ie: rock, classical
+      genre: ["rock"],
+      musicWorks: []
+    });
+    Artists.insert({
+      fullname: "Dodge",
+      description: "Hi I am Dodge.",
+      imageurl: "https://loremflickr.com/320/240",
+      email: "dodge@red.com",
+      location: {
+        lat: 49.273284,
+        lng: -123.079001
+      },
+      reviews: [
+        {
+          text: "amazing!",
+          reviewer: "Bob"
+        }
+      ],
+      //ie: guitar, drums
+      specialties: ["drums", "dancing", "reading"],
+      //ie: rock, classical
+      genre: ["rock"],
+      musicWorks: []
+    });
+    Artists.insert({
+      fullname: "Elena",
+      description: "Hi I am Elena.",
+      imageurl: "https://loremflickr.com/320/240",
+      email: "elena@red.com",
+      location: {
+        lat: 49.283793,
+        lng: -123.131142
+      },
+      reviews: [
+        {
+          text: "amazing!",
+          reviewer: "Bob"
+        }
+      ],
+      //ie: guitar, drums
+      specialties: ["drums", "dancing", "reading"],
+      //ie: rock, classical
+      genre: ["rock"],
+      musicWorks: []
+    });
+    Artists.insert({
+      fullname: "Frank",
+      description: "Hi I am Frank.",
+      imageurl: "https://loremflickr.com/320/240",
+      email: "frank@red.com",
+      location: {
+        lat: 49.26175,
+        lng: -123.247995
+      },
+      reviews: [
+        {
+          text: "amazing!",
+          reviewer: "Bob"
+        }
+      ],
+      //ie: guitar, drums
+      specialties: ["drums", "dancing", "reading"],
+      //ie: rock, classical
+      genre: ["rock"],
+      musicWorks: []
+    });
+    Artists.insert({
+      fullname: "Gary",
+      description: "Hi I am Gary.",
+      imageurl: "https://loremflickr.com/320/240",
+      email: "gary@red.com",
+      location: {
+        lat: 49.225476,
+        lng: -123.160795
+      },
+      reviews: [
+        {
+          text: "amazing!",
+          reviewer: "Bob"
         }
       ],
       //ie: guitar, drums
