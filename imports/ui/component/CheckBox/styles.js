@@ -1,9 +1,9 @@
 const styles = {
   checkboxButton: {
     margin: 10,
-    backgroundColor: "#EFEFEF",
+    backgroundColor: "white",
     borderRadius: 40,
-    border: "1px solid #D0D0D0",
+    border: "2px solid white",
     overflow: "auto",
     float: "left"
   },
