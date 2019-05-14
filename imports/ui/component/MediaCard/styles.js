@@ -3,13 +3,17 @@ const styles = theme => ({
       display: 'flex',
       position:'relative'
     },
+    SongName:{
+      width:'50%',
+      height:80
+    },
     image:{
         position:'absolute',
         width:'50%',
         height:'100%',
         right:0,
         top:0,
-        objectFit: 'contain'
+        objectFit: 'cover'
     },
     details: {
       display: 'flex',
