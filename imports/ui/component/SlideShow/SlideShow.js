@@ -2,7 +2,9 @@ import React, { PureComponent, Component } from "react";
 import MediaCard from "../../component/MediaCard";
 import "./styles.css";
 import ItemsCarousel from "react-items-carousel";
-
+import ChevronLeft from "rmdi/lib/ChevronLeft";
+import ChevronRight from "rmdi/lib/ChevronRight";
+import IconButton from "@material-ui/core/IconButton";
 export default class SlideShow extends Component {
   componentWillMount() {
     this.setState({
@@ -13,9 +15,8 @@ export default class SlideShow extends Component {
     const { media } = this.props;
     const { activeItemIndex } = this.state;
     return (
-      <div
-      className="SlideShowWrapper" 
-      >
+      <div className="SlideShowWrapper">
+        <h1 className="CollaborationHeading">Collablrations</h1>
         <ItemsCarousel
           placeholderItem={<div style={{ height: 200, background: "#EEE" }} />}
           enablePlaceholder={true}
@@ -31,8 +32,16 @@ export default class SlideShow extends Component {
           requestToChangeActive={value =>
             this.setState({ activeItemIndex: value })
           }
-          rightChevron={">"}
-          leftChevron={"<"}
+          rightChevron={
+            <IconButton color="blue">
+              <ChevronRight size={32} color="white" />
+            </IconButton >
+          }
+          leftChevron={
+            <IconButton color="blue">
+              <ChevronLeft size={32} color="white" />
+            </IconButton>
+          }
         >
           {media.map(music => (
             <MediaCard
