@@ -8,39 +8,42 @@ import Menu from "../menu";
 
 export default () => (
   <Fragment>
-    <Menu />
-    <Switch>
-      <Route
-        exact
-        path="/directory"
-        name="directory"
-        component={DirectoryContainer}
-      />
-      <Route
-        exact
-        path="/preference"
-        name="preference"
-        component={PreferenceContainer}
-      />
-      <Route
-        exact
-        path="/profile"
-        name="profile"
-        component={ProfileContainer}
-      />
-      {/* <Route
-              exact
-              path="/profile/:userId"
-              name="profile"
-              component={ProfileContainer}
-            /> */}
-      <Route
-        exact
-        path="/"
-        exact
-        name="landingpage"
-        component={LandingPageContainer}
-      />
-    </Switch>
+    {window.location.pathname === "/preference" ? (
+      <Switch>
+        {" "}
+        <Route
+          exact
+          path="/preference"
+          name="preference"
+          component={PreferenceContainer}
+        />
+      </Switch>
+    ) : (
+      <Fragment>
+        <Menu />
+        <Switch>
+          <Route
+            exact
+            path="/directory"
+            name="directory"
+            component={DirectoryContainer}
+          />
+
+          <Route
+            exact
+            path="/profile"
+            name="profile"
+            component={ProfileContainer}
+          />
+          <Route
+            exact
+            path="/"
+            exact
+            name="landingpage"
+            component={LandingPageContainer}
+          />
+        </Switch>
+      </Fragment>
+    )}
   </Fragment>
 );
