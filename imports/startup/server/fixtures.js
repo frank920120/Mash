@@ -125,7 +125,7 @@ Meteor.startup(() => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium viverra suspendisse potenti nullam ac tortor vitae. Tortor id aliquet lectus proin nibh nisl condimentum id venenatis. Integer eget aliquet nibh praesent tristique magna sit amet purus. Risus viverra adipiscing at in tellus. In fermentum et sollicitudin ac. Maecenas pharetra convallis posuere morbi leo urna molestie at elementum. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Commodo nulla facilisi nullam vehicula. Et malesuada fames ac turpis egestas integer eget. Etiam non quam lacus suspendisse faucibus. Sapien eget mi proin sed libero enim. Orci ac auctor augue mauris augue neque.",
       location: {
         lat: 49.259471,
-        lng: 123.108904
+        lng: -123.108904
       },
       reviews: [
         {
@@ -163,8 +163,8 @@ Meteor.startup(() => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium viverra suspendisse potenti nullam ac tortor vitae. Tortor id aliquet lectus proin nibh nisl condimentum id venenatis. Integer eget aliquet nibh praesent tristique magna sit amet purus. Risus viverra adipiscing at in tellus. In fermentum et sollicitudin ac. Maecenas pharetra convallis posuere morbi leo urna molestie at elementum. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Commodo nulla facilisi nullam vehicula. Et malesuada fames ac turpis egestas integer eget. Etiam non quam lacus suspendisse faucibus. Sapien eget mi proin sed libero enim. Orci ac auctor augue mauris augue neque.",
       location: {
-        lat: 49.259471,
-        lng: 123.108904
+        lat: 49.257481,
+        lng: -123.115805
       },
       reviews: [
         {
