@@ -9,7 +9,6 @@ const styles = theme => ({
         height:'100%',
         right:0,
         top:0,
-        opacity: '0.5',
         objectFit: 'contain'
     },
     details: {

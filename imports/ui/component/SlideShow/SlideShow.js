@@ -33,12 +33,12 @@ export default class SlideShow extends Component {
             this.setState({ activeItemIndex: value })
           }
           rightChevron={
-            <IconButton color="blue">
+            <IconButton>
               <ChevronRight size={32} color="white" />
             </IconButton >
           }
           leftChevron={
-            <IconButton color="blue">
+            <IconButton>
               <ChevronLeft size={32} color="white" />
             </IconButton>
           }
