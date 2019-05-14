@@ -143,7 +143,7 @@ if (Meteor.isServer) {
       : null;
     filter.genre ? conditions.push({ genre: { $all: filter.genre } }) : null;
     const query =
-      filter.length === 0
+      conditions.length === 0
         ? {}
         : {
             $and: conditions
