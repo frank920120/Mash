@@ -62,5 +62,23 @@ Meteor.startup(() => {
     Collaborations.insert({
       musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
     });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
+    Collaborations.insert({
+      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+    });
   }
 });

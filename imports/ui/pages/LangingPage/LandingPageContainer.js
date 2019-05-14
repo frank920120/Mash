@@ -4,23 +4,24 @@ import HomeDes from "../../component/HomeDes";
 import HomeMap from "../../component/HomeMap";
 import Footer from "../../component/Footer";
 import { withTracker } from "meteor/react-meteor-data";
-import { Artists } from "../../../api/artists";
 import { Meteor } from "meteor/meteor";
-const LandingPageContainer = ({ profile }) => {
-  console.log(profile);
+import { Collaborations } from "../../../api/collaborations";
+import SlideShow from "../../component/SlideShow";
+const LandingPageContainer = ({ collaborations }) => {
   return (
     <Fragment>
       <HomeBanner />
       <HomeDes />
       <HomeMap />
+      <SlideShow media={collaborations} />
       <Footer />
     </Fragment>
   );
 };
 
 export default withTracker(() => {
-  Meteor.subscribe("profile");
+  Meteor.subscribe("allCollaborations");
   return {
-    profile: Artists.find({}).fetch()
+    collaborations: Collaborations.find({}).fetch()
   };
 })(LandingPageContainer);
