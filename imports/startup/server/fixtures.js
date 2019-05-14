@@ -54,31 +54,25 @@ Meteor.startup(() => {
   }
   if (Collaborations.find().count() === 0) {
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/touchdown"
     });
     Collaborations.insert({
       musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
     });
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/gold-in-ma-mouth"
     });
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/peace-of-mind"
     });
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/cah-on-me"
     });
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/sposed-2-du"
     });
     Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
-    });
-    Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
-    });
-    Collaborations.insert({
-      musicurl: "https://soundcloud.com/stormzzzzz/skrrt"
+      musicurl: "https://soundcloud.com/stormzzzzz/dripbeast"
     });
   }
 });
