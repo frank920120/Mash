@@ -5,6 +5,7 @@ import ItemsCarousel from "react-items-carousel";
 import ChevronLeft from "rmdi/lib/ChevronLeft";
 import ChevronRight from "rmdi/lib/ChevronRight";
 import IconButton from "@material-ui/core/IconButton";
+import Fade from "react-reveal/Fade";
 export default class SlideShow extends Component {
   componentWillMount() {
     this.setState({
@@ -16,7 +17,10 @@ export default class SlideShow extends Component {
     const { activeItemIndex } = this.state;
     return (
       <div className="SlideShowWrapper">
-        <h1 className="CollaborationHeading">Collaborations</h1>
+        <Fade top duration={2000}>
+          <h1 className="CollaborationHeading">Collaborations</h1>
+        </Fade>
+        <div className="cover" />
         <ItemsCarousel
           placeholderItem={<div style={{ height: 200, background: "#EEE" }} />}
           enablePlaceholder={true}

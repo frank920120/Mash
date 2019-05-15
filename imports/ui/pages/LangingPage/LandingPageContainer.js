@@ -3,6 +3,7 @@ import HomeBanner from "../../component/HomeBanner";
 import HomeDes from "../../component/HomeDes";
 import HomeMap from "../../component/HomeMap";
 import Footer from "../../component/Footer";
+import SmartContract from "../../component/SmartContract";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Collaborations } from "../../../api/collaborations";
@@ -15,6 +16,7 @@ const LandingPageContainer = ({ collaborations, users }) => {
       <HomeDes />
       <HomeMap users={users} />
       <SlideShow media={collaborations} />
+      <SmartContract />
       <Footer />
     </Fragment>
   );

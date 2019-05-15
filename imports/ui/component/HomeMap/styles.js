@@ -4,7 +4,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundImage: "url('/images/HomeMapbg03.png')"
+    backgroundImage: "url('/images/productCurvyLines.png')"
   },
   map: {
     position: "relative",
@@ -19,7 +19,7 @@ const styles = {
   },
   mapHeader: {
     fontWeight: 800,
-    fontSize: 60,
+    fontSize: "5vw",
     color: "black",
     padding: 60,
     marginTop: 60

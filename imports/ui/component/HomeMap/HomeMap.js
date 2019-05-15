@@ -40,7 +40,7 @@ class HomeMap extends Component {
         showingInfoWindow: true
       },
       () => {
-        console.log(props);
+        console.log(this.state.selectedPlace.specialties);
       }
     );
 
@@ -103,7 +103,7 @@ class HomeMap extends Component {
                   key={user._id}
                   onClick={this.onMarkerClick}
                   name={user.fullname}
-                  specialisties={user.specialisties}
+                  specialties={user.specialties}
                   id={user._id}
                   position={{
                     lat: user.location.lat,
@@ -129,11 +129,10 @@ class HomeMap extends Component {
                   </div>
                   <div className={classes.popupBottom}>
                     <ul>
-                      {this.state.selectedPlace.specialisties.map(
-                        specialist => (
-                          <li>{specialisties}</li>
-                        )
-                      )}
+                      <li>{this.state.selectedPlace.specialties}</li>
+                      {/* {this.state.selectedPlace.specialties.map(s => (
+                        <li>{s}</li>
+                      ))} */}
                     </ul>
                   </div>
                 </div>

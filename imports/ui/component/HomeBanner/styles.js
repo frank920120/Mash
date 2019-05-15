@@ -1,7 +1,15 @@
 const styles = {
   bannerContainer: {
     width: "100%",
-    height: "100vh"
+    height: "100vh",
+    position: "relative"
+  },
+  arrow: {
+    position: "absolute",
+    bottom: 50,
+    left: "50%",
+    zIndex: 1,
+    color: "white"
   },
   imageContianer: {
     position: "relative",
