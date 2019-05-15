@@ -1,28 +1,44 @@
 const styles = {
   card: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     marginTop: 100,
     margin: "5%",
-    padding: 10,
-    //maxWidth: "100%",
+    padding: 0,
+    maxWidth: 300,
     borderStyle: "none",
-    // backgroundColor: "#0E0B16"
     background:
-      "linear-gradient(180deg, #0E0B16 0%, rgba(255, 255, 255, 0) 100%), #4717F6;"
+      "linear-gradient(to bottom, #0e0b16 40%,#0e0b16 40%,#4717f6 100%);"
   },
   media: {
-    height: 300,
-    width: 300,
+    height: 200,
+    width: 200,
     borderRadius: "50%"
   },
-  typography: {
-    color: "white"
+  name: {
+    color: "#e7dfdd",
+    fontSize: "2rem",
+    fontStyle: "bold"
   },
-  button: {
-    marginTop: 30
+  info: {
+    color: "#e7dfdd",
+    fontSize: "1rem",
+    fontStyle: "bold"
   },
-  avatar: {
-    width: 230,
-    height: 230
+  bullets: {
+    display: "inline",
+    color: "#e7dfdd",
+    fontSize: "1rem"
+  },
+  player: {
+    color: "#e7dfdd"
+  },
+  learn: {
+    background: "#3ACBA6",
+    color: "#0E0B16",
+    fontSize: "1rem",
+    fontStyle: "bold"
   }
 };
 
