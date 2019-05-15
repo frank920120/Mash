@@ -19,6 +19,10 @@ const styles = theme => ({
   },
   formControl: {
     padding: 10
+  },
+  buttons: {
+    display: "flex",
+    justifyContent: "space-around"
   }
 });
 
