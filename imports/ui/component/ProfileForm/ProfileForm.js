@@ -80,7 +80,7 @@ class ProfileForm extends Component {
   };
   onSubmit = () => {
     const user = {
-      _id:this.props.user._id,
+      _id: this.props.user._id,
       profile: {
         fullname: this.state.fullname
       },
@@ -88,181 +88,179 @@ class ProfileForm extends Component {
       specialties: this.state.specialties,
       genre: this.state.genres
     };
-    console.log(user);
     Meteor.call("artists.updateProfile", user);
+    window.alert("Upload Sucess!");
   };
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.test}>
-        <Form
-          className={classes.formContainer}
-          onSubmit={this.onSubmit}
-          render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit}>
-              <div>
-                <Field
-                  name="fullname"
-                  required={true}
-                  render={({ input, meta }) => (
-                    <TextField
-                      id="outlined-name"
-                      label="Full Name"
-                      className={classes.textField}
-                      value={this.state.fullname}
-                      onChange={this.handleNameChange}
-                      margin="normal"
-                      InputLabelProps={{
-                        classes: {
-                          root: classes.label,
-                          focused: classes.focusedLabel,
-                          error: classes.erroredLabel
-                        }
-                      }}
-                      InputProps={{
-                        classes: {
-                          root: classes.underline,
-                          error: classes.error
-                        }
-                      }}
-                    />
-                  )}
-                />
-              </div>
-              <div>
-                <Field
-                  name="bio"
-                  render={({ input, meta }) => (
-                    <TextField
-                      id="standard-multiline-flexible"
-                      label="Bio"
-                      multiline
-                      rowsMax="4"
-                      rows="4"
-                      value={this.state.bio}
-                      onChange={this.handleBioChange}
-                      className={classes.textField}
-                      margin="normal"
-                      variant="filled"
-                      color="primary"
-                      InputLabelProps={{
-                        classes: {
-                          root: classes.label,
-                          focused: classes.focusedLabel,
-                          error: classes.erroredLabel
-                        }
-                      }}
-                      InputProps={{
-                        classes: {
-                          root: classes.underline,
-                          error: classes.error
-                        }
-                      }}
-                    />
-                  )}
-                />
-              </div>
+      <Form
+        className={classes.formContainer}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit, form, submitting, pristine, values }) => (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <Field
+                name="fullname"
+                required={true}
+                render={({ input, meta }) => (
+                  <TextField
+                    id="outlined-name"
+                    label="Full Name"
+                    className={classes.textField}
+                    value={this.state.fullname}
+                    onChange={this.handleNameChange}
+                    margin="normal"
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.label,
+                        focused: classes.focusedLabel,
+                        error: classes.erroredLabel
+                      }
+                    }}
+                    InputProps={{
+                      classes: {
+                        root: classes.underline,
+                        error: classes.error
+                      }
+                    }}
+                  />
+                )}
+              />
+            </div>
+            <div>
+              <Field
+                name="bio"
+                render={({ input, meta }) => (
+                  <TextField
+                    id="standard-multiline-flexible"
+                    label="Bio"
+                    multiline
+                    rowsMax="4"
+                    rows="4"
+                    value={this.state.bio}
+                    onChange={this.handleBioChange}
+                    className={classes.textField}
+                    margin="normal"
+                    variant="filled"
+                    color="primary"
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.label,
+                        focused: classes.focusedLabel,
+                        error: classes.erroredLabel
+                      }
+                    }}
+                    InputProps={{
+                      classes: {
+                        root: classes.underline,
+                        error: classes.error
+                      }
+                    }}
+                  />
+                )}
+              />
+            </div>
 
-              <div>
-                <Field
-                  name="specialties"
-                  render={({ input, meta }) => (
-                    <FormControl className={classes.formControl}>
-                      <InputLabel
-                        className={classes.label}
-                        htmlFor="select-multiple-chip"
-                      >
-                        Specialties
-                      </InputLabel>
-                      <Select
-                        className={classes.label}
-                        multiple
-                        variant="outlined"
-                        value={this.state.specialties}
-                        onChange={this.handleSpecialtiesChange}
-                        input={<Input id="select-multiple-chip" />}
-                        renderValue={selected => (
-                          <div className={classes.chips}>
-                            {selected.map(value => (
-                              <Chip
-                                key={value}
-                                label={value}
-                                color="primary"
-                                className={classes.chip}
-                              />
-                            ))}
-                          </div>
-                        )}
-                        MenuProps={MenuProps}
-                      >
-                        {specialties.map(specialisit => (
-                          <MenuItem key={specialisit} value={specialisit}>
-                            {specialisit}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  )}
-                />
-              </div>
-              <div>
-                <Field
-                  name="genres"
-                  render={({ input, meta }) => (
-                    <FormControl className={classes.formControl}>
-                      <InputLabel
-                        htmlFor="select-multiple-chip"
-                        className={classes.label}
-                      >
-                        Genres
-                      </InputLabel>
-                      <Select
-                        multiple
-                        value={this.state.genres}
-                        onChange={this.handleGenresChange}
-                        input={<Input id="select-multiple-chip" />}
-                        renderValue={selected => (
-                          <div className={classes.chips}>
-                            {selected.map(value => (
-                              <Chip
-                                key={value}
-                                label={value}
-                                color="primary"
-                                className={classes.chip}
-                              />
-                            ))}
-                          </div>
-                        )}
-                        MenuProps={MenuProps}
-                      >
-                        {genres.map(genre => (
-                          <MenuItem key={genre} value={genre}>
-                            {genre}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  )}
-                />
-              </div>
+            <div>
+              <Field
+                name="specialties"
+                render={({ input, meta }) => (
+                  <FormControl className={classes.formControl}>
+                    <InputLabel
+                      className={classes.label}
+                      htmlFor="select-multiple-chip"
+                    >
+                      Specialties
+                    </InputLabel>
+                    <Select
+                      className={classes.label}
+                      multiple
+                      variant="outlined"
+                      value={this.state.specialties}
+                      onChange={this.handleSpecialtiesChange}
+                      input={<Input id="select-multiple-chip" />}
+                      renderValue={selected => (
+                        <div className={classes.chips}>
+                          {selected.map(value => (
+                            <Chip
+                              key={value}
+                              label={value}
+                              color="primary"
+                              className={classes.chip}
+                            />
+                          ))}
+                        </div>
+                      )}
+                      MenuProps={MenuProps}
+                    >
+                      {specialties.map(specialisit => (
+                        <MenuItem key={specialisit} value={specialisit}>
+                          {specialisit}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              />
+            </div>
+            <div>
+              <Field
+                name="genres"
+                render={({ input, meta }) => (
+                  <FormControl className={classes.formControl}>
+                    <InputLabel
+                      htmlFor="select-multiple-chip"
+                      className={classes.label}
+                    >
+                      Genres
+                    </InputLabel>
+                    <Select
+                      multiple
+                      value={this.state.genres}
+                      onChange={this.handleGenresChange}
+                      input={<Input id="select-multiple-chip" />}
+                      renderValue={selected => (
+                        <div className={classes.chips}>
+                          {selected.map(value => (
+                            <Chip
+                              key={value}
+                              label={value}
+                              color="primary"
+                              className={classes.chip}
+                            />
+                          ))}
+                        </div>
+                      )}
+                      MenuProps={MenuProps}
+                    >
+                      {genres.map(genre => (
+                        <MenuItem key={genre} value={genre}>
+                          {genre}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              />
+            </div>
 
-              <div className={classes.buttons}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  className={classes.button}
-                  // disabled={pristine || invalid}
-                >
-                  <CloudUploadIcon className={classes.leftIcon} />
-                  Upload
-                </Button>
-              </div>
-              {/* <pre>{JSON.stringify(this.state, 0, 2)}</pre> */}
-            </form>
-          )}
-        />
-      </div>
+            <div className={classes.buttons}>
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                className={classes.button}
+                // disabled={pristine || invalid}
+              >
+                <CloudUploadIcon className={classes.leftIcon} />
+                Upload
+              </Button>
+            </div>
+            {/* <pre>{JSON.stringify(this.state, 0, 2)}</pre> */}
+          </form>
+        )}
+      />
     );
   }
 }
