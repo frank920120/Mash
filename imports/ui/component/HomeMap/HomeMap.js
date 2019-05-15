@@ -128,10 +128,13 @@ class HomeMap extends Component {
                     </h1>
                   </div>
                   <div className={classes.popupBottom}>
+                    <h3>Specialties:</h3>
                     <ul className={classes.listContainer}>
                       {this.state.selectedPlace.specialties
                         ? this.state.selectedPlace.specialties.map(s => {
-                            let specialties = s.trim().toLowerCase();
+                            let specialties = s
+                              .replace(/\s+/g, "")
+                              .toLowerCase();
                             return (
                               <li className={classes.iconlist}>
                                 <img

@@ -19,7 +19,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["singer", "Keyboard", "Percussion", "Flute"],
+      specialties: ["Singer", "Keyboard", "Percussion", "Flute"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: [
@@ -130,7 +130,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums"],
+      specialties: ["Drumset"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
