@@ -25,7 +25,7 @@ function Menu(props) {
             alt=""
           />
           {currentUserId ? (
-            <Button onClick={Meteor.logout}>Logout</Button>
+            <Button onClick={() => Meteor.logout()}>Logout</Button>
           ) : (
             <AccountForm />
           )}
