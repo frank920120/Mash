@@ -18,16 +18,17 @@
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-items-carousel": "^2.3.6",
     "react-final-form": "^4.1.0",
     "react-final-form-arrays": "^2.0.3",
+    "react-items-carousel": "^2.3.6",
     "react-redux": "^7.0.3",
     "react-reveal": "^1.2.2",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scroll-parallax": "^2.1.2",
     "react-soundplayer": "^1.0.4",
-    "react-spring": "^8.0.20"
+    "react-spring": "^8.0.20",
+    "recompose": "^0.30.0"
   },
   "meteor": {
     "mainModule": {
