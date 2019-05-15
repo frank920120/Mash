@@ -4,17 +4,18 @@ const styles = theme => ({
   },
   audioCard: {
     display: "flex",
-    padding: 10,
+    padding: 5,
     width: "100%",
     justifyContent: "space-between",
     borderStyle: "solid",
     borderTopWidth: 2,
-    borderColor: "#e7dfdd"
+    borderColor: "#e7dfdd",
+    backgroundColor: "#e7dfdd"
   },
   musicDisplay: {
     display: "flex",
     flexDirection: "column",
-    width: "82%"
+    width: "100%"
   },
   controls: {
     display: "flex",

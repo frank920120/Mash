@@ -51,11 +51,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
   return (
     <div className={classes.audioCard}>
-      <CardMedia
+      {/* <CardMedia
         className={classes.cover}
         image={track.artwork_url}
         title="Live from space album cover"
-      />
+      /> */}
 
       <div className={classes.musicDisplay}>
         <div className={classes.controls}>
