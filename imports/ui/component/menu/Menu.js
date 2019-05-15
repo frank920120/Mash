@@ -9,9 +9,11 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import styles from "./styles";
 import AccountForm from "../AccountForm";
+import { compose } from "recompose";
+import { withTracker } from "meteor/react-meteor-data";
 
 function Menu(props) {
-  const { classes } = props;
+  const { classes, currentUserId } = props;
   return (
     <div className={classes.root}>
       <AppBar className={classes.appbar} position="static">
@@ -22,10 +24,11 @@ function Menu(props) {
             src="/branding/images/mash_logo.svg"
             alt=""
           />
-
-          {/* <AccountsUIWrapper /> */}
-          {/* check if there's a user logged in. If yes, logout, if not login/create account */}
-          <AccountForm />
+          {currentUserId ? (
+            <Button onClick={Meteor.logout}>Logout</Button>
+          ) : (
+            <AccountForm />
+          )}
         </Toolbar>
       </AppBar>
     </div>
@@ -36,4 +39,13 @@ Menu.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Menu);
+export default compose(
+  withStyles(styles),
+  withTracker(() => {
+    const currentUserId = Meteor.userId();
+    return {
+      currentUser: Meteor.user(),
+      currentUserId
+    };
+  })
+)(Menu);
