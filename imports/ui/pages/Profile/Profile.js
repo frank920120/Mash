@@ -14,9 +14,10 @@ import PropTypes from "prop-types";
 import MusicPlayer from "../../component/MusicPlayer";
 import Review from "../../component/Review";
 import { withTracker } from "meteor/react-meteor-data";
+import { compose } from "recompose";
 
 function Profile(props, artist) {
-  const { classes } = props;
+  const { classes, profiles } = props;
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
   const resolveUrl = "https://soundcloud.com/lyricalvalue/clearly";
 
@@ -137,16 +138,12 @@ Profile.defaultProps = {
   }
 };
 
-export default withStyles(styles)(Profile);
-
-// export default withStyles(styles)(
-//   withTracker(() => {
-//     Meteor.call("artists.getAllUsers", null, (err, res) => {
-//       if (err) {
-//         console.log("Error", err);
-//       } else {
-//         return { res };
-//       }
-//     });
-//   })(Profile)
-// );
+export default compose(
+  withStyles(styles),
+  withTracker(() => {
+    Meteor.subscribe("profiles");
+    return {
+      profiles: Artists.find({}).fetch()
+    };
+  })
+)(Profile);
