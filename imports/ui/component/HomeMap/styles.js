@@ -4,19 +4,50 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundImage: "url('/images/HomeMapbg03.png')"
+    backgroundImage: "url('/images/productCurvyLines.png')"
   },
   map: {
     position: "relative",
     width: "100%",
     height: 500
   },
+  info: {
+    backgroundColor: "red"
+  },
+  popupContainer: {
+    width: "100%"
+  },
   mapHeader: {
     fontWeight: 800,
-    fontSize: 60,
+    fontSize: "5vw",
     color: "black",
-    padding: 60,
+    paddingTop: 60,
     marginTop: 60
+  },
+  popupTop: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  userImage: {
+    borderRadius: "50%"
+  },
+  username: {
+    margin: 0,
+    padding: 5
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    objectFit: "contain"
+  },
+  listContainer: {
+    display: "flex",
+    alignItems: "center",
+    padding: 0
+  },
+  iconlist: {
+    listStyle: "none",
+    padding: 10
   }
 };
 

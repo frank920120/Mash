@@ -4,7 +4,9 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { useTransition, animated, config } from "react-spring";
 import Fade from "react-reveal/Fade";
+import Jump from "react-reveal/Jump";
 import { Parallax } from "react-scroll-parallax";
+import ExpandMore from "rmdi/lib/ExpandMore";
 const items = [
   { id: 0, url: "/images/HomeBanner.png" },
   { id: 1, url: "/images/HomeBanner01.jpg" },
@@ -12,10 +14,6 @@ const items = [
   { id: 3, url: "/images/HomeBanner04.jpg" }
 ];
 const HomeBanner = ({ classes }) => {
-  // const props = useSpring({
-  //   to: { opacity: 1, marginTop: 0 },
-  //   from: { opacity: 0, marginTop: -200 }
-  // });
   const [index, set] = useState(0);
   const transitions = useTransition(items[index], items => items.id, {
     from: { opacity: 0 },
@@ -29,6 +27,8 @@ const HomeBanner = ({ classes }) => {
   );
   return (
     <section className={classes.bannerContainer}>
+      <ExpandMore className={classes.arrow} size={60} />
+
       <div className={classes.imageContianer}>
         {transitions.map(({ item, key, props }) => (
           <animated.div
@@ -40,12 +40,6 @@ const HomeBanner = ({ classes }) => {
             }}
           />
         ))}
-
-        {/* <img
-          src="/images/HomeBanner.png"
-          alt=""
-          className={classes.bannerImage}
-        /> */}
 
         <div className={classes.ContentContainer}>
           <Fade top duration={3000}>
