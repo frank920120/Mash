@@ -1,56 +1,270 @@
-import React from 'react';
-import { Form, Field } from 'react-final-form'
-import ProfileForm from '.';
-const onSubmit=({values})=>{
- console.log(values);
-}
+import React, { Component } from "react";
+import { Form, Field } from "react-final-form";
+import styles from "./styles";
+import { withStyles } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Chip from "@material-ui/core/Chip";
+import TextField from "@material-ui/core/TextField";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Button from "@material-ui/core/Button";
+import { Meteor } from "meteor/meteor";
+const genres = [
+  "ROCK",
+  "BLUES",
+  "COUNTRY",
+  "R&B",
+  "POP",
+  "JAZZ",
+  "FOLK",
+  "CLASSICAL",
+  "HIP HOP",
+  "GRAVY",
+  "WORLD",
+  "PUNK"
+];
+const specialties = [
+  "Keyboard",
+  "Piano",
+  "Recorder",
+  "Classical Guitar",
+  "Drum set",
+  "Electric Guitar",
+  "Violin",
+  "Percussion",
+  "Bass Guitar",
+  "Saxophone",
+  "Flute",
+  "Cello",
+  "Clarinet",
+  "Trumpet",
+  "Harp"
+];
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250
+    }
+  }
+};
 
-const ProfileForm = () => (
-  <Form
-    onSubmit={onSubmit}
-    // validate={validate}
-    render={({ handleSubmit, pristine, invalid }) => (
-      <form onSubmit={handleSubmit}>
-        <h2>Simple Default Input</h2>
-        <div>
-          <label>First Name</label>
-          <Field name="firstName" component="input" placeholder="First Name" />
-        </div>
+class ProfileForm extends Component {
+  constructor(props) {
+    super(props);
+    const thisUser = this.props.user;
+    console.log(thisUser);
+    this.state = {
+      fullname: thisUser.fullname ? thisUser.fullname : "",
+      bio: thisUser.description ? thisUser.description : "",
+      specialties: thisUser.specialties ? thisUser.specialties : [],
+      genres: thisUser.genre ? thisUser.genre : []
+    };
+  }
+  handleNameChange = event => {
+    this.setState({ fullname: event.target.value });
+  };
+  handleBioChange = event => {
+    this.setState({ bio: event.target.value });
+  };
+  handleGenresChange = event => {
+    this.setState({ genres: event.target.value });
+  };
+  handleSpecialtiesChange = event => {
+    this.setState({ specialties: event.target.value });
+  };
+  onSubmit = () => {
+    const user = {
+      _id:this.props.user._id,
+      profile: {
+        fullname: this.state.fullname
+      },
+      description: this.state.bio,
+      specialties: this.state.specialties,
+      genre: this.state.genres
+    };
+    console.log(user);
+    Meteor.call("artists.updateProfile", user);
+  };
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.test}>
+        <Form
+          className={classes.formContainer}
+          onSubmit={this.onSubmit}
+          render={({ handleSubmit, form, submitting, pristine, values }) => (
+            <form onSubmit={handleSubmit}>
+              <div>
+                <Field
+                  name="fullname"
+                  required={true}
+                  render={({ input, meta }) => (
+                    <TextField
+                      id="outlined-name"
+                      label="Full Name"
+                      className={classes.textField}
+                      value={this.state.fullname}
+                      onChange={this.handleNameChange}
+                      margin="normal"
+                      InputLabelProps={{
+                        classes: {
+                          root: classes.label,
+                          focused: classes.focusedLabel,
+                          error: classes.erroredLabel
+                        }
+                      }}
+                      InputProps={{
+                        classes: {
+                          root: classes.underline,
+                          error: classes.error
+                        }
+                      }}
+                    />
+                  )}
+                />
+              </div>
+              <div>
+                <Field
+                  name="bio"
+                  render={({ input, meta }) => (
+                    <TextField
+                      id="standard-multiline-flexible"
+                      label="Bio"
+                      multiline
+                      rowsMax="4"
+                      rows="4"
+                      value={this.state.bio}
+                      onChange={this.handleBioChange}
+                      className={classes.textField}
+                      margin="normal"
+                      variant="filled"
+                      color="primary"
+                      InputLabelProps={{
+                        classes: {
+                          root: classes.label,
+                          focused: classes.focusedLabel,
+                          error: classes.erroredLabel
+                        }
+                      }}
+                      InputProps={{
+                        classes: {
+                          root: classes.underline,
+                          error: classes.error
+                        }
+                      }}
+                    />
+                  )}
+                />
+              </div>
 
-        <h2>An Arbitrary Reusable Input Component</h2>
-        <div>
-          <label>Interests</label>
-          <Field name="interests" component={InterestPicker} />
-        </div>
+              <div>
+                <Field
+                  name="specialties"
+                  render={({ input, meta }) => (
+                    <FormControl className={classes.formControl}>
+                      <InputLabel
+                        className={classes.label}
+                        htmlFor="select-multiple-chip"
+                      >
+                        Specialties
+                      </InputLabel>
+                      <Select
+                        className={classes.label}
+                        multiple
+                        variant="outlined"
+                        value={this.state.specialties}
+                        onChange={this.handleSpecialtiesChange}
+                        input={<Input id="select-multiple-chip" />}
+                        renderValue={selected => (
+                          <div className={classes.chips}>
+                            {selected.map(value => (
+                              <Chip
+                                key={value}
+                                label={value}
+                                color="primary"
+                                className={classes.chip}
+                              />
+                            ))}
+                          </div>
+                        )}
+                        MenuProps={MenuProps}
+                      >
+                        {specialties.map(specialisit => (
+                          <MenuItem key={specialisit} value={specialisit}>
+                            {specialisit}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  )}
+                />
+              </div>
+              <div>
+                <Field
+                  name="genres"
+                  render={({ input, meta }) => (
+                    <FormControl className={classes.formControl}>
+                      <InputLabel
+                        htmlFor="select-multiple-chip"
+                        className={classes.label}
+                      >
+                        Genres
+                      </InputLabel>
+                      <Select
+                        multiple
+                        value={this.state.genres}
+                        onChange={this.handleGenresChange}
+                        input={<Input id="select-multiple-chip" />}
+                        renderValue={selected => (
+                          <div className={classes.chips}>
+                            {selected.map(value => (
+                              <Chip
+                                key={value}
+                                label={value}
+                                color="primary"
+                                className={classes.chip}
+                              />
+                            ))}
+                          </div>
+                        )}
+                        MenuProps={MenuProps}
+                      >
+                        {genres.map(genre => (
+                          <MenuItem key={genre} value={genre}>
+                            {genre}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  )}
+                />
+              </div>
 
-        <h2>Render Function</h2>
-        <Field
-          name="bio"
-          render={({ input, meta }) => (
-            <div>
-              <label>Bio</label>
-              <textarea {...input} />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
+              <div className={classes.buttons}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  className={classes.button}
+                  // disabled={pristine || invalid}
+                >
+                  <CloudUploadIcon className={classes.leftIcon} />
+                  Upload
+                </Button>
+              </div>
+              {/* <pre>{JSON.stringify(this.state, 0, 2)}</pre> */}
+            </form>
           )}
         />
+      </div>
+    );
+  }
+}
 
-        <h2>Render Function as Children</h2>
-        <Field name="phone">
-          {({ input, meta }) => (
-            <div>
-              <label>Phone</label>
-              <input type="text" {...input} placeholder="Phone" />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        </Field>
-
-        <button type="submit" disabled={pristine || invalid}>
-          Submit
-        </button>
-      </form>
-    )}
-  />
-)
-export default ProfileForm;
+export default withStyles(styles, { withTheme: true })(ProfileForm);
