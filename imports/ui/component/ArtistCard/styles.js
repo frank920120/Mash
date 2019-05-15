@@ -17,13 +17,16 @@ const styles = {
     borderRadius: "50%"
   },
   name: {
+    textAlign: "center",
     color: "#e7dfdd",
     fontSize: "2rem",
     fontStyle: "bold"
   },
   info: {
+    textTransform: "uppercase",
+    textAlign: "center",
     color: "#e7dfdd",
-    fontSize: "1rem",
+    fontSize: "0.7rem",
     fontStyle: "bold"
   },
   bullets: {
@@ -32,13 +35,14 @@ const styles = {
     fontSize: "1rem"
   },
   player: {
-    color: "#e7dfdd"
+    display: "none"
   },
   learn: {
     background: "#3ACBA6",
     color: "#0E0B16",
     fontSize: "1rem",
-    fontStyle: "bold"
+    fontStyle: "bold",
+    margin: 5
   }
 };
 

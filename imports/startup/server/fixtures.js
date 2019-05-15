@@ -109,11 +109,12 @@ Meteor.startup(() => {
         {
           clientID: "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC",
           resolveURL:
-            "https://soundcloud.com/geoffbartleypaullenart/sets/guitar-country-2"
+            "https://soundcloud.com/ross-lee-shellard/mystery-train-guitar-instrumental-1"
         },
         {
           clientID: "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC",
-          resolveURL: "https://soundcloud.com/geoffbartleypaullenart/salt-lick"
+          resolveURL:
+            "https://soundcloud.com/ross-lee-shellard/12-st-rag-ukelele"
         }
       ]
     });

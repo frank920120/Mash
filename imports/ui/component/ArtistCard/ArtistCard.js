@@ -7,16 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import styles from "./styles";
 
 const ArtistCard = ({ classes, profile }) => {
   const musicWorks = profile.musicWorks[0];
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -29,10 +26,11 @@ const ArtistCard = ({ classes, profile }) => {
           {profile.fullname}
         </Typography>
         <Typography className={classes.info} component="p">
-          {profile.genre.join(" - ")}
+          {profile.specialties.join(" - ")}
         </Typography>
+        <hr />
         <Typography className={classes.info} component="p">
-          {profile.genre}
+          {profile.genre.join(" - ")}
         </Typography>
       </CardContent>
       <MusicPlayer
