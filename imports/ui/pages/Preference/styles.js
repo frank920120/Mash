@@ -6,7 +6,8 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    background: "#9b42f4"
+    background: "#9b42f4",
+    position: "relative"
   },
   cover: {
     position: "absolute",
@@ -31,14 +32,42 @@ const styles = {
     textAlign: "center",
     color: "white"
   },
+  skip: {
+    position: "absolute",
+    right: 20,
+    top: 30,
+    background: "transparent",
+    outline: "none",
+    border: "none",
+    color: "white",
+    fontSize: 30,
+    cursor: "pointer",
+    fontWeight: 500,
+    zIndex: 999999999999
+  },
+
   guitor: {
     position: "absolute",
     bottom: 0,
     right: -20,
-    height: "80vh"
+    height: "85vh"
   },
   submit: {
-    zIndex: 99999999
+    zIndex: 99999999,
+    background: "transparent",
+    color: "white",
+    padding: 10,
+    width: 200,
+    marginTop: 20,
+    fontWeight: 800,
+    fontSize: 15,
+    border: "3px solid white;",
+    cursor: "pointer",
+    outline: "none",
+    transititon: "1s ease-in-out all",
+    "&:hover": {
+      opacity: 0.9
+    }
   }
 };
 

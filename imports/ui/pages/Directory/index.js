@@ -1,3 +1,3 @@
-import DirectoryContainer from "./DirectoryContainer";
+import Directory from "./Directory";
 
-export default DirectoryContainer;
+export default Directory;

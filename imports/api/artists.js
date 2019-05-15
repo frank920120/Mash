@@ -92,9 +92,6 @@ Meteor.methods({
 //   }
 // });
 
-
-
-
 /**
  * Get all user Locations
  *
@@ -110,7 +107,6 @@ Meteor.methods({
 
 /**
  * Get all users
- *
  */
 Meteor.methods({
   "artists.getAllUsers"() {
@@ -131,7 +127,6 @@ Meteor.methods({
 //   }
 // });
 
-
 /**
  * Filter all users
  *  Meteor.subscribe('filterUsers');
@@ -139,17 +134,22 @@ Meteor.methods({
 if (Meteor.isServer) {
   Meteor.publish("filterUsers", function profilePublication(filter) {
     console.log("filter", filter);
-    const conditions=[];
-    filter.fullname? conditions.push({fullname:{ $regex: `.*${filter.fullname}.*` }}):null;
-    filter.specialties? conditions.push({ specialties: { $all: filter.specialties } }):null;
-    filter.genre?conditions.push({ genre: { $all: filter.genre } }) : null;
-    console.log("conditions",conditions);
-    return Artists.find(
-      {
-        $and: conditions
-      },
-      { emails: 0, services: 0 }
-    );
+    const conditions = [];
+    filter.fullname
+      ? conditions.push({ fullname: { $regex: `.*${filter.fullname}.*` } })
+      : null;
+    filter.specialties
+      ? conditions.push({ specialties: { $all: filter.specialties } })
+      : null;
+    filter.genre ? conditions.push({ genre: { $all: filter.genre } }) : null;
+    const query =
+      conditions.length === 0
+        ? {}
+        : {
+            $and: conditions
+          };
+    console.log("conditions", conditions);
+    return Artists.find(query, { emails: 0, services: 0 });
   });
 }
 /**
@@ -168,4 +168,3 @@ if (Meteor.isServer) {
 //     filteredusers: Artists.find({}).fetch()
 //   };
 // })(ComponentName);
-

@@ -41,7 +41,7 @@ const MediaCard = withSoundCloudAudio(props => {
       <div className={classes.details}>
         <img className={classes.image} src={track.artwork_url} />
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
+          <Typography component="h5" variant="title" className={classes.SongName}>
             {track.title}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
@@ -62,7 +62,6 @@ const MediaCard = withSoundCloudAudio(props => {
             currentTime={currentTime}
             {...props}
           />
-          <Progress value={(currentTime / duration) * 100 || 0} {...props} />
         </div>
       </div>
     </Card>

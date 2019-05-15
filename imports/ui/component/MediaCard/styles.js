@@ -1,19 +1,29 @@
 const styles = theme => ({
     card: {
       display: 'flex',
-      position:'relative'
+      position:'relative',
+      transition: 'all .5s ease-in-out', 
+      "&:hover":{
+        transform: 'scale(1.1)'
+      },
+      margin:20
+    },
+    SongName:{
+      width:'50%',
+      height:80
     },
     image:{
         position:'absolute',
-        width:'100%',
+        width:'50%',
         height:'100%',
-        left:0,
+        right:0,
         top:0,
-        opacity: '0.5'
+        objectFit: 'cover'
     },
     details: {
       display: 'flex',
       flexDirection: 'column',
+      padding:10
     },
     content: {
     zIndex:9999,
@@ -25,6 +35,7 @@ const styles = theme => ({
     controls: {
       display: 'flex',
       alignItems: 'center',
+      flexDirection: 'row',
       paddingLeft: theme.spacing.unit,
       paddingBottom: theme.spacing.unit,
     },

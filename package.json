@@ -28,7 +28,8 @@
     "react-scroll-parallax": "^2.1.2",
     "react-soundplayer": "^1.0.4",
     "react-spring": "^8.0.20",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "rmdi": "^1.0.1"
   },
   "meteor": {
     "mainModule": {
