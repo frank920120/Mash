@@ -46,9 +46,9 @@ if (Meteor.isServer) {
  */
 Meteor.methods({
   "artists.updateProfile"(user) {
-    if (!this.userId) {
-      throw new Meteor.Error("Please Login.");
-    }
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
     Artists.update(
       { _id: user._id },
       {
