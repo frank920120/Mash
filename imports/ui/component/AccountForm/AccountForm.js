@@ -23,6 +23,8 @@ function getModalStyle() {
   };
 }
 
+const required = value => (value ? undefined : "Required");
+
 class AccountForm extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +33,6 @@ class AccountForm extends Component {
 
       error: null,
       open: false
-
-      // nameVar: "",
-      // emailVar: "",
-      // passwordVar: ""
     };
   }
   handleOpen = () => {
@@ -70,12 +68,16 @@ class AccountForm extends Component {
                 this.state.formToggle
                   ? Meteor.loginWithPassword(values.email, values.password)
                   : Accounts.createUser({
-                      fullname: values.fullname,
+                      profile: { fullname: values.fullname },
                       email: values.email,
                       password: values.password
                     });
               }}
+              subscription={{
+                submitted: true
+              }}
               // validate={validate.bind(this)}
+
               render={({ handleSubmit, pristine, invalid, values }) => (
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
                   {!this.state.formToggle && (
@@ -84,6 +86,7 @@ class AccountForm extends Component {
 
                       <Field
                         name="fullname"
+                        validate={required}
                         render={({ input, meta }) => (
                           <Input
                             id="fullname"
@@ -103,6 +106,7 @@ class AccountForm extends Component {
 
                     <Field
                       name="email"
+                      validate={required}
                       render={({ input, meta }) => (
                         <Input
                           id="email"
@@ -121,6 +125,7 @@ class AccountForm extends Component {
 
                     <Field
                       name="password"
+                      validate={required}
                       render={({ input, meta }) => (
                         <Input
                           id="password"
