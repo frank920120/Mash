@@ -15,13 +15,13 @@ const styles = {
     backgroundColor: "red"
   },
   popupContainer: {
-    width: 150
+    width: "100%"
   },
   mapHeader: {
     fontWeight: 800,
     fontSize: "5vw",
     color: "black",
-    padding: 60,
+    paddingTop: 60,
     marginTop: 60
   },
   popupTop: {
@@ -34,6 +34,20 @@ const styles = {
   username: {
     margin: 0,
     padding: 5
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    objectFit: "contain"
+  },
+  listContainer: {
+    display: "flex",
+    alignItems: "center",
+    padding: 0
+  },
+  iconlist: {
+    listStyle: "none",
+    padding: 10
   }
 };
 

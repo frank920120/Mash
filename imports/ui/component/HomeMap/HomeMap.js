@@ -88,7 +88,7 @@ class HomeMap extends Component {
                 lat: this.state.currentLatLng.lat,
                 lng: this.state.currentLatLng.lng
               }}
-              zoom={12}
+              zoom={11.5}
             >
               <Marker
                 onClick={this.onMarkerClick}
@@ -128,11 +128,21 @@ class HomeMap extends Component {
                     </h1>
                   </div>
                   <div className={classes.popupBottom}>
-                    <ul>
-                      <li>{this.state.selectedPlace.specialties}</li>
-                      {/* {this.state.selectedPlace.specialties.map(s => (
-                        <li>{s}</li>
-                      ))} */}
+                    <ul className={classes.listContainer}>
+                      {this.state.selectedPlace.specialties
+                        ? this.state.selectedPlace.specialties.map(s => {
+                            let specialties = s.trim().toLowerCase();
+                            return (
+                              <li className={classes.iconlist}>
+                                <img
+                                  className={classes.icon}
+                                  src={`/specialties/${specialties}.svg`}
+                                  alt="specialties"
+                                />
+                              </li>
+                            );
+                          })
+                        : "loading.."}
                     </ul>
                   </div>
                 </div>

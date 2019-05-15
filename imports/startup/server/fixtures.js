@@ -19,7 +19,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["singing", "dancing", "b-box"],
+      specialties: ["singer", "Keyboard", "Percussion", "Flute"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: [
@@ -46,7 +46,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["Piano", "Violin", "Cello"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
@@ -67,7 +67,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["Saxophone", "Electric Guitar", "Trumpet"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
@@ -88,7 +88,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["Singer", "Recorder"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
@@ -109,7 +109,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["Percussion", "Saxophone", "Recorder"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
@@ -130,7 +130,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["drums"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
@@ -151,7 +151,7 @@ Meteor.startup(() => {
         }
       ],
       //ie: guitar, drums
-      specialties: ["drums", "dancing", "reading"],
+      specialties: ["Piano", "Recorder"],
       //ie: rock, classical
       genre: ["rock"],
       musicWorks: []
