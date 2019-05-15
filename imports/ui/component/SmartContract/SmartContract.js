@@ -78,9 +78,8 @@ function SmartContract(props) {
                   AGREE
                 </Typography>
                 <Typography className={classes.subpara} variant="h5">
-                  When it is time to put things into terms, Mash is here to make
-                  your life easy: write contracts in simple terms and have them
-                  registered on immutable blockchain!
+                  Mash helps you to write collaboration agreements in simple
+                  terms and have them registered on immutable blockchain!
                   {/* {
                     "By registering, you will access specially negotiated rates "
                   }

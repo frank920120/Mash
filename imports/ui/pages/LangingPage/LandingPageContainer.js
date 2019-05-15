@@ -14,9 +14,9 @@ const LandingPageContainer = ({ collaborations, users }) => {
     <Fragment>
       <HomeBanner />
       <HomeDes />
-      <HomeMap users={users} />
-      <SlideShow media={collaborations} />
       <SmartContract />
+      <SlideShow media={collaborations} />
+      <HomeMap users={users} />
       <Footer />
     </Fragment>
   );
