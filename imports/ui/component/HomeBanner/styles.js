@@ -30,7 +30,7 @@ const styles = {
   },
   ContentContainer: {
     position: "absolute",
-    zIndex: 99999,
+    zIndex: 1000,
     height: 150,
     display: "flex",
     flexDirection: "column",

@@ -21,8 +21,7 @@ const styles = {
     fontWeight: 800,
     fontSize: "5vw",
     color: "black",
-    paddingTop: 60,
-    marginTop: 60
+    paddingTop: 60
   },
   popupTop: {
     display: "flex",

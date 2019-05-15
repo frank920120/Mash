@@ -88,16 +88,8 @@ class HomeMap extends Component {
                 lat: this.state.currentLatLng.lat,
                 lng: this.state.currentLatLng.lng
               }}
-              zoom={11.5}
+              zoom={11}
             >
-              <Marker
-                onClick={this.onMarkerClick}
-                name={"Your are here"}
-                position={{
-                  lat: this.state.currentLatLng.lat,
-                  lng: this.state.currentLatLng.lng
-                }}
-              />
               {users.map(user => (
                 <Marker
                   key={user._id}
