@@ -20,6 +20,7 @@
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
     "react-final-form-arrays": "^2.0.3",
+    "react-final-form-html5-validation": "^1.0.3",
     "react-items-carousel": "^2.3.6",
     "react-redux": "^7.0.3",
     "react-reveal": "^1.2.2",
