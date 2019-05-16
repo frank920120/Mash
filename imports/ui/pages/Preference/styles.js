@@ -27,9 +27,10 @@ const styles = {
     justifyContent: "center"
   },
   header: {
-    fontSize: "7vw",
+    fontSize: "6.5vw",
     textAlign: "center",
-    color: "white"
+    color: "white",
+    margin: 0
   },
   skip: {
     position: "absolute",
