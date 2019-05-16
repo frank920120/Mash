@@ -7,7 +7,6 @@ import Button from "@material-ui/core/Button";
 import styles from "./styles";
 import { Meteor } from "meteor/meteor";
 import { Form, Field, FormSpy } from "react-final-form";
-import validate from "./helpers/validation";
 import { FormControl, Grid, Input, InputLabel } from "@material-ui/core";
 // import { Field } from "react-final-form-html5-validation";
 import { Accounts } from "meteor/accounts-base";
@@ -31,29 +30,10 @@ class AccountForm extends Component {
     super(props);
     this.state = {
       formToggle: true,
-      getCurrentPosition: {
-        lat: null,
-        lng: null
-      },
+
       error: null,
       open: false
     };
-  }
-  geolocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState({
-          getCurrentPosition: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          }
-        });
-      },
-      err => console.log(err)
-    );
-  };
-  componentDidMount() {
-    this.geolocation();
   }
   handleOpen = () => {
     this.setState({ open: true });
@@ -96,52 +76,48 @@ class AccountForm extends Component {
                   : Accounts.createUser({
                       email: values.email,
                       password: values.password,
-                      profile: {
-                        fullname: values.fullname,
-                        location: {
-                          lat: this.state.getCurrentPosition.lat,
-                          lng: this.state.getCurrentPosition.lng
-                        }
-                      }
+                      profile: { fullname: values.fullname }
                     });
               }}
-              // validate={validate}
+              validate={validate}
               subscription={{
                 submitted: true
               }}
               render={({ handleSubmit, pristine, submitting, invalid }) => (
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
                   {!formToggle && (
-                    <div>
+                    <FormControl fullWidth className={classes.formControl}>
                       <InputLabel htmlFor="fullname">Fullname</InputLabel>
                       <Field
                         name="fullname"
-                        fullWidth
-                        validate={required}
+                        required
+                        valueMissing="Required: What should we call you?"
                         subscription={{
                           value: true,
                           active: true,
                           error: true,
                           touched: true
                         }}
-                        render={({ input, meta }) => (
-                          <div>
-                            <Input
-                              id="fullname"
-                              className={meta.active ? classes.active : ""}
-                              // inputProps={{
-                              //   ...input,
-                              //   autoComplete: "off"
-                              // }}
-                              // value={input.value}
-                            />
-                            {meta.error && meta.touched && (
+                        render={({ input, meta }) => (<div>
+                          <Input
+                            id="fullname"
+                            className={meta.active ? classes.active : ""}
+                            type="text"
+                            inputProps={{
+                              ...input,
+                              autoComplete: "off"
+                            }}
+                            value={input.value}
+                          />;
+                          {
+                            meta.error && meta.touched && (
                               <span>{meta.error}</span>
-                            )}
+                            );
+                          }
                           </div>
                         )}
                       />
-                    </div>
+                    </FormControl>
                   )}
 
                   <FormControl fullWidth className={classes.formControl}>
@@ -150,8 +126,10 @@ class AccountForm extends Component {
                     <Field
                       name="email"
                       placeholder="Email"
-                      validate={required}
+                      required
+                      valueMissing="required: Please enter an email"
                       type="email"
+                      typeMismatch="Please enter a valid email address"
                       subscription={{
                         value: true,
                         active: true,
@@ -207,7 +185,7 @@ class AccountForm extends Component {
                       )}
                     </Field>
                   </FormControl>
-
+                  
                   <FormControl className={classes.formControl}>
                     <Grid className={classes.buttons}>
                       <Button
