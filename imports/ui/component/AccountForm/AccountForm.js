@@ -25,6 +25,14 @@ function getModalStyle() {
 }
 
 const required = value => (value ? undefined : "Required");
+const newUser = {
+  imageUrl: "https://loremflickr.com/320/240",
+  description: "No bio yet but just wait... it will blow your mind",
+  reviews: [{ text: "No reviews yet", reviewer: null }],
+  specialties: [],
+  genres: [],
+  musicWorks: []
+};
 
 class AccountForm extends Component {
   constructor(props) {
@@ -101,7 +109,8 @@ class AccountForm extends Component {
                         location: {
                           lat: this.state.getCurrentPosition.lat,
                           lng: this.state.getCurrentPosition.lng
-                        }
+                        },
+                        ...newUser
                       }
                     });
               }}
@@ -116,31 +125,33 @@ class AccountForm extends Component {
                       <InputLabel htmlFor="fullname">Fullname</InputLabel>
                       <Field
                         name="fullname"
-                        fullWidth
+                        placeholder="fullname"
                         validate={required}
+                        type="text"
                         subscription={{
                           value: true,
                           active: true,
                           error: true,
                           touched: true
                         }}
-                        render={({ input, meta }) => (
+                      >
+                        {({ input, meta, placeholder }) => (
                           <div>
                             <Input
                               id="fullname"
-                              className={meta.active ? classes.active : ""}
-                              // inputProps={{
-                              //   ...input,
-                              //   autoComplete: "off"
-                              // }}
-                              // value={input.value}
+                              className={meta.active ? "active" : ""}
+                              inputProps={{
+                                ...input,
+                                autoComplete: "off"
+                              }}
+                              value={input.value}
                             />
                             {meta.error && meta.touched && (
                               <span>{meta.error}</span>
                             )}
                           </div>
                         )}
-                      />
+                      </Field>
                     </div>
                   )}
 
