@@ -27,6 +27,7 @@ const genres = [
   "PUNK"
 ];
 const specialties = [
+  "Singer",
   "Keyboard",
   "Piano",
   "Recorder",
@@ -39,7 +40,6 @@ const specialties = [
   "Saxophone",
   "Flute",
   "Cello",
-  "Clarinet",
   "Trumpet",
   "Harp"
 ];
@@ -89,7 +89,7 @@ class ProfileForm extends Component {
       genre: this.state.genres
     };
     Meteor.call("artists.updateProfile", user);
-    window.alert("Upload Sucess!");
+    alert("success");
   };
   render() {
     const { classes } = this.props;

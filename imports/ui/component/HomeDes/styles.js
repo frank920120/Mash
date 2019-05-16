@@ -26,7 +26,7 @@ const styles = {
   desHeader: {
     color: "white",
     fontWeight: 800,
-    fontSize: 60,
+    fontSize: "5vw",
     letterSpacing: 5
   },
   desPara: {
