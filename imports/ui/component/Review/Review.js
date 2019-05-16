@@ -5,21 +5,14 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import styles from "./styles";
 
-function Review(props) {
-  const { classes } = props;
-
+function Review({ classes, text, reviewer }) {
   return (
     <div className={classes.reviewCard}>
       <h4 className={classes.whiteText}>A dream to work with</h4>
       <div className={classes.review}>
-        <p>
-          Phasellus iaculis nisl enim, nec molestie dolor semper id. Fusce non
-          eleifend mi. Donec porttitor accumsan ligula sit amet vehicula. Donec
-          posuere tristique est, vitae bibendum mauris imperdiet nec. Vestibulum
-          sodales imperdiet leo, ac mattis tortor blandit eu.
-        </p>
+        <p>{text}</p>
       </div>
-      <p className={classes.whiteText}>Walter White</p>
+      <p className={classes.whiteText}>{reviewer}</p>
     </div>
   );
 }

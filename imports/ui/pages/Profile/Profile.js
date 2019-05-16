@@ -18,20 +18,15 @@ import { Artists } from "../../../api/artists";
 import { compose } from "recompose";
 import { Meteor } from "meteor/meteor";
 
-function Profile({ classes, artist, profile, match }) {
+function Profile({ classes, artist }) {
   // console.log(match.params.userId);
 
   // console.log(artist);
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
-  const resolveUrl = "https://soundcloud.com/lyricalvalue/clearly";
 
-  //placeholder artist data
-  const specialties = ["vocals", "guitar", "xylophone"];
-  const genres = ["rock", "folk", "R&B"];
+  // console.log(profile);
 
-  console.log(profile);
-
-  if (profile.length < 1 || profile == undefined) return <h1>Loading...</h1>;
+  if (artist.length < 1 || artist == undefined) return <h1>Loading...</h1>;
   else
     return (
       <div className={classes.root}>
@@ -40,9 +35,9 @@ function Profile({ classes, artist, profile, match }) {
             <Grid container spacing={24}>
               <Grid item xs={5} className={classes.picButton}>
                 <Avatar
-                  alt={profile[0].fullname}
+                  alt={artist[0].profile.fullname}
                   //   src={artist.profileurl}
-                  src="https://loremflickr.com/320/240"
+                  src={artist[0].profile.imageurl}
                   className={classes.avatar}
                 />
                 <Button
@@ -60,13 +55,13 @@ function Profile({ classes, artist, profile, match }) {
                   variant="h4"
                   component="h1"
                 >
-                  {profile[0].fullname}
+                  {artist[0].profile.fullname}
                 </Typography>
 
                 <Typography component="p" className={classes.whiteText}>
                   Specialties:
                 </Typography>
-                {profile[0].specialties.map((specialty, index) => (
+                {artist[0].profile.specialties.map((specialty, index) => (
                   <Chip
                     key={index}
                     label={specialty}
@@ -77,7 +72,7 @@ function Profile({ classes, artist, profile, match }) {
                 <Typography component="p" className={classes.whiteText}>
                   Genres:
                 </Typography>
-                {profile[0].genre.map((genre, index) => (
+                {artist[0].profile.genre.map((genre, index) => (
                   <Chip
                     key={index}
                     label={genre}
@@ -88,7 +83,7 @@ function Profile({ classes, artist, profile, match }) {
 
               <Grid item xs={12}>
                 <Typography component="p" className={classes.whiteText}>
-                  {profile[0].description}
+                  {artist[0].profile.description}
                 </Typography>
               </Grid>
 
@@ -96,11 +91,11 @@ function Profile({ classes, artist, profile, match }) {
                 <Paper className={classes.paper}>
                   <Typography component="header">Past music works:</Typography>
 
-                  {profile[0].musicWorks.map((song, index) => (
+                  {artist[0].profile.musicWorks.map((song, index) => (
                     <MusicPlayer
                       key={index}
-                      clientId={song.clientID}
-                      resolveUrl={song.resolveURL}
+                      clientId={clientID}
+                      resolveUrl={song}
                       onReady={() => console.log("track is loaded!")}
                     />
                   ))}
@@ -111,6 +106,13 @@ function Profile({ classes, artist, profile, match }) {
                 <Typography component="header" className={classes.whiteText}>
                   Reviews:
                 </Typography>
+                {artist[0].profile.reviews.map((review, index) => (
+                  <Review
+                    key={index}
+                    text={review.text}
+                    reviewer={review.reviewer}
+                  />
+                ))}
                 <Review />
               </Grid>
             </Grid>
@@ -155,7 +157,7 @@ export default withStyles(styles)(
     console.log(profileId);
 
     return {
-      profile: Artists.find({ _id: profileId }).fetch()
+      artist: Artists.find({ _id: profileId }).fetch()
     };
   })(Profile)
 );
