@@ -76,7 +76,13 @@ class AccountForm extends Component {
                   : Accounts.createUser({
                       email: values.email,
                       password: values.password,
-                      profile: { fullname: values.fullname }
+                      profile: {
+                        fullname: values.fullname,
+                        location: {
+                          lat: null,
+                          lng: null
+                        }
+                      }
                     });
               }}
               subscription={{
