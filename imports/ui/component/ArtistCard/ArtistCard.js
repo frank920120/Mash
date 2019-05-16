@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import styles from "./styles";
+import { Link } from "react-router-dom";
 
 const ArtistCard = ({ classes, profile }) => {
   const musicWorks = profile.musicWorks[0];
@@ -41,7 +42,9 @@ const ArtistCard = ({ classes, profile }) => {
         }
       />
       <CardActions>
-        <Button className={classes.learn}>Learn More</Button>
+        <Link to={`/profile/${profile._id}`} className={classes.link}>
+          <Button className={classes.learn}>Learn More</Button>
+        </Link>
       </CardActions>
     </Card>
   );

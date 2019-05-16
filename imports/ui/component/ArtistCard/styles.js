@@ -43,6 +43,9 @@ const styles = {
     fontSize: "1rem",
     fontStyle: "bold",
     margin: 5
+  },
+  link: {
+    textDecoration: "none"
   }
 };
 
