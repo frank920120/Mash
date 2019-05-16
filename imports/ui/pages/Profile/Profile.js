@@ -72,7 +72,7 @@ function Profile({ classes, artist }) {
                 <Typography component="p" className={classes.whiteText}>
                   Genres:
                 </Typography>
-                {artist[0].profile.genre.map((genre, index) => (
+                {artist[0].profile.genres.map((genre, index) => (
                   <Chip
                     key={index}
                     label={genre}
