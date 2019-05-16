@@ -17,7 +17,7 @@ function SmartContract(props) {
           className={classes.curvyLines}
           alt="curvy lines"
         />
-        <Grid container spacing={40}>
+        <Grid className={classes.mainContainer} container spacing={40}>
           <Grid item xs={12} md={4}>
             <Fade left duration={1000}>
               <div className={classes.item}>

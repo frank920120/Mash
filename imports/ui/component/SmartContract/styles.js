@@ -4,7 +4,9 @@ const styles = () => ({
     overflow: "hidden",
     backgroundColor: "white"
   },
-
+  mainContainer: {
+    marginTop: 40
+  },
   layoutBody: {
     marginTop: 60,
     marginBottom: 60,
@@ -27,7 +29,6 @@ const styles = () => ({
   curvyLines: {
     pointerEvents: "none",
     position: "absolute",
-    top: -180,
     objectFit: "contain"
   },
   subpara: {
