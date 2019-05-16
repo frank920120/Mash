@@ -123,7 +123,7 @@ class Profile extends Component {
                   </Dialog>
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid item xs={12} className={classes.description}>
                   <Typography component="p" className={classes.whiteText}>
                     {artist[0].profile.description}
                   </Typography>
@@ -131,7 +131,7 @@ class Profile extends Component {
 
                 <Grid item xs={7}>
                   <Paper className={classes.music}>
-                    <Typography component="header">
+                    <Typography component="header" variant="h6">
                       Past music works:
                     </Typography>
 
@@ -147,7 +147,11 @@ class Profile extends Component {
                 </Grid>
 
                 <Grid item xs={5}>
-                  <Typography component="header" className={classes.whiteText}>
+                  <Typography
+                    component="header"
+                    variant="h6"
+                    className={classes.whiteText}
+                  >
                     Reviews:
                   </Typography>
                   {artist[0].profile.reviews.map((review, index) => (
