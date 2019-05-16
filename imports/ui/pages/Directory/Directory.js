@@ -6,6 +6,7 @@ import { Artists } from "../../../api/artists";
 import { Grid, withStyles } from "@material-ui/core";
 import FilterSkills from "../../component/FilterSkills/FilterSkills";
 import FilterGenres from "../../component/FilterGenres/FilterGenres";
+import SearchArtists from "../../component/SearchArtists/SearchArtists";
 import styles from "./styles";
 
 class Directory extends Component {
@@ -15,6 +16,7 @@ class Directory extends Component {
     return (
       <Grid container className={classes.root} spacing={24}>
         <div>
+          <SearchArtists />
           <FilterSkills />
           <FilterGenres />
         </div>
