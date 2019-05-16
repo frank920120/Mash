@@ -30,6 +30,8 @@ const styles = {
     alignItems: "center"
   },
   artistInfo: {
+    display: "flex",
+    flexDirection: "column",
     marginTop: 40
   },
   button: {

@@ -25,7 +25,6 @@ function Profile({ classes, artist }) {
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
   // console.log(profile);
-
   if (artist.length < 1 || artist == undefined) return <h1>Loading...</h1>;
   else
     return (
@@ -61,24 +60,37 @@ function Profile({ classes, artist }) {
                 <Typography component="p" className={classes.whiteText}>
                   Specialties:
                 </Typography>
-                {artist[0].profile.specialties.map((specialty, index) => (
-                  <Chip
-                    key={index}
-                    label={specialty}
-                    className={classes.specialtyChip}
-                  />
-                ))}
+                <div>
+                  {artist[0].profile.specialties.map((specialty, index) => (
+                    <Chip
+                      key={index}
+                      label={specialty}
+                      className={classes.specialtyChip}
+                    />
+                  ))}
+                </div>
 
                 <Typography component="p" className={classes.whiteText}>
                   Genres:
                 </Typography>
-                {artist[0].profile.genres.map((genre, index) => (
-                  <Chip
-                    key={index}
-                    label={genre}
-                    className={classes.genreChip}
-                  />
-                ))}
+                <div>
+                  {artist[0].profile.genres.map((genre, index) => (
+                    <Chip
+                      key={index}
+                      label={genre}
+                      className={classes.genreChip}
+                    />
+                  ))}
+                </div>
+                {Meteor.userId() === artist[0]._id && (
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.button}
+                  >
+                    Edit
+                  </Button>
+                )}
               </Grid>
 
               <Grid item xs={12}>
