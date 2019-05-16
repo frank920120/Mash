@@ -5,7 +5,6 @@ import HomeMap from "../../component/HomeMap";
 import Footer from "../../component/Footer";
 import SmartContract from "../../component/SmartContract";
 import { withTracker } from "meteor/react-meteor-data";
-import { Meteor } from "meteor/meteor";
 import { Collaborations } from "../../../api/collaborations";
 import { Artists } from "../../../api/artists";
 import SlideShow from "../../component/SlideShow";
