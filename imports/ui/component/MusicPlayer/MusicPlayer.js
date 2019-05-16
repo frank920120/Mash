@@ -14,7 +14,7 @@ import styles from "./styles";
 import { Meteor } from "meteor/meteor";
 import { Artists } from "../../../api/artists.js";
 import { withTracker } from "meteor/react-meteor-data";
-
+import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -34,8 +34,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
     playing,
     track,
     currentTime,
-    duration
+    duration,
+    location
   } = props;
+
+  console.log(location);
 
   const play = () => {
     if (playing) {
