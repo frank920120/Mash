@@ -26,7 +26,7 @@ class Directory extends Component {
 
 export default withStyles(styles)(
   withTracker(() => {
-    Meteor.subscribe("allusers");
+    Meteor.subscribe("allArtists");
     return {
       allUsers: Artists.find({}).fetch()
     };
