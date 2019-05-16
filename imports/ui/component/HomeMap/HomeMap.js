@@ -32,11 +32,9 @@ class HomeMap extends Component {
           () => {
             const user = {
               _id: Meteor.userId(),
-              profile: {
-                location: {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                }
+              location: {
+                lat: this.state.currentLatLng.lat,
+                lng: this.state.currentLatLng.lng
               }
             };
             Meteor.call("artists.updateProfile", user);
