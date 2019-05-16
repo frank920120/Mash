@@ -29,7 +29,6 @@ const skills = [
   "Percussion",
   "Flute",
   "Piano",
-  "Violin",
   "Cello",
   "Acoustic Guitar",
   "Violin",
