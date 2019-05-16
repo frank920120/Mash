@@ -32,7 +32,7 @@ const styles = {
   artistInfo: {
     display: "flex",
     flexDirection: "column",
-    marginTop: 40
+    marginTop: 20
   },
   button: {
     marginTop: 30
@@ -57,6 +57,10 @@ const styles = {
     padding: 40,
     backgroundColor: "blue",
     borderRadius: 0
+  },
+  description: {
+    paddingTop: 40,
+    paddingBottom: 40
   }
 };
 
