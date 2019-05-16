@@ -34,7 +34,6 @@ const styles = theme => ({
   content: {
     flex: "1 0 auto"
   },
-
   playPauseIcon: {
     height: 30,
     width: 30,
@@ -42,7 +41,8 @@ const styles = theme => ({
   },
   cover: {
     height: 70,
-    width: 70
+    width: 70,
+    padding: 10
   },
   timer: {
     fontSize: 13

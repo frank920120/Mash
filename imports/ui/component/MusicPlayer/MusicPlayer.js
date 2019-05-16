@@ -38,8 +38,6 @@ const MusicPlayer = withSoundCloudAudio(props => {
     location
   } = props;
 
-  console.log(location);
-
   const play = () => {
     if (playing) {
       soundCloudAudio.pause();
@@ -54,11 +52,13 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
   return (
     <div className={classes.audioCard}>
-      {/* <CardMedia
-        className={classes.cover}
-        image={track.artwork_url}
-        title="Live from space album cover"
-      /> */}
+      {location.pathname !== "/directory" ? (
+        <CardMedia
+          className={classes.cover}
+          image={track.artwork_url}
+          title="Live from space album cover"
+        />
+      ) : null}
 
       <div className={classes.musicDisplay}>
         <div className={classes.controls}>
@@ -90,11 +90,6 @@ const MusicPlayer = withSoundCloudAudio(props => {
           variant="determinate"
           value={(currentTime / duration) * 100 || 0}
         />
-        {/* <Progress
-          className={classes.progressBar}
-          value={(currentTime / duration) * 100 || 0}
-          {...props}
-        /> */}
       </div>
     </div>
   );
@@ -102,10 +97,12 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
 MusicPlayer.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(
-  withTracker(() => {
-    return {
-      artists: Artists.find({}).fetch()
-    };
-  })(MusicPlayer)
+export default withRouter(
+  withStyles(styles, { withTheme: true })(
+    withTracker(() => {
+      return {
+        artists: Artists.find({}).fetch()
+      };
+    })(MusicPlayer)
+  )
 );
