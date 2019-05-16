@@ -94,7 +94,7 @@ function Profile({ classes, artist }) {
                   {artist[0].profile.musicWorks.map((song, index) => (
                     <MusicPlayer
                       key={index}
-                      clientId={clientID}
+                      clientId={clientId}
                       resolveUrl={song}
                       onReady={() => console.log("track is loaded!")}
                     />
