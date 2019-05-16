@@ -52,8 +52,8 @@ Meteor.methods({
     Artists.update(
       { _id: user._id },
       {
-        profile: {
-          $set: {
+        $set: {
+          profile: {
             ...user
           }
         }
