@@ -44,13 +44,8 @@ const Footer = ({ classes }) => {
         <h1 className={classes.copyRight}>©2019 MASH. All rights reserved.</h1>
         <div className={classes.iconContainer}>
           {icons.map(icon => (
-            <a href="#0">
-              <img
-                className={classes.socialMeida}
-                key={icon.id}
-                src={icon.url}
-                alt="logo"
-              />
+            <a href="#0" key={icon.id}>
+              <img className={classes.socialMeida} src={icon.url} alt="logo" />
             </a>
           ))}
         </div>

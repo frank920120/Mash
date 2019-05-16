@@ -51,7 +51,7 @@ function PreferenceContainer({ classes, history }) {
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form className={classes.form} onSubmit={handleSubmit}>
               <FieldArray
-                name="genre"
+                name="genres"
                 component={CheckboxGroup}
                 options={myOptions}
               />
