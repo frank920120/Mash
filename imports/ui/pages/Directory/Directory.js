@@ -11,7 +11,12 @@ class Directory extends Component {
     const profiles = this.props.allUsers;
     const classes = this.props.classes;
     return (
-      <Grid container className={classes.root} spacing={24}>
+      <Grid
+        container
+        className={classes.root}
+        spacing={16}
+        justify={"space-evenly"}
+      >
         {profiles.map((profile, i) => {
           return (
             <Grid item xs={12} md={6} lg={4} key={profile._id}>
