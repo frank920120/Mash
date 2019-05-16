@@ -14,20 +14,23 @@ class Directory extends Component {
     const artists = this.props.allUsers;
     const classes = this.props.classes;
     return (
-      <Grid container className={classes.root} spacing={24}>
-        <div>
+      <React.Fragment>
+        <div className={classes.filters}>
           <SearchArtists />
           <FilterSkills />
           <FilterGenres />
         </div>
-        {artists.map((artist, i) => {
-          return (
-            <Grid item xs={12} md={6} lg={4} key={artist._id}>
-              <ArtistCard artist={artist} />
-            </Grid>
-          );
-        })}
-      </Grid>
+
+        <Grid container className={classes.root} spacing={12}>
+          {artists.map((artist, i) => {
+            return (
+              <Grid item xs={12} md={6} lg={4} key={artist._id}>
+                <ArtistCard artist={artist} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </React.Fragment>
     );
   }
 }

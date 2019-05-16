@@ -3,13 +3,12 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 100,
-    margin: "5%",
+    marginTop: 50,
     padding: 0,
-    maxWidth: 300,
+    width: 300,
     borderStyle: "none",
     background:
-      "linear-gradient(to bottom, #0e0b16 40%,#0e0b16 40%,#4717f6 100%);"
+      "linear-gradient(to bottom, #0e0b16 20%,#0e0b16 20%,#4717f6 100%);"
   },
   media: {
     height: 200,
@@ -50,26 +49,3 @@ const styles = {
 };
 
 export default styles;
-
-/*
-const styles = {
-  picButton: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  artistInfo: {
-    marginTop: 40
-  },
-  genreChip: {
-    margin: 10
-  },
-  specialtyChip: {
-    margin: 10
-  }
-};
-
-export default styles;
-
-*/
