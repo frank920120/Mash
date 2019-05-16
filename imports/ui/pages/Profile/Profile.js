@@ -75,7 +75,7 @@ class Profile extends Component {
                   <Typography component="p" className={classes.whiteText}>
                     Specialties:
                   </Typography>
-                  <div>
+                  <div className={classes.chips}>
                     {artist[0].profile.specialties.map((specialty, index) => (
                       <Chip
                         key={index}
@@ -88,7 +88,7 @@ class Profile extends Component {
                   <Typography component="p" className={classes.whiteText}>
                     Genres:
                   </Typography>
-                  <div>
+                  <div className={classes.chips}>
                     {artist[0].profile.genres.map((genre, index) => (
                       <Chip
                         key={index}
@@ -131,7 +131,7 @@ class Profile extends Component {
 
                 <Grid item xs={7}>
                   <Paper className={classes.music}>
-                    <Typography component="header">
+                    <Typography component="header" variant="h6">
                       Past music works:
                     </Typography>
 
@@ -147,7 +147,11 @@ class Profile extends Component {
                 </Grid>
 
                 <Grid item xs={5}>
-                  <Typography component="header" className={classes.whiteText}>
+                  <Typography
+                    component="header"
+                    className={classes.whiteText}
+                    variant="h6"
+                  >
                     Reviews:
                   </Typography>
                   {artist[0].profile.reviews.map((review, index) => (
@@ -157,7 +161,6 @@ class Profile extends Component {
                       reviewer={review.reviewer}
                     />
                   ))}
-                  <Review />
                 </Grid>
               </Grid>
             </div>

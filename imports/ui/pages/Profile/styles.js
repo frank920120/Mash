@@ -57,6 +57,9 @@ const styles = {
     padding: 40,
     backgroundColor: "blue",
     borderRadius: 0
+  },
+  chips: {
+    height: 52
   }
 };
 

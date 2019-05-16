@@ -9,7 +9,6 @@ import { Meteor } from "meteor/meteor";
 import { Form, Field, FormSpy } from "react-final-form";
 import validate from "./helpers/validation";
 import { FormControl, Grid, Input, InputLabel } from "@material-ui/core";
-// import { Field } from "react-final-form-html5-validation";
 import { Accounts } from "meteor/accounts-base";
 
 function getModalStyle() {
