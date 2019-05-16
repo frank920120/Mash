@@ -1,5 +1,5 @@
 const styles = {
-  root: {
+  profile: {
     display: "flex",
     flexGrow: 1,
     justifyContent: "center",
@@ -52,6 +52,11 @@ const styles = {
   },
   whiteText: {
     color: "white"
+  },
+  paper: {
+    padding: 40,
+    backgroundColor: "blue",
+    borderRadius: 0
   }
 };
 
