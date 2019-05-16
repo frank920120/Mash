@@ -13,7 +13,7 @@ if (Meteor.isServer) {
 
 /**
  * Subscribe all users
- *  Meteor.subscribe('allusers');
+ *  Meteor.subscribe('allArtists');
  */
 if (Meteor.isServer) {
   Meteor.publish("allArtists", function allUsersPublication() {
