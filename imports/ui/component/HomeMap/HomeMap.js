@@ -32,7 +32,7 @@ class HomeMap extends Component {
           () => {
             const user = {
               _id: Meteor.userId(),
-              location: {
+              "profile.location": {
                 lat: this.state.currentLatLng.lat,
                 lng: this.state.currentLatLng.lng
               }

@@ -81,12 +81,10 @@ class ProfileForm extends Component {
   onSubmit = () => {
     const user = {
       _id: this.props.user._id,
-      profile: {
-        fullname: this.state.fullname
-      },
-      description: this.state.bio,
-      specialties: this.state.specialties,
-      genre: this.state.genres
+      "profile.fullname": this.state.fullname,
+      "profile.description": this.state.bio,
+      "profile.specialties": this.state.specialties,
+      "profile.genre": this.state.genres
     };
     Meteor.call("artists.updateProfile", user);
     alert("success");
