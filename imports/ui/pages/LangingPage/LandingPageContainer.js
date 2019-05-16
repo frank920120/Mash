@@ -23,7 +23,7 @@ const LandingPageContainer = ({ collaborations, users }) => {
 
 export default withTracker(() => {
   Meteor.subscribe("allCollaborations");
-  Meteor.subscribe("allusers");
+  Meteor.subscribe("allArtists");
   return {
     collaborations: Collaborations.find({}).fetch(),
     users: Artists.find({}).fetch()

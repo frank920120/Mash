@@ -105,7 +105,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["electric guitar", "acoustic guitar", "banjo"],
+        specialties: ["electric guitar", "Violin"],
         //ie: rock, classical
         genres: ["country", "folk", "rock"],
         musicWorks: [
@@ -142,7 +142,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["bass", "backing vocals"],
+        specialties: ["Electric Guitar", "Piano"],
         //ie: rock, classical
         genres: ["rock", "blues", "soul"],
         musicWorks: [
@@ -179,7 +179,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["keyboards", "piano", "backing vocals"],
+        specialties: ["Electric Guitar", "Piano", "Recorder"],
         //ie: rock, classical
         genres: ["rock", "blues", "soul"],
         musicWorks: [

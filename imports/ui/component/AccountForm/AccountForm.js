@@ -30,10 +30,29 @@ class AccountForm extends Component {
     super(props);
     this.state = {
       formToggle: true,
-
+      getCurrentPosition: {
+        lat: null,
+        lng: null
+      },
       error: null,
       open: false
     };
+  }
+  geolocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          getCurrentPosition: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        });
+      },
+      err => console.log(err)
+    );
+  };
+  componentDidMount() {
+    this.geolocation();
   }
   handleOpen = () => {
     this.setState({ open: true });
@@ -76,7 +95,13 @@ class AccountForm extends Component {
                   : Accounts.createUser({
                       email: values.email,
                       password: values.password,
-                      profile: { fullname: values.fullname }
+                      profile: {
+                        fullname: values.fullname,
+                        location: {
+                          lat: this.state.getCurrentPosition.lat,
+                          lng: this.state.getCurrentPosition.lng
+                        }
+                      }
                     });
               }}
               subscription={{
