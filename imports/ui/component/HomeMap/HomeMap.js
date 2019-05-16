@@ -22,12 +22,26 @@ class HomeMap extends Component {
   geolocation = () => {
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState({
-          currentLatLng: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+        this.setState(
+          {
+            currentLatLng: {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            }
+          },
+          () => {
+            const user = {
+              _id: Meteor.userId(),
+              profile: {
+                location: {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                }
+              }
+            };
+            Meteor.call("artists.updateProfile", user);
           }
-        });
+        );
       },
       err => console.log(err)
     );
@@ -94,12 +108,12 @@ class HomeMap extends Component {
                 <Marker
                   key={user._id}
                   onClick={this.onMarkerClick}
-                  name={user.fullname}
-                  specialties={user.specialties}
+                  name={user.profile.fullname}
+                  specialties={user.profile.specialties}
                   id={user._id}
                   position={{
-                    lat: user.location.lat,
-                    lng: user.location.lng
+                    lat: user.profile.location.lat,
+                    lng: user.profile.location.lng
                   }}
                 />
               ))}
