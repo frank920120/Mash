@@ -13,10 +13,10 @@ if (Meteor.isServer) {
 
 /**
  * Subscribe all users
- *  Meteor.subscribe('allusers');
+ *  Meteor.subscribe('allArtists');
  */
 if (Meteor.isServer) {
-  Meteor.publish("allusers", function allUsersPublication() {
+  Meteor.publish("allArtists", function allUsersPublication() {
     return Artists.find({}, { emails: 0, services: 0 });
   });
 }

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Route, Switch } from "react-router";
 import DirectoryContainer from "../../pages/Directory";
 import LandingPageContainer from "../../pages/LangingPage";
-import ProfileContainer from "../../pages/Profile";
+import Profile from "../../pages/Profile";
 import PreferenceContainer from "../../pages/Preference";
 import Menu from "../menu";
 
@@ -29,11 +29,13 @@ export default () => (
             component={DirectoryContainer}
           />
 
+          {/* <Route exact path="/profile" name="profile" component={Profile} /> */}
+
           <Route
             exact
-            path="/profile"
+            path="/profile/:userId"
             name="profile"
-            component={ProfileContainer}
+            component={Profile}
           />
           <Route
             exact
