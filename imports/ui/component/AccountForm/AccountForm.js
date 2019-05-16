@@ -6,9 +6,9 @@ import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import styles from "./styles";
 import { Meteor } from "meteor/meteor";
-import { Form, FormSpy } from "react-final-form";
+import { Form, Field, FormSpy } from "react-final-form";
+import validate from "./helpers/validation";
 import { FormControl, Grid, Input, InputLabel } from "@material-ui/core";
-import { Field } from "react-final-form-html5-validation";
 import { Accounts } from "meteor/accounts-base";
 import { withRouter } from "react-router-dom";
 function getModalStyle() {
@@ -24,6 +24,14 @@ function getModalStyle() {
 }
 
 const required = value => (value ? undefined : "Required");
+const newUser = {
+  imageUrl: "https://loremflickr.com/320/240",
+  description: "No bio yet but just wait... it will blow your mind",
+  reviews: [{ text: "No reviews yet", reviewer: null }],
+  specialties: [],
+  genres: [],
+  musicWorks: []
+};
 
 class AccountForm extends Component {
   constructor(props) {
@@ -63,7 +71,7 @@ class AccountForm extends Component {
   };
 
   render() {
-    const { error, open } = this.state;
+    const { formToggle, error, open } = this.state;
     const { classes } = this.props;
 
     return (
@@ -76,14 +84,14 @@ class AccountForm extends Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="h6" id="modal-title">
-              Login Form
+            <Typography variant="h6" id="modal-title" className={classes.title}>
+              {formToggle ? "Welcome Back!" : "Welcome to the Mash community"}
             </Typography>
 
             <Form
               onSubmit={values => {
                 this.setState.error = null;
-                this.state.formToggle
+                formToggle
                   ? Meteor.loginWithPassword(
                       values.email,
                       values.password,
@@ -102,32 +110,40 @@ class AccountForm extends Component {
                             lat: this.state.getCurrentPosition.lat,
                             lng: this.state.getCurrentPosition.lng
                           }
-                        }
+                        },
+                        ...newUser
                       },
                       () => {
                         this.props.history.push("/preference");
                       }
                     );
               }}
+              // validate={validate}
               subscription={{
                 submitted: true
               }}
               render={({ handleSubmit, pristine, submitting, invalid }) => (
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
-                  {!this.state.formToggle && (
-                    <FormControl fullWidth className={classes.formControl}>
+                  {!formToggle && (
+                    <div>
                       <InputLabel htmlFor="fullname">Fullname</InputLabel>
-
                       <Field
                         name="fullname"
-                        required
-                        valueMissing="Required: What should we call you?"
-                        render={({ input, meta }) => (
+                        placeholder="fullname"
+                        validate={required}
+                        type="text"
+                        subscription={{
+                          value: true,
+                          active: true,
+                          error: true,
+                          touched: true
+                        }}
+                      >
+                        {({ input, meta, placeholder }) => (
                           <div>
                             <Input
                               id="fullname"
-                              className={meta.active ? classes.active : ""}
-                              type="text"
+                              className={meta.active ? "active" : ""}
                               inputProps={{
                                 ...input,
                                 autoComplete: "off"
@@ -139,34 +155,42 @@ class AccountForm extends Component {
                             )}
                           </div>
                         )}
-                      />
-                    </FormControl>
+                      </Field>
+                    </div>
                   )}
+
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="email">Email</InputLabel>
 
                     <Field
                       name="email"
-                      required
-                      valueMissing="required: Please enter an email"
+                      placeholder="Email"
+                      validate={required}
                       type="email"
-                      typeMismatch="Please enter a valid email address"
-                      render={({ input, meta }) => (
+                      subscription={{
+                        value: true,
+                        active: true,
+                        error: true,
+                        touched: true
+                      }}
+                    >
+                      {({ input, meta, placeholder }) => (
                         <div>
                           <Input
                             id="email"
+                            className={meta.active ? "active" : ""}
                             inputProps={{
                               ...input,
                               autoComplete: "off"
                             }}
                             value={input.value}
                           />
-                          {/* {meta.error && meta.touched && (
+                          {meta.error && meta.touched && (
                             <span>{meta.error}</span>
-                          )} */}
+                          )}
                         </div>
                       )}
-                    />
+                    </Field>
                   </FormControl>
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="password">Password</InputLabel>
@@ -178,10 +202,12 @@ class AccountForm extends Component {
                       tooShort="Please enter a longer password"
                       required
                       valueMissing="required: Please enter a password"
-                      render={({ input, meta }) => (
+                    >
+                      {({ input, meta }) => (
                         <div>
                           <Input
                             id="password"
+                            className={meta.active ? "active" : ""}
                             type="password"
                             inputProps={{
                               ...input,
@@ -189,19 +215,14 @@ class AccountForm extends Component {
                             }}
                             value={input.value}
                           />
-                          {/* {meta.error && meta.touched && (
+                          {meta.error && meta.touched && (
                             <span>{meta.error}</span>
-                          )} */}
+                          )}
                         </div>
                       )}
-                    >
-                      <div>
-                        {/* {fieldState => (
-                          <pre>{JSON.stringify(fieldState, undefined, 2)}</pre>
-                        )} */}
-                      </div>
                     </Field>
                   </FormControl>
+
                   <FormControl className={classes.formControl}>
                     <Grid className={classes.buttons}>
                       <Button
@@ -212,7 +233,7 @@ class AccountForm extends Component {
                         color="secondary"
                         disabled={pristine || invalid || submitting}
                       >
-                        {this.state.formToggle ? "Enter" : "Create Account"}
+                        {formToggle ? "Enter" : "Create Account"}
                       </Button>
 
                       <Button
@@ -220,22 +241,22 @@ class AccountForm extends Component {
                         type="button"
                         onClick={() => {
                           this.setState({
-                            formToggle: !this.state.formToggle
+                            formToggle: !formToggle
                           });
                         }}
                       >
-                        {this.state.formToggle
+                        {formToggle
                           ? "Create an account."
                           : "Login to existing account."}
                       </Button>
                     </Grid>
                   </FormControl>
 
-                  <FormSpy subscription={{ values: true }}>
+                  {/* <FormSpy subscription={{ values: true }}>
                     {({ values }) => (
                       <pre>{JSON.stringify(values, undefined, 2)}</pre>
                     )}
-                  </FormSpy>
+                  </FormSpy> */}
                   <Typography>{error}</Typography>
                 </form>
               )}

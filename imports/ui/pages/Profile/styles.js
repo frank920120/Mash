@@ -61,6 +61,9 @@ const styles = {
   description: {
     paddingTop: 40,
     paddingBottom: 40
+  },
+  chips: {
+    height: 52
   }
 };
 
