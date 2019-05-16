@@ -22,26 +22,22 @@ class HomeMap extends Component {
   geolocation = () => {
     navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState(
-          {
+        if (position) {
+          this.setState({
             currentLatLng: {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }
-          },
-          () => {
-            const user = {
-              _id: Meteor.userId(),
-              location: {
-                lat: this.state.currentLatLng.lat,
-                lng: this.state.currentLatLng.lng
-              }
-            };
-            Meteor.call("artists.updateProfile", user);
-          }
-        );
+          });
+        }
       },
-      err => console.log(err)
+      err =>
+        this.setState({
+          currentLatLng: {
+            lat: 49.225476,
+            lng: -123.160795
+          }
+        })
     );
   };
   onMarkerClick = (props, marker, e) =>

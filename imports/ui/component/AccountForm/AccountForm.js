@@ -10,7 +10,7 @@ import { Form, FormSpy } from "react-final-form";
 import { FormControl, Grid, Input, InputLabel } from "@material-ui/core";
 import { Field } from "react-final-form-html5-validation";
 import { Accounts } from "meteor/accounts-base";
-
+import { withRouter } from "react-router-dom";
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -92,17 +92,22 @@ class AccountForm extends Component {
                         err ? this.setState({ error: err.reason }) : null;
                       }
                     )
-                  : Accounts.createUser({
-                      email: values.email,
-                      password: values.password,
-                      profile: {
-                        fullname: values.fullname,
-                        location: {
-                          lat: this.state.getCurrentPosition.lat,
-                          lng: this.state.getCurrentPosition.lng
+                  : Accounts.createUser(
+                      {
+                        email: values.email,
+                        password: values.password,
+                        profile: {
+                          fullname: values.fullname,
+                          location: {
+                            lat: this.state.getCurrentPosition.lat,
+                            lng: this.state.getCurrentPosition.lng
+                          }
                         }
+                      },
+                      () => {
+                        this.props.history.push("/preference");
                       }
-                    });
+                    );
               }}
               subscription={{
                 submitted: true
@@ -246,4 +251,4 @@ AccountForm.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(AccountForm);
+export default withRouter(withStyles(styles)(AccountForm));
