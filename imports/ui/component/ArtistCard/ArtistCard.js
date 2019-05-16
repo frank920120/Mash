@@ -10,35 +10,33 @@ import Typography from "@material-ui/core/Typography";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import styles from "./styles";
 
-const ArtistCard = ({ classes, profile }) => {
-  const musicWorks = profile.musicWorks[0];
+const ArtistCard = ({ classes, artist }) => {
+  const musicWorks = artist.profile.musicWorks[0];
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
-        image={profile.imageurl}
+        image={artist.profile.imageurl}
         title="Profile Picture"
       />
       <CardContent>
         <Typography gutterBottom className={classes.name} component="h2">
-          {profile.fullname}
+          {artist.profile.fullname}
         </Typography>
         <Typography className={classes.info} component="p">
-          {profile.specialties.join(" - ")}
+          {artist.profile.specialties.join(" - ")}
         </Typography>
         <hr />
         <Typography className={classes.info} component="p">
-          {profile.genre.join(" - ")}
+          {artist.profile.genres.join(" - ")}
         </Typography>
       </CardContent>
       <MusicPlayer
         className={classes.player}
         clientId={clientId}
-        resolveUrl={
-          musicWorks && musicWorks.resolveURL && musicWorks.resolveURL
-        }
+        resolveUrl={musicWorks && musicWorks}
       />
       <CardActions>
         <Button className={classes.learn}>Learn More</Button>

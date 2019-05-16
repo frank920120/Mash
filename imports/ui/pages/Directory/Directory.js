@@ -8,7 +8,7 @@ import styles from "./styles";
 
 class Directory extends Component {
   render() {
-    const profiles = this.props.allUsers;
+    const artists = this.props.allUsers;
     const classes = this.props.classes;
     return (
       <Grid
@@ -17,10 +17,10 @@ class Directory extends Component {
         spacing={16}
         justify={"space-evenly"}
       >
-        {profiles.map((profile, i) => {
+        {artists.map((artist, i) => {
           return (
-            <Grid item xs={12} md={6} lg={4} key={profile._id}>
-              <ArtistCard profile={profile} />
+            <Grid item xs={12} md={6} lg={4} key={artist._id}>
+              <ArtistCard artist={artist} />
             </Grid>
           );
         })}
