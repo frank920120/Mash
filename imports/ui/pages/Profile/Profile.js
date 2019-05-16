@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   withStyles,
   Paper,
@@ -7,117 +7,164 @@ import {
   Card,
   Button,
   Avatar,
+  Dialog,
+  DialogTitle,
   Chip
 } from "@material-ui/core";
+
 import styles from "./styles";
 import PropTypes from "prop-types";
 import MusicPlayer from "../../component/MusicPlayer";
 import Review from "../../component/Review";
+import ProfileForm from "../../component/ProfileForm";
 import { withTracker } from "meteor/react-meteor-data";
 import { Artists } from "../../../api/artists";
 import { compose } from "recompose";
 import { Meteor } from "meteor/meteor";
 
-function Profile({ classes, artist, profile, match }) {
-  // console.log(match.params.userId);
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+  }
 
-  // console.log(artist);
-  const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
-  const resolveUrl = "https://soundcloud.com/lyricalvalue/clearly";
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
 
-  //placeholder artist data
-  const specialties = ["vocals", "guitar", "xylophone"];
-  const genres = ["rock", "folk", "R&B"];
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
-  console.log(profile);
+  render() {
+    const { classes, artist } = this.props;
+    const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
-  if (profile.length < 1 || profile == undefined) return <h1>Loading...</h1>;
-  else
-    return (
-      <div className={classes.root}>
-        <Card className={classes.card}>
-          <div className={classes.cover}>
-            <Grid container spacing={24}>
-              <Grid item xs={5} className={classes.picButton}>
-                <Avatar
-                  alt={profile[0].fullname}
-                  //   src={artist.profileurl}
-                  src="https://loremflickr.com/320/240"
-                  className={classes.avatar}
-                />
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.button}
-                >
-                  Connect
-                </Button>
-              </Grid>
-              <Grid item xs={7} className={classes.artistInfo}>
-                <Typography
-                  className={classes.whiteText}
-                  gutterBottom
-                  variant="h4"
-                  component="h1"
-                >
-                  {profile[0].fullname}
-                </Typography>
-
-                <Typography component="p" className={classes.whiteText}>
-                  Specialties:
-                </Typography>
-                {profile[0].specialties.map((specialty, index) => (
-                  <Chip
-                    key={index}
-                    label={specialty}
-                    className={classes.specialtyChip}
+    if (artist.length < 1 || artist == undefined) return <h1>Loading...</h1>;
+    else
+      return (
+        <div className={classes.profile}>
+          <Card className={classes.card}>
+            <div className={classes.cover}>
+              <Grid container spacing={24}>
+                <Grid item xs={5} className={classes.picButton}>
+                  <Avatar
+                    alt={artist[0].profile.fullname}
+                    //   src={artist.profileurl}
+                    src={artist[0].profile.imageurl}
+                    className={classes.avatar}
                   />
-                ))}
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.button}
+                  >
+                    Connect
+                  </Button>
+                </Grid>
+                <Grid item xs={7} className={classes.artistInfo}>
+                  <Typography
+                    className={classes.whiteText}
+                    gutterBottom
+                    variant="h4"
+                    component="h1"
+                  >
+                    {artist[0].profile.fullname}
+                  </Typography>
 
-                <Typography component="p" className={classes.whiteText}>
-                  Genres:
-                </Typography>
-                {profile[0].genre.map((genre, index) => (
-                  <Chip
-                    key={index}
-                    label={genre}
-                    className={classes.genreChip}
-                  />
-                ))}
-              </Grid>
+                  <Typography component="p" className={classes.whiteText}>
+                    Specialties:
+                  </Typography>
+                  <div>
+                    {artist[0].profile.specialties.map((specialty, index) => (
+                      <Chip
+                        key={index}
+                        label={specialty}
+                        className={classes.specialtyChip}
+                      />
+                    ))}
+                  </div>
 
-              <Grid item xs={12}>
-                <Typography component="p" className={classes.whiteText}>
-                  {profile[0].description}
-                </Typography>
-              </Grid>
+                  <Typography component="p" className={classes.whiteText}>
+                    Genres:
+                  </Typography>
+                  <div>
+                    {artist[0].profile.genres.map((genre, index) => (
+                      <Chip
+                        key={index}
+                        label={genre}
+                        className={classes.genreChip}
+                      />
+                    ))}
+                  </div>
+                  {Meteor.userId() === artist[0]._id && (
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className={classes.button}
+                      onClick={this.handleClickOpen}
+                    >
+                      Edit
+                    </Button>
+                  )}
+                  <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="form-dialog-title"
+                    fullWidth={true}
+                    maxWidth="lg"
+                  >
+                    <Paper className={classes.paper}>
+                      <DialogTitle id="form-dialog-title">
+                        Edit your profile
+                      </DialogTitle>
+                      <ProfileForm user={artist[0]._id} />
+                    </Paper>
+                  </Dialog>
+                </Grid>
 
-              <Grid item xs={7}>
-                <Paper className={classes.paper}>
-                  <Typography component="header">Past music works:</Typography>
+                <Grid item xs={12}>
+                  <Typography component="p" className={classes.whiteText}>
+                    {artist[0].profile.description}
+                  </Typography>
+                </Grid>
 
-                  {profile[0].musicWorks.map((song, index) => (
-                    <MusicPlayer
+                <Grid item xs={7}>
+                  <Paper className={classes.music}>
+                    <Typography component="header">
+                      Past music works:
+                    </Typography>
+
+                    {artist[0].profile.musicWorks.map((song, index) => (
+                      <MusicPlayer
+                        key={index}
+                        clientId={clientId}
+                        resolveUrl={song}
+                        onReady={() => console.log("track is loaded!")}
+                      />
+                    ))}
+                  </Paper>
+                </Grid>
+
+                <Grid item xs={5}>
+                  <Typography component="header" className={classes.whiteText}>
+                    Reviews:
+                  </Typography>
+                  {artist[0].profile.reviews.map((review, index) => (
+                    <Review
                       key={index}
-                      clientId={song.clientID}
-                      resolveUrl={song.resolveURL}
-                      onReady={() => console.log("track is loaded!")}
+                      text={review.text}
+                      reviewer={review.reviewer}
                     />
                   ))}
-                </Paper>
+                  <Review />
+                </Grid>
               </Grid>
-
-              <Grid item xs={5}>
-                <Typography component="header" className={classes.whiteText}>
-                  Reviews:
-                </Typography>
-                <Review />
-              </Grid>
-            </Grid>
-          </div>
-        </Card>
-      </div>
-    );
+            </div>
+          </Card>
+        </div>
+      );
+  }
 }
 
 Profile.propTypes = {
@@ -155,7 +202,7 @@ export default withStyles(styles)(
     console.log(profileId);
 
     return {
-      profile: Artists.find({ _id: profileId }).fetch()
+      artist: Artists.find({ _id: profileId }).fetch()
     };
   })(Profile)
 );

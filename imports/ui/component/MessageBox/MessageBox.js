@@ -1,126 +1,78 @@
-// import React, { Component } from 'react';
-// import { compose } from "recompose";
-// import { withTracker } from "meteor/react-meteor-data";
-// import { withStyles } from "@material-ui/core/styles";
-// import styles from "./styles";
-// class MessageBox extends Component {
-//     constructor(props) {
-//         super();
-//         this.state = {
-//           value: props.value,
-//         };
-//       }
-//       state = {
-//         anchorEl: null
-//       };
-    
-//       handleClick = event => {
-//         this.setState({ anchorEl: event.currentTarget });
-//       };
-    
-//       handleClose = () => {
-//         this.setState({ anchorEl: null });
-//       };
-//       render() {
-//         const { anchorEl } = this.state;
-//         const { classes, currentUserId } = this.props;
-//         return (
-//             <div>
-//               {/* <Button
-//                 variant="text"
-//                 color="primary"
-//                 disableFocusRipple={true}
-//                 disableRipple={true}
-//                 className={classes.messageButton}
-//                 aria-owns={anchorEl ? 'simple-menu' : undefined}
-//                 aria-haspopup="true"
-//                 onClick={this.handleClick}
-//               >
-//                 <MoreVertIcon />
-//               </Button>
-//               <Menu
-//                 id="simple-menu"
-//                 anchorEl={anchorEl}
-//                 open={Boolean(anchorEl)}
-//                 onClose={this.handleClose}
-//               >
-//                 <MenuItem
-//                   onClick={this.handleClose}
-//                   component={Link}
-//                   to="/profile"
-//                 >
-//                   <img
-//                     src={fingerLogo}
-//                     alt="profile logo"
-//                     className={classes.menulogo}
-//                   />Profile
-//                 </MenuItem>
-//                 <MenuItem
-//                   onClick={() => {
-//                     logoutMutation().catch(error => window.alert(error));
-//                     this.setState({ anchorEl: null });
-//                   }}
-//                 >
-//                   <img
-//                     src={powerLogo}
-//                     alt="log out logo"
-//                     className={classes.menulogo}
-//                   />Logout
-//                 </MenuItem>
-//               </Menu>
-//             </div>
-//             <div>
-// <Dialog
-//         disableBackdropClick
-//         disableEscapeKeyDown
-//         maxWidth="xs"
-//         onEntering={this.handleEntering}
-//         aria-labelledby="confirmation-dialog-title"
-//         {...other}
-//       >
-//         <DialogTitle id="confirmation-dialog-title">Phone Ringtone</DialogTitle>
-//         <DialogContent>
-//           <RadioGroup
-//             ref={ref => {
-//               this.radioGroupRef = ref;
-//             }}
-//             aria-label="Ringtone"
-//             name="ringtone"
-//             value={this.state.value}
-//             onChange={this.handleChange}
-//           >
-//             {options.map(option => (
-//               <FormControlLabel value={option} key={option} control={<Radio />} label={option} />
-//             ))}
-//           </RadioGroup>
-//         </DialogContent>
-//         <DialogActions>
-//           <Button onClick={this.handleCancel} color="primary">
-//             Cancel
-//           </Button>
-//           <Button onClick={this.handleOk} color="primary">
-//             Ok
-//           </Button>
-//         </DialogActions>
-//       </Dialog> */}
-//   </div>
+import React, { Component } from "react";
+import { compose } from "recompose";
+import { withTracker } from "meteor/react-meteor-data";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./styles";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Mail from "rmdi/lib/Mail";
+import Pets from "rmdi/lib/Pets";
+class MessageBox extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      value: props.value
+    };
+  }
+  state = {
+    anchorEl: null
+  };
 
-//         )}    
-// }
-// function MessageBox(props) {
-//   const { classes, currentUserId } = props;
-//   return (<div>
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
-//   </div>);
-// }
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+  render() {
+    const { anchorEl } = this.state;
+    const { classes, currentUser } = this.props;
+    return (
+      <div>
+        <Button
+          variant="text"
+          color="primary"
+          disableFocusRipple={true}
+          disableRipple={true}
+          className={classes.messageButton}
+          aria-owns={anchorEl ? "simple-menu" : undefined}
+          aria-haspopup="true"
+          onClick={this.handleClick}
+        >
+          <Mail color="tomato" />
+        </Button>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={this.handleClose}
+          className={classes.menu}
+        >
+        {currentUser.profile.messages?currentUser.profile.messages.map(
+            message=>(
+                <MenuItem onClick={()=>{
+                    return (console.log("you clicked",message));
+                }}><Pets className={classes.marginRight} color="red"/> A message from {message.from}</MenuItem>
+            )
+        ):null}
+         
 
-// export default compose(
-//     withStyles(styles),
-//     withTracker(() => {
-//       const currentUserId = Meteor.userId();
-//       return {
-//         currentUser: Meteor.user(),
-//         currentUserId
-//       };
-//     })
-//   )(MessageBox);
+        </Menu>
+      </div>
+    );
+  }
+}
+
+export default compose(
+  withStyles(styles),
+  withTracker(() => {
+    const currentUserId = Meteor.userId();
+    const currentUser= Meteor.user()
+    return {
+      currentUser: currentUser,
+      currentUserId: currentUserId
+    };
+  })
+)(MessageBox);
