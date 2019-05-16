@@ -16,7 +16,7 @@ if (Meteor.isServer) {
  *  Meteor.subscribe('allusers');
  */
 if (Meteor.isServer) {
-  Meteor.publish("allusers", function allUsersPublication() {
+  Meteor.publish("allArtists", function allUsersPublication() {
     return Artists.find({}, { emails: 0, services: 0 });
   });
 }
