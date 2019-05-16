@@ -5,6 +5,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import Typography from "@material-ui/core/Typography";
 import Bounce from "react-reveal/Bounce";
 import Fade from "react-reveal/Fade";
+import Gravatar from "react-gravatar";
 class HomeMap extends Component {
   constructor(props) {
     super(props);
@@ -32,11 +33,16 @@ class HomeMap extends Component {
     );
   };
   onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
+    this.setState(
+      {
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+      },
+      () => {
+        console.log(this.state.selectedPlace.specialties);
+      }
+    );
 
   onMapClicked = props => {
     if (this.state.showingInfoWindow) {
@@ -50,7 +56,8 @@ class HomeMap extends Component {
     this.geolocation();
   }
   render() {
-    const { classes } = this.props;
+    const { classes, users } = this.props;
+    console.log(users);
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
@@ -81,29 +88,58 @@ class HomeMap extends Component {
                 lat: this.state.currentLatLng.lat,
                 lng: this.state.currentLatLng.lng
               }}
-              zoom={10}
+              zoom={11}
             >
-              <Marker
-                onClick={this.onMarkerClick}
-                name={"Your are here"}
-                position={{
-                  lat: this.state.currentLatLng.lat,
-                  lng: this.state.currentLatLng.lng
-                }}
-                // icon={{
-                //   url: "/path/to/custom_icon.png",
-                //   anchor: new google.maps.Point(32, 32),
-                //   scaledSize: new google.maps.Size(64, 64)
-                // }}
-              />
-
+              {users.map(user => (
+                <Marker
+                  key={user._id}
+                  onClick={this.onMarkerClick}
+                  name={user.fullname}
+                  specialties={user.specialties}
+                  id={user._id}
+                  position={{
+                    lat: user.location.lat,
+                    lng: user.location.lng
+                  }}
+                />
+              ))}
               <InfoWindow
                 marker={this.state.activeMarker}
                 visible={this.state.showingInfoWindow}
-                className="popup"
+                className={classes.info}
               >
-                <div className="popup">
-                  <h1>{this.state.selectedPlace.name}</h1>
+                <div className={classes.popupContainer}>
+                  <div className={classes.popupTop}>
+                    <Gravatar
+                      className={classes.userImage}
+                      email={this.state.selectedPlace.id + "@hotmail.com"}
+                      size={30}
+                    />
+                    <h1 className={classes.username}>
+                      {this.state.selectedPlace.name}
+                    </h1>
+                  </div>
+                  <div className={classes.popupBottom}>
+                    <h3>Specialties:</h3>
+                    <ul className={classes.listContainer}>
+                      {this.state.selectedPlace.specialties
+                        ? this.state.selectedPlace.specialties.map(s => {
+                            let specialties = s
+                              .replace(/\s+/g, "")
+                              .toLowerCase();
+                            return (
+                              <li className={classes.iconlist}>
+                                <img
+                                  className={classes.icon}
+                                  src={`/specialties/${specialties}.svg`}
+                                  alt="specialties"
+                                />
+                              </li>
+                            );
+                          })
+                        : "loading.."}
+                    </ul>
+                  </div>
                 </div>
               </InfoWindow>
             </Map>

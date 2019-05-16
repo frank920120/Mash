@@ -6,8 +6,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    background: "#9b42f4",
-    position: "relative"
+    background: "#9b42f4"
   },
   cover: {
     position: "absolute",

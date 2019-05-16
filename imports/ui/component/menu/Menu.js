@@ -19,11 +19,13 @@ function Menu(props) {
       <AppBar className={classes.appbar} position="static">
         <div className={classes.cover} />
         <Toolbar className={classes.toolbar}>
-          <img
-            className={classes.logo}
-            src="/branding/images/mash_logo.svg"
-            alt=""
-          />
+          <a href="/directory">
+            <img
+              className={classes.logo}
+              src="/branding/images/mash_logo.svg"
+              alt=""
+            />
+          </a>
           {currentUserId ? (
             <Button onClick={() => Meteor.logout()}>Logout</Button>
           ) : (
