@@ -52,8 +52,10 @@ Meteor.methods({
     Artists.update(
       { _id: user._id },
       {
-        $set: {
-          ...user
+        profile: {
+          $set: {
+            ...user
+          }
         }
       }
     );
@@ -136,12 +138,16 @@ if (Meteor.isServer) {
     console.log("filter", filter);
     const conditions = [];
     filter.fullname
-      ? conditions.push({ fullname: { $regex: `.*${filter.fullname}.*` } })
+      ? conditions.push({
+          "profile.fullname": { $regex: `.*${filter.fullname}.*` }
+        })
       : null;
     filter.specialties
-      ? conditions.push({ specialties: { $all: filter.specialties } })
+      ? conditions.push({ "profile.specialties": { $all: filter.specialties } })
       : null;
-    filter.genre ? conditions.push({ genre: { $all: filter.genre } }) : null;
+    filter.genre
+      ? conditions.push({ "profile.genre": { $all: filter.genre } })
+      : null;
     const query =
       conditions.length === 0
         ? {}

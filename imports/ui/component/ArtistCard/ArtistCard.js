@@ -11,38 +11,36 @@ import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import styles from "./styles";
 import { Link } from "react-router-dom";
 
-const ArtistCard = ({ classes, profile }) => {
-  const musicWorks = profile.musicWorks[0];
+const ArtistCard = ({ classes, artist }) => {
+  const workSample = artist.profile.musicWorks[0];
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.media}
-        image={profile.imageurl}
+        image={artist.profile.imageurl}
         title="Profile Picture"
       />
       <CardContent>
         <Typography gutterBottom className={classes.name} component="h2">
-          {profile.fullname}
+          {artist.profile.fullname}
         </Typography>
         <Typography className={classes.info} component="p">
-          {profile.specialties.join(" - ")}
+          {artist.profile.specialties.join(" - ")}
         </Typography>
         <hr />
         <Typography className={classes.info} component="p">
-          {profile.genre.join(" - ")}
+          {artist.profile.genres.join(" - ")}
         </Typography>
       </CardContent>
       <MusicPlayer
         className={classes.player}
         clientId={clientId}
-        resolveUrl={
-          musicWorks && musicWorks.resolveURL && musicWorks.resolveURL
-        }
+        resolveUrl={workSample && workSample}
       />
       <CardActions>
-        <Link to={`/profile/${profile._id}`} className={classes.link}>
+        <Link to={`/profile/${artist._id}`} className={classes.link}>
           <Button className={classes.learn}>Learn More</Button>
         </Link>
       </CardActions>
