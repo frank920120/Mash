@@ -11,7 +11,7 @@ import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import styles from "./styles";
 
 const ArtistCard = ({ classes, artist }) => {
-  const musicWorks = artist.profile.musicWorks[0];
+  const workSample = artist.profile.musicWorks[0];
   const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
   return (
@@ -36,7 +36,7 @@ const ArtistCard = ({ classes, artist }) => {
       <MusicPlayer
         className={classes.player}
         clientId={clientId}
-        resolveUrl={musicWorks && musicWorks}
+        resolveUrl={workSample && workSample}
       />
       <CardActions>
         <Button className={classes.learn}>Learn More</Button>
