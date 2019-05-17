@@ -27,6 +27,7 @@ const styles = theme => ({
   },
   accountForm: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
   }

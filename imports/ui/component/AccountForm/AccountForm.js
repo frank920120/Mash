@@ -118,14 +118,13 @@ class AccountForm extends Component {
                       }
                     );
               }}
-              // validate={validate}
               subscription={{
                 submitted: true
               }}
               render={({ handleSubmit, pristine, submitting, invalid }) => (
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
                   {!formToggle && (
-                    <div>
+                    <FormControl fullWidth className={classes.formControl}>
                       <InputLabel htmlFor="fullname">Fullname</InputLabel>
                       <Field
                         name="fullname"
@@ -156,7 +155,7 @@ class AccountForm extends Component {
                           </div>
                         )}
                       </Field>
-                    </div>
+                    </FormControl>
                   )}
 
                   <FormControl fullWidth className={classes.formControl}>
