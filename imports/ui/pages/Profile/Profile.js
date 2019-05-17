@@ -37,10 +37,11 @@ class Profile extends Component {
   };
 
   render() {
-    const { classes, artist } = this.props;
+    const { classes, artist, currentUser } = this.props;
     const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
 
-    if (artist.length < 1 || artist == undefined) return <h1>Loading...</h1>;
+    if (artist.length < 1 || artist == undefined || currentUser === undefined)
+      return <h1>Loading...</h1>;
     else
       return (
         <div className={classes.profile}>
@@ -202,10 +203,12 @@ export default withStyles(styles)(
   withTracker(({ match }) => {
     Meteor.subscribe("allArtists");
     const profileId = match.params.userId;
-    console.log(profileId);
+    // console.log(profileId);
+    const currentUser = Meteor.user();
 
     return {
-      artist: Artists.find({ _id: profileId }).fetch()
+      artist: Artists.find({ _id: profileId }).fetch(),
+      currentUser: currentUser
     };
   })(Profile)
 );

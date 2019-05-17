@@ -55,7 +55,7 @@ const styles = {
   },
   paper: {
     padding: 40,
-    backgroundColor: "blue",
+    backgroundColor: "#3acba6",
     borderRadius: 0
   },
   description: {
