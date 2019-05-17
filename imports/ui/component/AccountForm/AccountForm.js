@@ -109,9 +109,10 @@ class AccountForm extends Component {
                           location: {
                             lat: this.state.getCurrentPosition.lat,
                             lng: this.state.getCurrentPosition.lng
-                          }
-                        },
-                        ...newUser
+                          },
+                          isCheckedPreference: false,
+                          ...newUser
+                        }
                       },
                       () => {
                         this.props.history.push("/preference");

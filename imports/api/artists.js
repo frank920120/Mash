@@ -53,7 +53,7 @@ Meteor.methods({
       { _id: user._id },
       {
         $set: {
-            ...user
+          ...user
         }
       }
     );

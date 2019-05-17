@@ -6,9 +6,14 @@ import CheckboxGroup from "../../component/CheckBox";
 import styles from "./styles";
 import Fade from "react-reveal/Fade";
 import { withStyles } from "@material-ui/core/styles";
+import { Meteor } from "meteor/meteor";
 
 const onSubmit = values => {
-  console.log(values);
+  const user = {
+    _id: Meteor.userId(),
+    "profile.isCheckedPreference": true
+  };
+  Meteor.call("artists.updateProfile", user);
 };
 
 const myOptions = [
