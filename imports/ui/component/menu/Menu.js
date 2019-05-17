@@ -12,6 +12,7 @@ import AccountForm from "../AccountForm";
 import { compose } from "recompose";
 import { withTracker } from "meteor/react-meteor-data";
 import MessageBox from "../MessageBox";
+import { Meteor } from "meteor/meteor";
 
 function Menu(props) {
   const { classes, currentUserId, currentUser } = props;
@@ -28,9 +29,17 @@ function Menu(props) {
               alt=""
             />
           </a>
+          {Meteor.userId() && (
+            <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
+          )}
+
           {currentUserId ? (
             <div className={classes.buttonsContainer}>
-              {currentUser ? ( currentUser.profile.messages? <MessageBox />:null ): null}
+              {currentUser ? (
+                currentUser.profile.messages ? (
+                  <MessageBox />
+                ) : null
+              ) : null}
               <Button onClick={() => Meteor.logout()}>Logout</Button>
             </div>
           ) : (
@@ -50,7 +59,7 @@ export default compose(
   withStyles(styles),
   withTracker(() => {
     const currentUserId = Meteor.userId();
-    const currentUser= Meteor.user()
+    const currentUser = Meteor.user();
     return {
       currentUser: currentUser,
       currentUserId: currentUserId
