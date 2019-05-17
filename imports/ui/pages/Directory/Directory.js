@@ -11,8 +11,16 @@ import styles from "./styles";
 
 class Directory extends Component {
   render() {
-    const artists = this.props.allUsers;
+    const allArtists = this.props.allUsers;
     const classes = this.props.classes;
+    const currentUserId = Meteor.userId();
+    const currentUser = allArtists.filter(
+      user => user._id === currentUserId
+    )[0];
+    console.log(currentUser);
+    // console.log(allArtists);
+    // const userPrefs = allArtists.find(_id === currentUser);
+    // console.log(userPrefs);
     return (
       <React.Fragment>
         <div className={classes.filters}>
@@ -20,15 +28,23 @@ class Directory extends Component {
           <FilterSkills />
           <FilterGenres />
         </div>
-
-        <Grid container className={classes.root} spacing={12}>
-          {artists.map((artist, i) => {
-            return (
-              <Grid item xs={12} md={6} lg={4} key={artist._id}>
-                <ArtistCard artist={artist} />
-              </Grid>
-            );
-          })}
+        <Grid container className={classes.root} spacing={8}>
+          {/* get genres preferences from current user */}
+          {/* {const prefs = "";} */}
+          {/* get allArtists but current user */}
+          {/* {const allOtherArtists = filter(allArtists._id !== currentUser)} */}
+          {/* set the initial state for genres with current user preferences */}
+          {/* {setState(prefs)} */}
+          {/* map filteredArtists */}
+          {allArtists
+            .filter(user => user._id != currentUserId)
+            .map((artist, i) => {
+              return (
+                <Grid item xs={12} md={6} lg={4} key={artist._id}>
+                  <ArtistCard artist={artist} />
+                </Grid>
+              );
+            })}
         </Grid>
       </React.Fragment>
     );
