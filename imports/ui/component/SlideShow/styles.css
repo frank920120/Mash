@@ -1,5 +1,5 @@
 .SlideShowWrapper {
-  background-image: url("/images/slideshowbg.png");
+  background-image: url("/images/HomeDes.png");
   position: relative;
   padding: 60px 60px;
   padding-top: 30px;
@@ -11,11 +11,19 @@
   
 }
 
+.underline{
+  width: 55px;
+    height: 4px;
+    margin: 8px auto 0;
+    display: block;
+    background-color: #4f4af6;
+
+}
 .CollaborationHeading {
   color: white;
   margin-bottom: 30px;
   text-align: center;
-  font-size: 5vw;
+  font-size: 40px;
 }
 
 .cover {

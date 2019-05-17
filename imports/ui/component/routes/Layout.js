@@ -5,12 +5,11 @@ import LandingPageContainer from "../../pages/LangingPage";
 import Profile from "../../pages/Profile";
 import PreferenceContainer from "../../pages/Preference";
 import Menu from "../menu";
-
-export default () => (
+import { withRouter } from "react-router";
+const Layout = ({ match, location, history }) => (
   <Fragment>
-    {window.location.pathname === "/preference" ? (
+    {location.pathname == "/preference" ? (
       <Switch>
-        {" "}
         <Route
           exact
           path="/preference"
@@ -22,6 +21,13 @@ export default () => (
       <Fragment>
         <Menu />
         <Switch>
+          <Route
+            exact
+            path="/preference"
+            name="preference"
+            component={PreferenceContainer}
+          />
+
           <Route
             exact
             path="/directory"
@@ -49,3 +55,4 @@ export default () => (
     )}
   </Fragment>
 );
+export default withRouter(Layout);
