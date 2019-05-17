@@ -17,6 +17,10 @@ const styles = theme => ({
   },
   marginRight:{
     marginRight:10
+  },
+  alertMessage:{
+    // backgroundColor: "#3ACBA6",
+    // color:"white"
   }
 });
 export default styles;
