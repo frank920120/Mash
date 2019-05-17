@@ -23,7 +23,8 @@ class MessageBox extends Component {
       value: props.value,
       openPopup: false,
       openAlert: false,
-      alertMessage: ""
+      alertMessage: "",
+      showAcceptButton: true
     };
   }
   state = {
@@ -78,7 +79,9 @@ class MessageBox extends Component {
             ? currentUser.profile.messages.map(message => (
                 <MenuItem
                   onClick={() => {
+                    console.log("message", message);
                     return this.setState({
+                      showAcceptButton: message.type > 0 ? true : false,
                       anchorEl: null,
                       text: message.text,
                       from: message.from,
@@ -110,69 +113,107 @@ class MessageBox extends Component {
               {this.state.text}
             </DialogContentText>
           </DialogContent>
-          <DialogActions>
-            <Button
-              autoFocus
-              onClick={() => {
-                this.setState({
-                  openPopup: false
-                });
+          {this.state.showAcceptButton ? (
+            <DialogActions>
+              <Button
+                autoFocus
+                onClick={() => {
+                  this.setState({
+                    openPopup: false
+                  });
 
-                const updatedMessage = currentUser.profile.messages.filter(
-                  message => {
-                    message.text !== this.state.text ||
-                      message.fromId !== this.state.fromId;
-                  }
-                );
-                const user = {
-                  _id: currentUserId,
-                  "profile.messages": updatedMessage
-                };
-                Meteor.call("artists.updateProfile", user);
-                const message = {
-                  toId: this.state.fromId,
-                  text:
-                    "I have accepted your request, this is my email address: " +
-                    currentUser.emails[0].address,
-                  fromId: currentUserId,
-                  from: currentUser.profile.fullname
-                    ? currentUser.profile.fullname
-                    : "The user you connected"
-                };
-                Meteor.call("artists.addMessage", message);
-                this.setState({
-                  openAlert: true,
-                  alertMessage: `You are connecting with ${this.state.from}!`
-                });
-              }}
-              color="primary"
-            >
-              {"ACCEPT & REMOVE THE MESSAGE"}
-            </Button>
-            <Button
-              color="secondary"
-              onClick={() => {
-                this.setState({
-                  openPopup: false
-                });
-                const updatedMessage = currentUser.profile.messages.filter(
-                  message => {
-                    message.text !== this.state.text ||
-                      message.fromId !== this.state.fromId;
-                  }
-                );
-                const user = {
-                  _id: currentUserId,
-                  "profile.messages": updatedMessage
-                };
-                //console.log(user);
-                Meteor.call("artists.updateProfile", user);
-                console.log("reject");
-              }}
-            >
-              {"REJECT"}
-            </Button>
-          </DialogActions>
+                  const updatedMessage = currentUser.profile.messages.filter(
+                    message => {
+                      return (
+                        message.type === 1 ||
+                        message.fromId !== this.state.fromI
+                      );
+                    }
+                  );
+
+                  const user = {
+                    _id: currentUserId,
+                    "profile.messages": updatedMessage
+                  };
+                  Meteor.call("artists.updateProfile", user);
+                  const message = {
+                    type: 0,
+                    toId: this.state.fromId,
+                    text:
+                      "I have accepted your request, this is my email address: " +
+                      currentUser.emails[0].address,
+                    fromId: currentUserId,
+                    from: currentUser.profile.fullname
+                      ? currentUser.profile.fullname
+                      : "The user you connected"
+                  };
+                  Meteor.call("artists.addMessage", message);
+                  this.setState({
+                    openAlert: true,
+                    alertMessage: `You are connecting with ${this.state.from}!`
+                  });
+                }}
+                color="primary"
+              >
+                {"ACCEPT & REMOVE THE MESSAGE"}
+              </Button>
+              <Button
+                color="secondary"
+                onClick={() => {
+                  this.setState({
+                    openPopup: false
+                  });
+                  const updatedMessage = currentUser.profile.messages.filter(
+                    message => {
+                      return (
+                        message.type === 1 ||
+                        message.fromId !== this.state.fromId
+                      );
+                    }
+                  );
+                  const user = {
+                    _id: currentUserId,
+                    "profile.messages": updatedMessage
+                  };
+                  //console.log(user);
+                  Meteor.call("artists.updateProfile", user);
+                  console.log("reject");
+                }}
+              >
+                {"REJECT"}
+              </Button>
+            </DialogActions>
+          ) : (
+            <DialogActions>
+              <Button
+                color="primary"
+                onClick={() => {
+                  this.setState({
+                    openPopup: false
+                  });
+                  const updatedMessage = currentUser.profile.messages.filter(
+                    message => {
+                      return (
+                        message.type !== 0 ||
+                        message.fromId !== this.state.fromId
+                      );
+                    }
+                  );
+                  console.log("state from id", this.state.fromId);
+                  console.log("updatedMessage", updatedMessage);
+                  const user = {
+                    _id: currentUserId,
+                    "profile.messages": updatedMessage
+                  };
+                  //console.log(user);
+                  Meteor.call("artists.updateProfile", user);
+                  console.log("reject");
+                }}
+              >
+                {"OK"}
+              </Button>
+            </DialogActions>
+          )}
         </Dialog>
         <Snackbar
           className={classes.alertMessage}

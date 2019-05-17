@@ -35,11 +35,10 @@ class Profile extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
   render() {
     const { classes, artist, currentUser } = this.props;
     const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
-
+    console.log("artist",artist);
     if (artist.length < 1 || artist == undefined || currentUser === undefined)
       return <h1>Loading...</h1>;
     else
@@ -59,6 +58,18 @@ class Profile extends Component {
                     variant="contained"
                     color="secondary"
                     className={classes.button}
+                    onClick={() => {
+                      const message = {
+                        type:1,
+                        toId: artist[0]._id,
+                        text:
+                          "I went through your profile. Can I get your email for future collaboration?",
+                        fromId: currentUser._id,
+                        from: currentUser.profile.fullname
+                      };
+                      Meteor.call("artists.addMessage", message);
+                      window.alert("Sent the message!");
+                    }}
                   >
                     Connect
                   </Button>
@@ -201,13 +212,11 @@ Profile.defaultProps = {
 
 export default withStyles(styles)(
   withTracker(({ match }) => {
-    Meteor.subscribe("allArtists");
-    const profileId = match.params.userId;
-    // console.log(profileId);
+    Meteor.subscribe("getProfileById", match.params.userId);
     const currentUser = Meteor.user();
 
     return {
-      artist: Artists.find({ _id: profileId }).fetch(),
+      artist: Artists.find({_id:match.params.userId}).fetch(),
       currentUser: currentUser
     };
   })(Profile)

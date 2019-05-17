@@ -83,14 +83,12 @@ Meteor.methods({
  * Input: String userId
  * Call:  Meteor.call('artists.getProfileById', 'userId');
  */
-// Meteor.methods({
-//   "artists.getProfileById"(userId) {
-//     if (!this.userId) {
-//       throw new Meteor.Error("Please Login.");
-//     }
-//     return Artists.find({ _id: userId }, { emails: 0, services: 0 }).fetch();
-//   }
-// });
+if (Meteor.isServer) {
+  Meteor.publish("getProfileById", function profilePublication(userIdString) {
+    console.log(userIdString);
+    return Artists.find({ _id: userIdString },{ emails: 0, services: 0 });
+  });
+}
 
 /**
  * Get all user Locations
