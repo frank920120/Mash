@@ -17,7 +17,7 @@ const HomeDes = ({ classes }) => {
               variant="display3"
               gutterBottom
             >
-              What is <span className={classes.highlight}>MASH</span>
+              WHAT IS <span className={classes.highlight}>MASH</span>
             </Typography>
           </Bounce>
           <Bounce left duration={2000}>

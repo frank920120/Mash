@@ -78,7 +78,8 @@ class HomeMap extends Component {
             variant="display3"
             gutterBottom
           >
-            Artists ready to collaborate with you.....
+            COLLAORATIONS AT YOUR AREA
+            <span className={classes.underline} />
           </Typography>
         </Fade>
         <Bounce left duration={2000}>

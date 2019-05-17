@@ -9,7 +9,14 @@ const styles = {
   map: {
     position: "relative",
     width: "100%",
-    height: 500
+    height: 600
+  },
+  underline: {
+    width: 55,
+    height: 4,
+    margin: "8px auto 0",
+    display: "block",
+    backgroundColor: "#4f4af6"
   },
   info: {
     backgroundColor: "red"
@@ -19,7 +26,7 @@ const styles = {
   },
   mapHeader: {
     fontWeight: 800,
-    fontSize: "5vw",
+    fontSize: 40,
     color: "black",
     paddingTop: 60
   },
