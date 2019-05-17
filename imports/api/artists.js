@@ -53,7 +53,9 @@ Meteor.methods({
       { _id: user._id },
       {
         $set: {
+          profile: {
             ...user
+          }
         }
       }
     );

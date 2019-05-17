@@ -12,12 +12,6 @@ function SmartContract(props) {
   return (
     <section className={classes.root}>
       <div className={classes.layoutBody} width="large">
-        <Fade top duration={2000}>
-          <h1 className={classes.header}>
-            HOW IT WORKS
-            <span className={classes.underline} />
-          </h1>
-        </Fade>
         <img
           src="/images/productCurvyLines.png"
           className={classes.curvyLines}
@@ -27,7 +21,6 @@ function SmartContract(props) {
           <Grid item xs={12} md={4}>
             <Fade left duration={1000}>
               <div className={classes.item}>
-                <div className={classes.number}>1.</div>
                 <img
                   className={classes.image}
                   src="/images/find.svg"
@@ -53,7 +46,6 @@ function SmartContract(props) {
           <Grid item xs={12} md={4}>
             <Fade left duration={2000}>
               <div className={classes.item}>
-                <div className={classes.number}>2.</div>
                 <img
                   className={classes.image}
                   src="/images/connect.svg"
@@ -77,7 +69,6 @@ function SmartContract(props) {
           <Grid item xs={12} md={4}>
             <Fade left duration={3000}>
               <div className={classes.item}>
-                <div className={classes.number}>3.</div>
                 <img
                   className={classes.image}
                   src="/images/agree.svg"

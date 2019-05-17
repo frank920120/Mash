@@ -9,7 +9,7 @@ const styles = theme => ({
     alignItems: "center",
     backgroundColor: "#4717F6",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 5,
+    padding: theme.spacing.unit * 4,
     outline: "none",
     zIndex: 99999,
     borderRadius: 4
@@ -18,17 +18,11 @@ const styles = theme => ({
     zIndex: 99999
   },
   formControl: {
-    padding: 20
+    padding: 10
   },
   buttons: {
     display: "flex",
-    flexDirection: "column",
     justifyContent: "space-around"
-  },
-  accountForm: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
   }
 });
 

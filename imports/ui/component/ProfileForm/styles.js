@@ -1,7 +1,5 @@
 const styles = theme => ({
-  formContainer: {
-    margin: 40
-  },
+  formContainer: {},
   label: {
     color: "white",
     "&$focusedLabel": {
@@ -23,12 +21,12 @@ const styles = theme => ({
     }
   },
   error: {},
-  floatingLabelFocusStyle: {
+  floatingLabelFocusStyle:{
     color: "red"
   },
-  test: {
-    backgroundColor: "#9b42f4",
-    color: "white"
+  test:{
+    backgroundColor:'#9b42f4',
+    color:'white',
   },
   root: {
     display: "flex",
@@ -37,12 +35,12 @@ const styles = theme => ({
   formControl: {
     margin: theme.spacing.unit,
     width: "100%",
-    borderBottom: "1px solid white"
+    borderBottom: '1px solid white',
   },
   chips: {
     display: "flex",
     flexWrap: "wrap",
-    color: "prime"
+    color:"prime"
   },
   chip: {
     margin: theme.spacing.unit / 4
@@ -54,11 +52,11 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: "100%",
-    borderBottom: "1px solid white"
+    borderBottom: '1px solid white',
   },
-  buttons: {
-    width: "100%",
-    textAlign: "center"
+  buttons:{
+    width:'100%',
+    textAlign:'center',
   },
   button: {
     margin: theme.spacing.unit

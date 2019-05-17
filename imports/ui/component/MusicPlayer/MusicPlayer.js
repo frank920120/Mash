@@ -14,7 +14,7 @@ import styles from "./styles";
 import { Meteor } from "meteor/meteor";
 import { Artists } from "../../../api/artists.js";
 import { withTracker } from "meteor/react-meteor-data";
-import { withRouter } from "react-router-dom";
+
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -34,8 +34,7 @@ const MusicPlayer = withSoundCloudAudio(props => {
     playing,
     track,
     currentTime,
-    duration,
-    location
+    duration
   } = props;
 
   const play = () => {
@@ -52,13 +51,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
   return (
     <div className={classes.audioCard}>
-      {location.pathname !== "/directory" ? (
-        <CardMedia
-          className={classes.cover}
-          image={track.artwork_url}
-          title="Live from space album cover"
-        />
-      ) : null}
+      {/* <CardMedia
+        className={classes.cover}
+        image={track.artwork_url}
+        title="Live from space album cover"
+      /> */}
 
       <div className={classes.musicDisplay}>
         <div className={classes.controls}>
@@ -90,6 +87,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
           variant="determinate"
           value={(currentTime / duration) * 100 || 0}
         />
+        {/* <Progress
+          className={classes.progressBar}
+          value={(currentTime / duration) * 100 || 0}
+          {...props}
+        /> */}
       </div>
     </div>
   );
@@ -97,12 +99,10 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
 MusicPlayer.propTypes = {};
 
-export default withRouter(
-  withStyles(styles, { withTheme: true })(
-    withTracker(() => {
-      return {
-        artists: Artists.find({}).fetch()
-      };
-    })(MusicPlayer)
-  )
+export default withStyles(styles, { withTheme: true })(
+  withTracker(() => {
+    return {
+      artists: Artists.find({}).fetch()
+    };
+  })(MusicPlayer)
 );

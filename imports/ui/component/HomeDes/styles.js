@@ -21,9 +21,7 @@ const styles = {
     width: "80%"
   },
   highlight: {
-    textDecoration: "underline",
-    textDecorationColor: "#4f4af6",
-    textUnderlinePosition: "under"
+    textDecoration: "underline"
   },
   desHeader: {
     color: "white",

@@ -1,5 +1,5 @@
 const styles = {
-  profile: {
+  root: {
     display: "flex",
     flexGrow: 1,
     justifyContent: "center",
@@ -30,9 +30,7 @@ const styles = {
     alignItems: "center"
   },
   artistInfo: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 20
+    marginTop: 40
   },
   button: {
     marginTop: 30
@@ -52,18 +50,6 @@ const styles = {
   },
   whiteText: {
     color: "white"
-  },
-  paper: {
-    padding: 40,
-    backgroundColor: "blue",
-    borderRadius: 0
-  },
-  description: {
-    paddingTop: 40,
-    paddingBottom: 40
-  },
-  chips: {
-    height: 52
   }
 };
 

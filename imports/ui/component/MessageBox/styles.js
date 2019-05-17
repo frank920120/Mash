@@ -11,12 +11,6 @@ const styles = theme => ({
       background: "rgba(0, 0, 0, 0.1)"
     },
     padding: 0
-  },
-  menu:{
-    zIndex:99999999999999
-  },
-  marginRight:{
-    marginRight:10
   }
 });
 export default styles;

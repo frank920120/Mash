@@ -6,11 +6,11 @@ import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import styles from "./styles";
 import { Meteor } from "meteor/meteor";
-import { Form, Field, FormSpy } from "react-final-form";
-import validate from "./helpers/validation";
+import { Form, FormSpy } from "react-final-form";
 import { FormControl, Grid, Input, InputLabel } from "@material-ui/core";
+import { Field } from "react-final-form-html5-validation";
 import { Accounts } from "meteor/accounts-base";
-import { withRouter } from "react-router-dom";
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -24,6 +24,7 @@ function getModalStyle() {
 }
 
 const required = value => (value ? undefined : "Required");
+
 const newUser = {
   imageUrl: "https://loremflickr.com/320/240",
   description: "No bio yet but just wait... it will blow your mind",
@@ -71,7 +72,7 @@ class AccountForm extends Component {
   };
 
   render() {
-    const { formToggle, error, open } = this.state;
+    const { error, open } = this.state;
     const { classes } = this.props;
 
     return (
@@ -84,14 +85,14 @@ class AccountForm extends Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="h6" id="modal-title" className={classes.title}>
-              {formToggle ? "Welcome Back!" : "Welcome to the Mash community"}
+            <Typography variant="h6" id="modal-title">
+              Login Form
             </Typography>
 
             <Form
               onSubmit={values => {
                 this.setState.error = null;
-                formToggle
+                this.state.formToggle
                   ? Meteor.loginWithPassword(
                       values.email,
                       values.password,
@@ -100,50 +101,38 @@ class AccountForm extends Component {
                         err ? this.setState({ error: err.reason }) : null;
                       }
                     )
-                  : Accounts.createUser(
-                      {
-                        email: values.email,
-                        password: values.password,
-                        profile: {
-                          fullname: values.fullname,
-                          location: {
-                            lat: this.state.getCurrentPosition.lat,
-                            lng: this.state.getCurrentPosition.lng
-                          }
+                  : Accounts.createUser({
+                      email: values.email,
+                      password: values.password,
+                      profile: {
+                        fullname: values.fullname,
+                        location: {
+                          lat: this.state.getCurrentPosition.lat,
+                          lng: this.state.getCurrentPosition.lng
                         },
                         ...newUser
-                      },
-                      () => {
-                        this.props.history.push("/preference");
                       }
-                    );
+                    });
               }}
-              // validate={validate}
               subscription={{
                 submitted: true
               }}
               render={({ handleSubmit, pristine, submitting, invalid }) => (
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
-                  {!formToggle && (
-                    <div>
+                  {!this.state.formToggle && (
+                    <FormControl fullWidth className={classes.formControl}>
                       <InputLabel htmlFor="fullname">Fullname</InputLabel>
+
                       <Field
                         name="fullname"
-                        placeholder="fullname"
-                        validate={required}
-                        type="text"
-                        subscription={{
-                          value: true,
-                          active: true,
-                          error: true,
-                          touched: true
-                        }}
-                      >
-                        {({ input, meta, placeholder }) => (
+                        required
+                        valueMissing="Required: What should we call you?"
+                        render={({ input, meta }) => (
                           <div>
                             <Input
                               id="fullname"
-                              className={meta.active ? "active" : ""}
+                              className={meta.active ? classes.active : ""}
+                              type="text"
                               inputProps={{
                                 ...input,
                                 autoComplete: "off"
@@ -155,42 +144,34 @@ class AccountForm extends Component {
                             )}
                           </div>
                         )}
-                      </Field>
-                    </div>
+                      />
+                    </FormControl>
                   )}
-
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="email">Email</InputLabel>
 
                     <Field
                       name="email"
-                      placeholder="Email"
-                      validate={required}
+                      required
+                      valueMissing="required: Please enter an email"
                       type="email"
-                      subscription={{
-                        value: true,
-                        active: true,
-                        error: true,
-                        touched: true
-                      }}
-                    >
-                      {({ input, meta, placeholder }) => (
+                      typeMismatch="Please enter a valid email address"
+                      render={({ input, meta }) => (
                         <div>
                           <Input
                             id="email"
-                            className={meta.active ? "active" : ""}
                             inputProps={{
                               ...input,
                               autoComplete: "off"
                             }}
                             value={input.value}
                           />
-                          {meta.error && meta.touched && (
+                          {/* {meta.error && meta.touched && (
                             <span>{meta.error}</span>
-                          )}
+                          )} */}
                         </div>
                       )}
-                    </Field>
+                    />
                   </FormControl>
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="password">Password</InputLabel>
@@ -202,12 +183,10 @@ class AccountForm extends Component {
                       tooShort="Please enter a longer password"
                       required
                       valueMissing="required: Please enter a password"
-                    >
-                      {({ input, meta }) => (
+                      render={({ input, meta }) => (
                         <div>
                           <Input
                             id="password"
-                            className={meta.active ? "active" : ""}
                             type="password"
                             inputProps={{
                               ...input,
@@ -215,14 +194,19 @@ class AccountForm extends Component {
                             }}
                             value={input.value}
                           />
-                          {meta.error && meta.touched && (
+                          {/* {meta.error && meta.touched && (
                             <span>{meta.error}</span>
-                          )}
+                          )} */}
                         </div>
                       )}
+                    >
+                      <div>
+                        {/* {fieldState => (
+                          <pre>{JSON.stringify(fieldState, undefined, 2)}</pre>
+                        )} */}
+                      </div>
                     </Field>
                   </FormControl>
-
                   <FormControl className={classes.formControl}>
                     <Grid className={classes.buttons}>
                       <Button
@@ -233,7 +217,7 @@ class AccountForm extends Component {
                         color="secondary"
                         disabled={pristine || invalid || submitting}
                       >
-                        {formToggle ? "Enter" : "Create Account"}
+                        {this.state.formToggle ? "Enter" : "Create Account"}
                       </Button>
 
                       <Button
@@ -241,22 +225,22 @@ class AccountForm extends Component {
                         type="button"
                         onClick={() => {
                           this.setState({
-                            formToggle: !formToggle
+                            formToggle: !this.state.formToggle
                           });
                         }}
                       >
-                        {formToggle
+                        {this.state.formToggle
                           ? "Create an account."
                           : "Login to existing account."}
                       </Button>
                     </Grid>
                   </FormControl>
 
-                  {/* <FormSpy subscription={{ values: true }}>
+                  <FormSpy subscription={{ values: true }}>
                     {({ values }) => (
                       <pre>{JSON.stringify(values, undefined, 2)}</pre>
                     )}
-                  </FormSpy> */}
+                  </FormSpy>
                   <Typography>{error}</Typography>
                 </form>
               )}
@@ -272,4 +256,4 @@ AccountForm.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRouter(withStyles(styles)(AccountForm));
+export default withStyles(styles)(AccountForm);

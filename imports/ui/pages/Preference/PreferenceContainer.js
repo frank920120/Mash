@@ -6,7 +6,7 @@ import CheckboxGroup from "../../component/CheckBox";
 import styles from "./styles";
 import Fade from "react-reveal/Fade";
 import { withStyles } from "@material-ui/core/styles";
-
+import { withRouter } from "react-router";
 const onSubmit = values => {
   console.log(values);
 };
@@ -26,12 +26,11 @@ const myOptions = [
   "PUNK"
 ];
 
-function PreferenceContainer({ classes }) {
+function PreferenceContainer({ classes, history }) {
+  console.log(history);
   return (
     <div className={classes.formWrapper}>
-      <a href="/directory">
-        <button className={classes.skip}>Skip</button>
-      </a>
+      <button className={classes.skip}>Skip</button>
       <Fade right duration={2000}>
         <img
           className={classes.guitor}
@@ -68,4 +67,4 @@ function PreferenceContainer({ classes }) {
   );
 }
 
-export default withStyles(styles)(PreferenceContainer);
+export default withRouter(withStyles(styles)(PreferenceContainer));

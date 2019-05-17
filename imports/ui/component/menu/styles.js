@@ -33,10 +33,6 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
-  },
-  buttonsContainer:{
-    display:'flex',
-    flexDirection:'row'
   }
 };
 

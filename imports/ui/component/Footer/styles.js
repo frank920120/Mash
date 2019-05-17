@@ -1,6 +1,5 @@
 const styles = {
   footerContainer: {
-    paddingTop: 30,
     width: "100%",
     backgroundColor: "#5E239D"
   },
