@@ -30,7 +30,10 @@ function Menu(props) {
           </a>
           {currentUserId ? (
             <div className={classes.buttonsContainer}>
-              {currentUser.profile.messages ? <MessageBox /> : null}
+              {(!!currentUser) && currentUser.profile.messages &&
+              currentUser.profile.messages.length > 0 ? (
+                <MessageBox />
+              ) : null}
               <Button onClick={() => Meteor.logout()}>Logout</Button>
             </div>
           ) : (
@@ -50,7 +53,7 @@ export default compose(
   withStyles(styles),
   withTracker(() => {
     const currentUserId = Meteor.userId();
-    const currentUser= Meteor.user()
+    const currentUser = Meteor.user();
     return {
       currentUser: currentUser,
       currentUserId: currentUserId

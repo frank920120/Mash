@@ -53,7 +53,7 @@ Meteor.methods({
       { _id: user._id },
       {
         $set: {
-            ...user
+          ...user
         }
       }
     );
@@ -172,3 +172,31 @@ if (Meteor.isServer) {
 //     filteredusers: Artists.find({}).fetch()
 //   };
 // })(ComponentName);
+
+//for sending message
+// const message = {
+//   toId: '',
+//   text: '',
+//   fromId: '',
+//   from:''
+// };
+Meteor.methods({
+  "artists.addMessage"(message) {
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
+    console.log(message);
+    Artists.update(
+      { _id: message.toId },
+      {
+        $push: {
+          "profile.messages": {
+            fromId: message.fromId,
+            from: message.from,
+            text: message.text
+          }
+        }
+      }
+    );
+  }
+});
