@@ -60,10 +60,10 @@ class ProfileForm extends Component {
     const thisUser = this.props.user;
     console.log(thisUser);
     this.state = {
-      fullname: thisUser.fullname ? thisUser.fullname : "",
-      bio: thisUser.description ? thisUser.description : "",
-      specialties: thisUser.specialties ? thisUser.specialties : [],
-      genres: thisUser.genre ? thisUser.genre : []
+      fullname: thisUser.profile.fullname ? thisUser.profile.fullname : "",
+      bio: thisUser.profile.description ? thisUser.profile.description : "",
+      specialties: thisUser.profile.specialties ? thisUser.profile.specialties : [],
+      genres: thisUser.profile.genres ? thisUser.profile.genres : []
     };
   }
   handleNameChange = event => {
@@ -84,7 +84,7 @@ class ProfileForm extends Component {
       "profile.fullname": this.state.fullname,
       "profile.description": this.state.bio,
       "profile.specialties": this.state.specialties,
-      "profile.genre": this.state.genres
+      "profile.genres": this.state.genres
     };
     Meteor.call("artists.updateProfile", user);
     alert("success");

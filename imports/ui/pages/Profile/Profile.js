@@ -118,7 +118,7 @@ class Profile extends Component {
                       <DialogTitle id="form-dialog-title">
                         Edit your profile
                       </DialogTitle>
-                      <ProfileForm user={artist[0]._id} />
+                      <ProfileForm user={artist[0]} />
                     </Paper>
                   </Dialog>
                 </Grid>
