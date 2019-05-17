@@ -21,10 +21,12 @@ const HomeBanner = ({ classes }) => {
     leave: { opacity: 0 },
     config: config.molasses
   });
-  useEffect(
-    () => void setInterval(() => set(state => (state + 1) % 4), 2500),
-    []
-  );
+  useEffect(() => {
+    void setInterval(() => set(state => (state + 1) % 4), 2500);
+    return function cleanup() {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, setInterval());
+    };
+  }, []);
   return (
     <section className={classes.bannerContainer}>
       <ExpandMore className={classes.arrow} size={60} />

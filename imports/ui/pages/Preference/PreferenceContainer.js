@@ -6,10 +6,8 @@ import CheckboxGroup from "../../component/CheckBox";
 import styles from "./styles";
 import Fade from "react-reveal/Fade";
 import { withStyles } from "@material-ui/core/styles";
-
-const onSubmit = values => {
-  console.log(values);
-};
+import { Meteor } from "meteor/meteor";
+import { withRouter } from "react-router-dom";
 
 const myOptions = [
   "ROCK",
@@ -26,7 +24,15 @@ const myOptions = [
   "PUNK"
 ];
 
-function PreferenceContainer({ classes }) {
+function PreferenceContainer({ classes, history }) {
+  const onSubmit = values => {
+    const user = {
+      _id: Meteor.userId(),
+      "profile.genres": values.genres
+    };
+    Meteor.call("artists.updateProfile", user);
+    history.push("/directory");
+  };
   return (
     <div className={classes.formWrapper}>
       <a href="/directory">
@@ -68,4 +74,4 @@ function PreferenceContainer({ classes }) {
   );
 }
 
-export default withStyles(styles)(PreferenceContainer);
+export default withRouter(withStyles(styles)(PreferenceContainer));

@@ -1,25 +1,34 @@
 import React, { Fragment } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 import DirectoryContainer from "../../pages/Directory";
 import LandingPageContainer from "../../pages/LangingPage";
 import Profile from "../../pages/Profile";
 import PreferenceContainer from "../../pages/Preference";
 import Menu from "../menu";
 import { withRouter } from "react-router";
-const Layout = ({ match, location, history }) => (
-  <Fragment>
-    {location.pathname == "/preference" ? (
-      <Switch>
-        <Route
-          exact
-          path="/preference"
-          name="preference"
-          component={PreferenceContainer}
-        />
-      </Switch>
-    ) : (
+import { withTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
+
+const Layout = ({ match, location, history, currentUserId }) => {
+  if (!currentUserId) {
+    return (
       <Fragment>
         <Menu />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            name="landingpage"
+            component={LandingPageContainer}
+          />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Fragment>
+    );
+  } else {
+    return (
+      <Fragment>
+        {location.pathname !== "/preference" && <Menu />}
         <Switch>
           <Route
             exact
@@ -30,29 +39,32 @@ const Layout = ({ match, location, history }) => (
 
           <Route
             exact
+            path="/"
+            name="landingpage"
+            component={LandingPageContainer}
+          />
+          <Route
+            exact
             path="/directory"
             name="directory"
             component={DirectoryContainer}
           />
-
-          {/* <Route exact path="/profile" name="profile" component={Profile} /> */}
-
           <Route
             exact
             path="/profile/:userId"
             name="profile"
             component={Profile}
           />
-          <Route
-            exact
-            path="/"
-            exact
-            name="landingpage"
-            component={LandingPageContainer}
-          />
         </Switch>
       </Fragment>
-    )}
-  </Fragment>
+    );
+  }
+};
+
+export default withRouter(
+  withTracker(() => {
+    return {
+      currentUserId: Meteor.userId()
+    };
+  })(Layout)
 );
-export default withRouter(Layout);

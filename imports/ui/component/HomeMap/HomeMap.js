@@ -41,16 +41,11 @@ class HomeMap extends Component {
     );
   };
   onMarkerClick = (props, marker, e) =>
-    this.setState(
-      {
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true
-      },
-      () => {
-        console.log(this.state.selectedPlace.specialties);
-      }
-    );
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
   onMapClicked = props => {
     if (this.state.showingInfoWindow) {
@@ -65,7 +60,7 @@ class HomeMap extends Component {
   }
   render() {
     const { classes, users } = this.props;
-    console.log(users);
+
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
