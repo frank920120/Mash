@@ -56,7 +56,6 @@ const Layout = ({ match, location, history, currentUserId }) => {
             component={Profile}
           />
         </Switch>
-        )}
       </Fragment>
     );
   }
