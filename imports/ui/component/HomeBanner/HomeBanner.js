@@ -23,9 +23,6 @@ const HomeBanner = ({ classes }) => {
   });
   useEffect(() => {
     void setInterval(() => set(state => (state + 1) % 4), 2500);
-    return function cleanup() {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, setInterval());
-    };
   }, []);
   return (
     <section className={classes.bannerContainer}>
