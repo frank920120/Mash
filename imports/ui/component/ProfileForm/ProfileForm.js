@@ -27,12 +27,12 @@ const genres = [
   "PUNK"
 ];
 const specialties = [
-  "Singer",
+  "Singing",
   "Keyboard",
   "Piano",
   "Recorder",
   "Classical Guitar",
-  "Drum set",
+  "Drums",
   "Electric Guitar",
   "Violin",
   "Percussion",
@@ -62,7 +62,9 @@ class ProfileForm extends Component {
     this.state = {
       fullname: thisUser.profile.fullname ? thisUser.profile.fullname : "",
       bio: thisUser.profile.description ? thisUser.profile.description : "",
-      specialties: thisUser.profile.specialties ? thisUser.profile.specialties : [],
+      specialties: thisUser.profile.specialties
+        ? thisUser.profile.specialties
+        : [],
       genres: thisUser.profile.genres ? thisUser.profile.genres : []
     };
   }
