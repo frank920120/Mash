@@ -25,6 +25,8 @@ import { Meteor } from "meteor/meteor";
 class Profile extends Component {
   constructor(props) {
     super(props);
+    this.handleClose = this.handleClose.bind(this);
+
     this.state = { open: false };
   }
 
@@ -38,7 +40,7 @@ class Profile extends Component {
   render() {
     const { classes, artist, currentUser } = this.props;
     const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
-    console.log("artist",artist);
+    console.log("artist", artist);
     if (artist.length < 1 || artist == undefined || currentUser === undefined)
       return <h1>Loading...</h1>;
     else
@@ -60,7 +62,7 @@ class Profile extends Component {
                     className={classes.button}
                     onClick={() => {
                       const message = {
-                        type:1,
+                        type: 1,
                         toId: artist[0]._id,
                         text:
                           "I went through your profile. Can I get your email for future collaboration?",
@@ -130,7 +132,7 @@ class Profile extends Component {
                       <DialogTitle id="form-dialog-title">
                         Edit your profile
                       </DialogTitle>
-                      <ProfileForm user={artist[0]} />
+                      <ProfileForm user={artist[0]} action={this.handleClose} />
                     </Paper>
                   </Dialog>
                 </Grid>
@@ -216,7 +218,7 @@ export default withStyles(styles)(
     const currentUser = Meteor.user();
 
     return {
-      artist: Artists.find({_id:match.params.userId}).fetch(),
+      artist: Artists.find({ _id: match.params.userId }).fetch(),
       currentUser: currentUser
     };
   })(Profile)

@@ -59,6 +59,7 @@ class ProfileForm extends Component {
     super(props);
     const thisUser = this.props.user;
     console.log(thisUser);
+    // const action = this.props.action;
     this.state = {
       fullname: thisUser.profile.fullname ? thisUser.profile.fullname : "",
       bio: thisUser.profile.description ? thisUser.profile.description : "",
@@ -89,7 +90,8 @@ class ProfileForm extends Component {
       "profile.genres": this.state.genres
     };
     Meteor.call("artists.updateProfile", user);
-    alert("success");
+    // // alert("success");
+    this.props.action();
   };
   render() {
     const { classes } = this.props;
@@ -254,7 +256,7 @@ class ProfileForm extends Component {
                 // disabled={pristine || invalid}
               >
                 <CloudUploadIcon className={classes.leftIcon} />
-                Upload
+                Update
               </Button>
             </div>
             {/* <pre>{JSON.stringify(this.state, 0, 2)}</pre> */}

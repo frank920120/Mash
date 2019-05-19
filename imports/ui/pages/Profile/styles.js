@@ -32,7 +32,7 @@ const styles = {
   artistInfo: {
     display: "flex",
     flexDirection: "column",
-    marginTop: 20
+    marginTop: 30
   },
   button: {
     marginTop: 30
@@ -45,10 +45,14 @@ const styles = {
     height: 230
   },
   genreChip: {
-    margin: 10
+    margin: 7,
+    backgroundColor: "#4717f6",
+    color: "white"
   },
   specialtyChip: {
-    margin: 10
+    margin: 7,
+    backgroundColor: "#4717f6",
+    color: "white"
   },
   whiteText: {
     color: "white"
@@ -63,7 +67,7 @@ const styles = {
     paddingBottom: 40
   },
   chips: {
-    height: 52
+    minHeight: 52
   }
 };
 
