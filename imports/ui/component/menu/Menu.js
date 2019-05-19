@@ -74,7 +74,12 @@ class Menu extends Component {
                 currentUser.profile.messages.length > 0 ? (
                   <MessageBox />
                 ) : null}
-                <Button onClick={() => Meteor.logout()}>Logout</Button>
+                <Button
+                  className={classes.button}
+                  onClick={() => Meteor.logout()}
+                >
+                  Logout
+                </Button>
                 <Snackbar
                   anchorOrigin={{
                     vertical: "bottom",

@@ -38,6 +38,10 @@ const styles = {
     display: "flex",
     flexDirection: "row"
   },
+  button: {
+    color: "white",
+    fontWeight: 800
+  },
   alertMessage: {
     backgroundColor: "#3ACBA6",
     color: "white"
