@@ -5,7 +5,7 @@ const styles = {
     flexWrap: "wrap"
   },
   formControl: {
-    margin: "1.5rem",
+    margin: 10,
     minWidth: 120,
     maxWidth: 300
   },
