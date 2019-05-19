@@ -2,16 +2,17 @@ import { withTheme } from "@material-ui/core";
 
 const styles = {
   root: {
-    background: "white",
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    padding: 10
   },
   formControl: {
     background: "#3f51b5",
     padding: 10,
     width: 250,
     minWidth: 120,
-    maxWidth: 300
+    maxWidth: 300,
+    borderRadius: 10
   },
   chips: {
     display: "flex",

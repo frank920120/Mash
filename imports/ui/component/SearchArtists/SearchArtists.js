@@ -14,7 +14,7 @@ import styles from "./styles";
 function SearchAppBar({ classes }) {
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.appbar} position="static">
         <Toolbar>
           <IconButton
             className={classes.menuButton}
