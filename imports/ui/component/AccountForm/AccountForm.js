@@ -26,7 +26,7 @@ function getModalStyle() {
 const required = value => (value ? undefined : "Required");
 
 const newUser = {
-  imageUrl: "https://i.pravatar.cc/300",
+  imageurl: "https://i.pravatar.cc/300",
   description: "No bio yet but just wait... it will blow your mind",
   reviews: [{ text: "No reviews yet", reviewer: null }],
   specialties: [],

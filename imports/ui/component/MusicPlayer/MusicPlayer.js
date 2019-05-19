@@ -47,7 +47,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
   };
 
   if (!track) {
-    return <div>Loading...</div>;
+    return (
+      <div className={classes.audioCard}>
+        <h6 className={classes.audioPlaceholder}>No track to display...</h6>
+      </div>
+    );
   }
 
   return (
@@ -62,7 +66,11 @@ const MusicPlayer = withSoundCloudAudio(props => {
 
       <div className={classes.musicDisplay}>
         <div className={classes.controls}>
-          <IconButton aria-label="Play/pause" onClick={() => play()}>
+          <IconButton
+            aria-label="Play/pause"
+            className={classes.button}
+            onClick={() => play()}
+          >
             {playing ? (
               <PauseIcon className={classes.playPauseIcon} />
             ) : (

@@ -10,12 +10,25 @@ const styles = theme => ({
     borderStyle: "solid",
     borderTopWidth: 2,
     borderColor: "#e7dfdd",
-    backgroundColor: "#e7dfdd"
+    backgroundColor: "#e7dfdd",
+    height: 92
+  },
+  button: {
+    backgroundColor: "white",
+    marginRight: 7
   },
   musicDisplay: {
     display: "flex",
     flexDirection: "column",
     width: "100%"
+  },
+  trackTitle: {
+    textOverflow: "ellipsis",
+
+    /* Required for text-overflow to do anything */
+    whiteSpace: "nowrap",
+    overflow: "auto",
+    flexShrink: 1
   },
   controls: {
     display: "flex",
@@ -42,10 +55,14 @@ const styles = theme => ({
   cover: {
     height: 70,
     width: 70,
-    padding: 10
+    padding: 10,
+    flexShrink: 0
   },
   timer: {
     fontSize: 13
+  },
+  audioPlaceholder: {
+    alignSelf: "center"
   }
 });
 
