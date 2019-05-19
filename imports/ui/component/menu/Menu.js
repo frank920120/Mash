@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -21,7 +21,7 @@ class Menu extends Component {
     super();
     this.state = {
       openAlert: false,
-      alertMessage: "You have a new friend!",
+      alertMessage: "You have a new friend!"
     };
   }
   handleAlertClose = (event, reason) => {
@@ -33,14 +33,14 @@ class Menu extends Component {
     this.setState({ openAlert: false });
     Meteor.call("artists.removeNewFriendAlert");
   };
-  render(){
+  render() {
     const { classes, currentUserId, currentUser } = this.props;
     return (
       <div className={classes.root}>
         <AppBar className={classes.appbar} position="static">
           <div className={classes.cover} />
           <Toolbar className={classes.toolbar}>
-            <a href="/directory">
+            <a href="/">
               <img
                 className={classes.logo}
                 src="/branding/images/mash_logo.svg"
@@ -50,7 +50,7 @@ class Menu extends Component {
             {Meteor.userId() && (
               <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
             )}
-  
+
             {currentUserId ? (
               <div className={classes.buttonsContainer}>
                 {!!currentUser &&
@@ -65,7 +65,7 @@ class Menu extends Component {
                     horizontal: "left"
                   }}
                   // open={this.state.openAlert}
-                  open={  currentUser && currentUser.profile.hasNewFriend}
+                  open={currentUser && currentUser.profile.hasNewFriend}
                   onClose={this.handleAlertClose}
                   ContentProps={{
                     "aria-describedby": "message-id"
@@ -74,7 +74,9 @@ class Menu extends Component {
                   <SnackbarContent
                     className={classes.alertMessage}
                     aria-describedby="client-snackbar"
-                    message={<span id="message-id">{this.state.alertMessage}</span>}
+                    message={
+                      <span id="message-id">{this.state.alertMessage}</span>
+                    }
                   />
                 </Snackbar>
               </div>

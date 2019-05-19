@@ -9,7 +9,13 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     flexGrow: 1,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: 150
+  },
+  itemgrid: {
+    display: "flex",
+    justifyContent: "center"
   }
 };
 
