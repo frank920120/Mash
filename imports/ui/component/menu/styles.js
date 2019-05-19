@@ -37,7 +37,12 @@ const styles = {
   buttonsContainer:{
     display:'flex',
     flexDirection:'row'
+  },
+  alertMessage:{
+    backgroundColor: "#3ACBA6",
+    color:"white"
   }
+
 };
 
 export default styles;

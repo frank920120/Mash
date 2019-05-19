@@ -223,7 +223,6 @@ class MessageBox extends Component {
           )}
         </Dialog>
         <Snackbar
-          className={classes.alertMessage}
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "left"

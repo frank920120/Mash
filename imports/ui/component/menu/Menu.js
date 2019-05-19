@@ -60,7 +60,6 @@ class Menu extends Component {
                 ) : null}
                 <Button onClick={() => Meteor.logout()}>Logout</Button>
                 <Snackbar
-                  className={classes.alertMessage}
                   anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "left"
