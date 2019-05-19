@@ -1,3 +1,5 @@
+import { withTheme } from "@material-ui/core";
+
 const styles = {
   root: {
     background: "white",
@@ -5,7 +7,9 @@ const styles = {
     flexWrap: "wrap"
   },
   formControl: {
-    margin: "1.5rem",
+    background: "#3f51b5",
+    padding: 10,
+    width: 250,
     minWidth: 120,
     maxWidth: 300
   },
@@ -14,10 +18,17 @@ const styles = {
     flexWrap: "wrap"
   },
   chip: {
-    margin: "0.5rem"
+    margin: "0.5rem",
+    background: "#3ACBA6",
+    color: "white",
+    fontWeight: 800
   },
   noLabel: {
     marginTop: "4.5rem"
+  },
+  label: {
+    color: "white",
+    padding: 10
   }
 };
 

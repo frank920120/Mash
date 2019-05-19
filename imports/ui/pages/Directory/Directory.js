@@ -7,6 +7,7 @@ import { Grid, withStyles } from "@material-ui/core";
 import FilterSkills from "../../component/FilterSkills/FilterSkills";
 import FilterGenres from "../../component/FilterGenres/FilterGenres";
 import SearchArtists from "../../component/SearchArtists/SearchArtists";
+import Footer from "../../component/Footer";
 import styles from "./styles";
 
 class Directory extends Component {
@@ -40,12 +41,20 @@ class Directory extends Component {
             .filter(user => user._id != currentUserId)
             .map((artist, i) => {
               return (
-                <Grid item xs={12} md={6} lg={4} key={artist._id}>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  key={artist._id}
+                  className={classes.itemgrid}
+                >
                   <ArtistCard artist={artist} />
                 </Grid>
               );
             })}
         </Grid>
+        <Footer />
       </React.Fragment>
     );
   }

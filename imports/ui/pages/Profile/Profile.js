@@ -25,6 +25,8 @@ import { Meteor } from "meteor/meteor";
 class Profile extends Component {
   constructor(props) {
     super(props);
+    this.handleClose = this.handleClose.bind(this);
+
     this.state = { open: false };
   }
 
@@ -50,8 +52,7 @@ class Profile extends Component {
                 <Grid item xs={5} className={classes.picButton}>
                   <Avatar
                     alt={artist[0].profile.fullname}
-                    //   src={artist.profileurl}
-                    src={artist[0].profile.imageurl}
+                    src={artist[0].profile.imageUrl}
                     className={classes.avatar}
                   />
                   <Button
@@ -135,7 +136,7 @@ class Profile extends Component {
                       <DialogTitle id="form-dialog-title">
                         Edit your profile
                       </DialogTitle>
-                      <ProfileForm user={artist[0]} />
+                      <ProfileForm user={artist[0]} action={this.handleClose} />
                     </Paper>
                   </Dialog>
                 </Grid>

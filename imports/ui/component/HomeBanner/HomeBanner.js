@@ -15,6 +15,7 @@ const items = [
 ];
 const HomeBanner = ({ classes }) => {
   const [index, set] = useState(0);
+
   const transitions = useTransition(items[index], items => items.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },

@@ -26,7 +26,7 @@ function getModalStyle() {
 const required = value => (value ? undefined : "Required");
 
 const newUser = {
-  imageUrl: "https://loremflickr.com/320/240",
+  imageUrl: "https://i.pravatar.cc/300",
   description: "No bio yet but just wait... it will blow your mind",
   reviews: [{ text: "No reviews yet", reviewer: null }],
   specialties: [],
@@ -85,12 +85,11 @@ class AccountForm extends Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="h6" id="modal-title" className={classes.title}>
-              {formToggle ? "Welcome Back!" : "Welcome to the Mash community"}
+            <Typography variant="h3" id="modal-title" className={classes.title}>
+              {formToggle ? "Welcome Back!" : "Welcome to the Mash community!"}
             </Typography>
 
             <Form
-              // validate={() => validate(values)}
               onSubmit={values => {
                 this.setState.error = null;
                 formToggle
@@ -127,7 +126,9 @@ class AccountForm extends Component {
                 <form onSubmit={handleSubmit} className={classes.accountForm}>
                   {!formToggle && (
                     <FormControl fullWidth className={classes.formControl}>
-                      <InputLabel htmlFor="fullname">Fullname</InputLabel>
+                      <InputLabel htmlFor="fullname" className={classes.label}>
+                        Fullname
+                      </InputLabel>
                       <Field
                         name="fullname"
                         placeholder="fullname"
@@ -144,13 +145,14 @@ class AccountForm extends Component {
                           <div>
                             <Input
                               id="fullname"
-                              className={meta.active ? "active" : ""}
                               inputProps={{
                                 ...input,
                                 autoComplete: "off"
                               }}
                               value={input.value}
                               required
+                              fullWidth
+                              className={classes.input}
                             />
                             {meta.error && meta.touched && (
                               <span>{meta.error}</span>
@@ -162,13 +164,14 @@ class AccountForm extends Component {
                   )}
 
                   <FormControl fullWidth className={classes.formControl}>
-                    <InputLabel htmlFor="email">Email</InputLabel>
+                    <InputLabel htmlFor="email" className={classes.label}>
+                      Email
+                    </InputLabel>
 
                     <Field
                       name="email"
                       placeholder="Email"
-                      // validate={() => validate(values)}
-
+                      validate={required}
                       subscription={{
                         value: true,
                         active: true,
@@ -187,6 +190,9 @@ class AccountForm extends Component {
                               autoComplete: "off"
                             }}
                             value={input.value}
+                            className={classes.input}
+                            fullWidth
+                            required
                           />
                           {meta.error && meta.touched && (
                             <span>{meta.error}</span>
@@ -196,20 +202,23 @@ class AccountForm extends Component {
                     </Field>
                   </FormControl>
                   <FormControl fullWidth className={classes.formControl}>
-                    <InputLabel htmlFor="password">Password</InputLabel>
+                    <InputLabel htmlFor="password" className={classes.label}>
+                      Password
+                    </InputLabel>
 
                     <Field name="password" validate={required}>
                       {({ input, meta }) => (
                         <div>
                           <Input
                             id="password"
-                            className={meta.active ? "active" : ""}
+                            className={classes.input}
                             type="password"
                             inputProps={{
                               ...input,
                               autoComplete: "off"
                             }}
                             value={input.value}
+                            fullWidth
                             required
                           />
                           {meta.error && meta.touched && (

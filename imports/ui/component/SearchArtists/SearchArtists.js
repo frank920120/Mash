@@ -11,8 +11,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import styles from "./styles";
 
-function SearchAppBar(props) {
-  const { classes } = props;
+function SearchAppBar({ classes }) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -24,14 +23,14 @@ function SearchAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          {/* <Typography
             className={classes.title}
             variant="h6"
             color="inherit"
             noWrap
           />
-          <div className={classes.grow} />
-          <div className={classes.search}>
+          <div className={classes.grow} /> */}
+          <div className={classes.searchContainer}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
