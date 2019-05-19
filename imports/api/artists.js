@@ -189,10 +189,76 @@ Meteor.methods({
       {
         $push: {
           "profile.messages": {
+            type:message.type,
             fromId: message.fromId,
             from: message.from,
             text: message.text
           }
+        }
+      }
+    );
+  }
+});
+
+
+// friend={
+//   idA:'',
+//   idB:''
+// }
+Meteor.methods({
+  "artists.addFriend"(friend) {
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
+    Artists.update(
+      { _id: friend.idA },
+      {
+        $push: {
+          "profile.friends": friend.idB
+        }
+      }
+    );
+    Artists.update(
+      { _id: friend.idA },
+      {  $set:
+        {
+            "profile.hasNewFriend": true
+        }
+      }
+     
+    );
+    Artists.update(
+      { _id: friend.idB },
+      {
+        $set:
+        {
+          "profile.hasNewFriend": true
+        }
+      }
+    );
+    Artists.update(
+      { _id: friend.idB },
+      {
+        $push: {
+          "profile.friends": friend.idA
+        }
+      }
+    );
+  }
+});
+
+Meteor.methods({
+  "artists.removeNewFriendAlert"() {
+    // if (!this.userId) {
+    //   throw new Meteor.Error("Please Login.");
+    // }
+    Artists.update(
+      { _id:this.userId },
+      {
+        $set:
+        {
+          "profile.hasNewFriend": false
+      
         }
       }
     );

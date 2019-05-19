@@ -22,8 +22,8 @@ class MessageBox extends Component {
     this.state = {
       value: props.value,
       openPopup: false,
-      openAlert: false,
-      alertMessage: "",
+      openAlert: true,
+      alertMessage: "You have a message!",
       showAcceptButton: true
     };
   }
@@ -39,10 +39,10 @@ class MessageBox extends Component {
     this.setState({ anchorEl: null });
   };
   handleAlertClose = (event, reason) => {
-    // if (reason === "clickaway") {
-    //   this.setState({ openAlert: false });
-    //   return;
-    // }
+    if (reason === "clickaway") {
+      this.setState({ openAlert: false });
+      return;
+    }
     this.setState({ openAlert: false });
   };
   handlePopupClose = () => {
@@ -125,12 +125,11 @@ class MessageBox extends Component {
                   const updatedMessage = currentUser.profile.messages.filter(
                     message => {
                       return (
-                        message.type === 1 ||
-                        message.fromId !== this.state.fromI
+                        message.type !== 1 ||
+                        message.fromId !== this.state.fromId
                       );
                     }
                   );
-
                   const user = {
                     _id: currentUserId,
                     "profile.messages": updatedMessage
@@ -148,10 +147,18 @@ class MessageBox extends Component {
                       : "The user you connected"
                   };
                   Meteor.call("artists.addMessage", message);
-                  this.setState({
-                    openAlert: true,
-                    alertMessage: `You are connecting with ${this.state.from}!`
-                  });
+
+
+                  const friend={
+                      idA:this.state.fromId,
+                       idB:currentUserId
+                  }
+                  Meteor.call("artists.addFriend", friend);
+                  // this.setState({
+                  //   openAlert: true,
+                  //   alertMessage: `You are connecting with ${this.state.from}!`
+                  // });
+                  //window.alert(`You are connecting with ${this.state.from}!`);
                 }}
                 color="primary"
               >
@@ -163,21 +170,22 @@ class MessageBox extends Component {
                   this.setState({
                     openPopup: false
                   });
-                  const updatedMessage = currentUser.profile.messages.filter(
+                   const updatedMessage = currentUser.profile.messages.filter(
                     message => {
                       return (
-                        message.type === 1 ||
+                        message.type !== 1 ||
                         message.fromId !== this.state.fromId
                       );
                     }
                   );
+                  console.log("state from id", this.state.fromId);
+                  console.log("updatedMessage", updatedMessage);
                   const user = {
                     _id: currentUserId,
                     "profile.messages": updatedMessage
                   };
                   //console.log(user);
                   Meteor.call("artists.updateProfile", user);
-                  console.log("reject");
                 }}
               >
                 {"REJECT"}
@@ -207,7 +215,6 @@ class MessageBox extends Component {
                   };
                   //console.log(user);
                   Meteor.call("artists.updateProfile", user);
-                  console.log("reject");
                 }}
               >
                 {"OK"}
@@ -216,7 +223,6 @@ class MessageBox extends Component {
           )}
         </Dialog>
         <Snackbar
-          className={classes.alertMessage}
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "left"

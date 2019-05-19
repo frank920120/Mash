@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -13,42 +13,81 @@ import { compose } from "recompose";
 import { withTracker } from "meteor/react-meteor-data";
 import MessageBox from "../MessageBox";
 import { Meteor } from "meteor/meteor";
+import Snackbar from "@material-ui/core/Snackbar";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
 
-function Menu(props) {
-  const { classes, currentUserId, currentUser } = props;
-  console.log(props);
-  return (
-    <div className={classes.root}>
-      <AppBar className={classes.appbar} position="static">
-        <div className={classes.cover} />
-        <Toolbar className={classes.toolbar}>
-          <a href="/">
-            <img
-              className={classes.logo}
-              src="/branding/images/mash_logo.svg"
-              alt=""
-            />
-          </a>
-          {Meteor.userId() && (
-            <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
-          )}
+class Menu extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      openAlert: false,
+      alertMessage: "You have a new friend!"
+    };
+  }
+  handleAlertClose = (event, reason) => {
+    if (reason === "clickaway") {
+      this.setState({ openAlert: false });
+      Meteor.call("artists.removeNewFriendAlert");
+      return;
+    }
+    this.setState({ openAlert: false });
+    Meteor.call("artists.removeNewFriendAlert");
+  };
+  render() {
+    const { classes, currentUserId, currentUser } = this.props;
+    return (
+      <div className={classes.root}>
+        <AppBar className={classes.appbar} position="static">
+          <div className={classes.cover} />
+          <Toolbar className={classes.toolbar}>
+            <a href="/directory">
+              <img
+                className={classes.logo}
+                src="/branding/images/mash_logo.svg"
+                alt=""
+              />
+            </a>
+            {Meteor.userId() && (
+              <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
+            )}
 
-          {currentUserId ? (
-            <div className={classes.buttonsContainer}>
-              {!!currentUser &&
-              currentUser.profile.messages &&
-              currentUser.profile.messages.length > 0 ? (
-                <MessageBox />
-              ) : null}
-              <Button onClick={() => Meteor.logout()}>Logout</Button>
-            </div>
-          ) : (
-            <AccountForm />
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+            {currentUserId ? (
+              <div className={classes.buttonsContainer}>
+                {!!currentUser &&
+                currentUser.profile.messages &&
+                currentUser.profile.messages.length > 0 ? (
+                  <MessageBox />
+                ) : null}
+                <Button onClick={() => Meteor.logout()}>Logout</Button>
+                <Snackbar
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left"
+                  }}
+                  // open={this.state.openAlert}
+                  open={currentUser && currentUser.profile.hasNewFriend}
+                  onClose={this.handleAlertClose}
+                  ContentProps={{
+                    "aria-describedby": "message-id"
+                  }}
+                >
+                  <SnackbarContent
+                    className={classes.alertMessage}
+                    aria-describedby="client-snackbar"
+                    message={
+                      <span id="message-id">{this.state.alertMessage}</span>
+                    }
+                  />
+                </Snackbar>
+              </div>
+            ) : (
+              <AccountForm />
+            )}
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 Menu.propTypes = {
