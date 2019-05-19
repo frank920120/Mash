@@ -2,7 +2,8 @@ const styles = {
   root: {
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "#0E0B16"
+    backgroundColor: "#0E0B16",
+    paddingBottom: 100
   },
   filters: {
     paddingTop: 70,

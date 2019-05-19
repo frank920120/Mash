@@ -7,6 +7,7 @@ import { Grid, withStyles } from "@material-ui/core";
 import FilterSkills from "../../component/FilterSkills/FilterSkills";
 import FilterGenres from "../../component/FilterGenres/FilterGenres";
 import SearchArtists from "../../component/SearchArtists/SearchArtists";
+import Footer from "../../component/Footer";
 import styles from "./styles";
 
 class Directory extends Component {
@@ -53,6 +54,7 @@ class Directory extends Component {
               );
             })}
         </Grid>
+        <Footer />
       </React.Fragment>
     );
   }
