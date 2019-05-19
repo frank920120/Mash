@@ -55,25 +55,27 @@ class Profile extends Component {
                     src={artist[0].profile.imageurl}
                     className={classes.avatar}
                   />
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                    onClick={() => {
-                      const message = {
-                        type: 1,
-                        toId: artist[0]._id,
-                        text:
-                          "I went through your profile. Can I get your email for future collaboration?",
-                        fromId: currentUser._id,
-                        from: currentUser.profile.fullname
-                      };
-                      Meteor.call("artists.addMessage", message);
-                      window.alert("Sent the message!");
-                    }}
-                  >
-                    Connect
-                  </Button>
+                  {Meteor.userId() !== artist[0]._id && (
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className={classes.button}
+                      onClick={() => {
+                        const message = {
+                          type: 1,
+                          toId: artist[0]._id,
+                          text:
+                            "I went through your profile. Can I get your email for future collaboration?",
+                          fromId: currentUser._id,
+                          from: currentUser.profile.fullname
+                        };
+                        Meteor.call("artists.addMessage", message);
+                        window.alert("Sent the message!");
+                      }}
+                    >
+                      Connect
+                    </Button>
+                  )}
                 </Grid>
                 <Grid item xs={7} className={classes.artistInfo}>
                   <Typography
