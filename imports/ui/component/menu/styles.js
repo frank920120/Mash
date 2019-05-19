@@ -34,15 +34,23 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   },
-  buttonsContainer:{
-    display:'flex',
-    flexDirection:'row'
+  buttonsContainer: {
+    display: "flex",
+    flexDirection: "row"
   },
-  alertMessage:{
+  alertMessage: {
     backgroundColor: "#3ACBA6",
-    color:"white"
+    color: "white"
+  },
+  link: {
+    margin: 20,
+    color: "white",
+    fontWeight: "bold",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#3acba6"
+    }
   }
-
 };
 
 export default styles;
