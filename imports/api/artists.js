@@ -189,6 +189,7 @@ Meteor.methods({
       {
         $push: {
           "profile.messages": {
+            type:message.type,
             fromId: message.fromId,
             from: message.from,
             text: message.text

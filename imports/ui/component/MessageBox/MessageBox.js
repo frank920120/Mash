@@ -125,8 +125,8 @@ class MessageBox extends Component {
                   const updatedMessage = currentUser.profile.messages.filter(
                     message => {
                       return (
-                        message.type === 1 ||
-                        message.fromId !== this.state.fromI
+                        message.type !== 1 ||
+                        message.fromId !== this.state.fromId
                       );
                     }
                   );
@@ -163,21 +163,22 @@ class MessageBox extends Component {
                   this.setState({
                     openPopup: false
                   });
-                  const updatedMessage = currentUser.profile.messages.filter(
+                   const updatedMessage = currentUser.profile.messages.filter(
                     message => {
                       return (
-                        message.type === 1 ||
+                        message.type !== 1 ||
                         message.fromId !== this.state.fromId
                       );
                     }
                   );
+                  console.log("state from id", this.state.fromId);
+                  console.log("updatedMessage", updatedMessage);
                   const user = {
                     _id: currentUserId,
                     "profile.messages": updatedMessage
                   };
                   //console.log(user);
                   Meteor.call("artists.updateProfile", user);
-                  console.log("reject");
                 }}
               >
                 {"REJECT"}
@@ -207,7 +208,6 @@ class MessageBox extends Component {
                   };
                   //console.log(user);
                   Meteor.call("artists.updateProfile", user);
-                  console.log("reject");
                 }}
               >
                 {"OK"}
