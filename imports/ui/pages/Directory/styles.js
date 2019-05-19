@@ -3,7 +3,8 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     backgroundColor: "#0E0B16",
-    paddingBottom: 100
+    paddingBottom: 100,
+    paddingTop: 60
   },
   filters: {
     display: "flex",
@@ -12,8 +13,9 @@ const styles = {
     justifyContent: "space-around",
     alignItems: "center",
     padding: 20,
-    marginTop: 80,
-    flexWrap: "wrap"
+    marginTop: 70,
+    flexWrap: "wrap",
+    backgroundColor: "#0E0B16"
   },
   itemgrid: {
     display: "flex",

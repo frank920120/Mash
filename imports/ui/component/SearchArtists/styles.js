@@ -39,6 +39,9 @@ const styles = {
     // alignItems: "center",
     // justifyContent: "center",
     order: 2
+  },
+  appbar: {
+    borderRadius: 10
   }
   // inputRoot: {
   //   color: "inherit",
