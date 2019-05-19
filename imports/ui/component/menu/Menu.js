@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -16,13 +16,12 @@ import { Meteor } from "meteor/meteor";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 
-<<<<<<< HEAD
 class Menu extends Component {
   constructor(props) {
     super();
     this.state = {
       openAlert: false,
-      alertMessage: "You have a new friend!",
+      alertMessage: "You have a new friend!"
     };
   }
   handleAlertClose = (event, reason) => {
@@ -34,7 +33,7 @@ class Menu extends Component {
     this.setState({ openAlert: false });
     Meteor.call("artists.removeNewFriendAlert");
   };
-  render(){
+  render() {
     const { classes, currentUserId, currentUser } = this.props;
     return (
       <div className={classes.root}>
@@ -51,7 +50,7 @@ class Menu extends Component {
             {Meteor.userId() && (
               <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
             )}
-  
+
             {currentUserId ? (
               <div className={classes.buttonsContainer}>
                 {!!currentUser &&
@@ -66,7 +65,7 @@ class Menu extends Component {
                     horizontal: "left"
                   }}
                   // open={this.state.openAlert}
-                  open={  currentUser && currentUser.profile.hasNewFriend}
+                  open={currentUser && currentUser.profile.hasNewFriend}
                   onClose={this.handleAlertClose}
                   ContentProps={{
                     "aria-describedby": "message-id"
@@ -75,7 +74,9 @@ class Menu extends Component {
                   <SnackbarContent
                     className={classes.alertMessage}
                     aria-describedby="client-snackbar"
-                    message={<span id="message-id">{this.state.alertMessage}</span>}
+                    message={
+                      <span id="message-id">{this.state.alertMessage}</span>
+                    }
                   />
                 </Snackbar>
               </div>
@@ -87,43 +88,6 @@ class Menu extends Component {
       </div>
     );
   }
-=======
-function Menu(props) {
-  const { classes, currentUserId, currentUser } = props;
-  console.log(props);
-  return (
-    <div className={classes.root}>
-      <AppBar className={classes.appbar} position="static">
-        <div className={classes.cover} />
-        <Toolbar className={classes.toolbar}>
-          <a href="/">
-            <img
-              className={classes.logo}
-              src="/branding/images/mash_logo.svg"
-              alt=""
-            />
-          </a>
-          {Meteor.userId() && (
-            <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
-          )}
-
-          {currentUserId ? (
-            <div className={classes.buttonsContainer}>
-              {!!currentUser &&
-              currentUser.profile.messages &&
-              currentUser.profile.messages.length > 0 ? (
-                <MessageBox />
-              ) : null}
-              <Button onClick={() => Meteor.logout()}>Logout</Button>
-            </div>
-          ) : (
-            <AccountForm />
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
->>>>>>> c19a18186a5ec0476c689bbaca98598e630a3b02
 }
 
 Menu.propTypes = {
