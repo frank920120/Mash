@@ -4,6 +4,10 @@ body,
 html {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  height: 100vh;
+  /* height: 100vh; */
   /* font-family: "Inconsolata", monospace; */
 }
+
+/* body {
+  height: 100vh;
+} */
