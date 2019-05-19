@@ -1,13 +1,15 @@
+import { withTheme } from "@material-ui/core";
+
 const styles = theme => ({
   paper: {
     position: "absolute",
     width: "90%",
-    height: "60%",
+    height: "70%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#4717F6",
+    background: "linear-gradient(360deg, #7239c5, #4717f6)",
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 5,
     outline: "none",
@@ -17,8 +19,29 @@ const styles = theme => ({
   root: {
     zIndex: 99999
   },
+  label: {
+    color: "white",
+    fontWeight: "bold"
+  },
+  title: {
+    color: "white",
+    fontWeight: "bold",
+    marginTop: 30,
+    marginBottom: 50
+  },
   formControl: {
     padding: 20
+  },
+  formToggle: {
+    color: "white",
+    margin: 20
+  },
+  active: {
+    backgroundColor: "white",
+    opacity: "0.5"
+  },
+  input: {
+    color: "white"
   },
   buttons: {
     display: "flex",
