@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
+/* @import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap"); */
 body,
 html {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
+  /* font-family: "Inconsolata", monospace; */
 }

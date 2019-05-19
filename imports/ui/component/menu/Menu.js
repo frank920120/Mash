@@ -22,7 +22,7 @@ function Menu(props) {
       <AppBar className={classes.appbar} position="static">
         <div className={classes.cover} />
         <Toolbar className={classes.toolbar}>
-          <a href="/directory">
+          <a href="/">
             <img
               className={classes.logo}
               src="/branding/images/mash_logo.svg"
