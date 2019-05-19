@@ -6,13 +6,14 @@ const styles = {
     paddingBottom: 100
   },
   filters: {
-    paddingTop: 70,
     display: "flex",
     flexDirection: "row",
     flexGrow: 1,
     justifyContent: "space-around",
     alignItems: "center",
-    height: 150
+    padding: 20,
+    marginTop: 80,
+    flexWrap: "wrap"
   },
   itemgrid: {
     display: "flex",

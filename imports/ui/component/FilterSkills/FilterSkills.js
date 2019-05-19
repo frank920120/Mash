@@ -65,7 +65,9 @@ class FilterSkills extends React.Component {
     return (
       <div className={classes.root}>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="select-multiple-chip">Skills</InputLabel>
+          <InputLabel className={classes.label} htmlFor="select-multiple-chip">
+            Skills
+          </InputLabel>
           <Select
             multiple
             value={this.state.name}
