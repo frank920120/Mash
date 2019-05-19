@@ -48,7 +48,23 @@ class Menu extends Component {
               />
             </a>
             {Meteor.userId() && (
-              <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
+              <div>
+                <a className={classes.link} href={"/"}>
+                  Welcome
+                </a>
+                <a className={classes.link} href={"/preference"}>
+                  Preferences
+                </a>
+                <a className={classes.link} href={"/directory"}>
+                  Directory
+                </a>
+                <a
+                  className={classes.link}
+                  href={`/profile/${Meteor.userId()}`}
+                >
+                  Your Profile
+                </a>
+              </div>
             )}
 
             {currentUserId ? (

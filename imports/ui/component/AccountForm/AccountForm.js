@@ -99,6 +99,9 @@ class AccountForm extends Component {
                       err => {
                         console.log(err);
                         err ? this.setState({ error: err.reason }) : null;
+                      },
+                      () => {
+                        this.props.history.push("/directory");
                       }
                     )
                   : Accounts.createUser(
