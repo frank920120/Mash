@@ -18,11 +18,6 @@ function SmartContract(props) {
             <span className={classes.underline} />
           </h1>
         </Fade>
-        <img
-          src="/images/productCurvyLines.png"
-          className={classes.curvyLines}
-          alt="curvy lines"
-        />
         <Grid className={classes.mainContainer} container spacing={40}>
           <Grid item xs={12} md={4}>
             <Fade left duration={1000}>

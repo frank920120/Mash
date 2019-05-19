@@ -4,7 +4,7 @@ const styles = () => ({
     overflow: "hidden",
     backgroundColor: "white"
   },
-  mainContainer: {},
+
   layoutBody: {
     marginTop: 60,
     marginBottom: 60,
