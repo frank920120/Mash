@@ -24,6 +24,7 @@ function getModalStyle() {
 }
 
 const required = value => (value ? undefined : "Required");
+
 const newUser = {
   imageUrl: "https://loremflickr.com/320/240",
   description: "No bio yet but just wait... it will blow your mind",
@@ -89,6 +90,7 @@ class AccountForm extends Component {
             </Typography>
 
             <Form
+              // validate={() => validate(values)}
               onSubmit={values => {
                 this.setState.error = null;
                 formToggle
@@ -148,6 +150,7 @@ class AccountForm extends Component {
                                 autoComplete: "off"
                               }}
                               value={input.value}
+                              required
                             />
                             {meta.error && meta.touched && (
                               <span>{meta.error}</span>
@@ -164,8 +167,8 @@ class AccountForm extends Component {
                     <Field
                       name="email"
                       placeholder="Email"
-                      validate={required}
-                      type="email"
+                      // validate={() => validate(values)}
+
                       subscription={{
                         value: true,
                         active: true,
@@ -173,10 +176,11 @@ class AccountForm extends Component {
                         touched: true
                       }}
                     >
-                      {({ input, meta, placeholder }) => (
+                      {({ input, meta }) => (
                         <div>
                           <Input
                             id="email"
+                            type="email"
                             className={meta.active ? "active" : ""}
                             inputProps={{
                               ...input,
@@ -194,14 +198,7 @@ class AccountForm extends Component {
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="password">Password</InputLabel>
 
-                    <Field
-                      name="password"
-                      validate={required}
-                      minLength={4}
-                      tooShort="Please enter a longer password"
-                      required
-                      valueMissing="required: Please enter a password"
-                    >
+                    <Field name="password" validate={required}>
                       {({ input, meta }) => (
                         <div>
                           <Input
@@ -213,6 +210,7 @@ class AccountForm extends Component {
                               autoComplete: "off"
                             }}
                             value={input.value}
+                            required
                           />
                           {meta.error && meta.touched && (
                             <span>{meta.error}</span>
@@ -251,11 +249,6 @@ class AccountForm extends Component {
                     </Grid>
                   </FormControl>
 
-                  {/* <FormSpy subscription={{ values: true }}>
-                    {({ values }) => (
-                      <pre>{JSON.stringify(values, undefined, 2)}</pre>
-                    )}
-                  </FormSpy> */}
                   <Typography>{error}</Typography>
                 </form>
               )}
