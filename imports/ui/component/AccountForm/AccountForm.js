@@ -26,7 +26,8 @@ function getModalStyle() {
 const required = value => (value ? undefined : "Required");
 
 const newUser = {
-  imageUrl: "https://loremflickr.com/320/240",
+  imageUrl:
+    "https://dummyimage.com/600x600/000/ffffff&text=Still+waiting+to+take+the+perfect+picture...",
   description: "No bio yet but just wait... it will blow your mind",
   reviews: [{ text: "No reviews yet", reviewer: null }],
   specialties: [],

@@ -52,8 +52,7 @@ class Profile extends Component {
                 <Grid item xs={5} className={classes.picButton}>
                   <Avatar
                     alt={artist[0].profile.fullname}
-                    //   src={artist.profileurl}
-                    src={artist[0].profile.imageurl}
+                    src={artist[0].profile.imageUrl}
                     className={classes.avatar}
                   />
                   <Button
