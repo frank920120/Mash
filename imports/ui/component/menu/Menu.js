@@ -16,6 +16,7 @@ import { Meteor } from "meteor/meteor";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 
+<<<<<<< HEAD
 class Menu extends Component {
   constructor(props) {
     super();
@@ -86,6 +87,43 @@ class Menu extends Component {
       </div>
     );
   }
+=======
+function Menu(props) {
+  const { classes, currentUserId, currentUser } = props;
+  console.log(props);
+  return (
+    <div className={classes.root}>
+      <AppBar className={classes.appbar} position="static">
+        <div className={classes.cover} />
+        <Toolbar className={classes.toolbar}>
+          <a href="/">
+            <img
+              className={classes.logo}
+              src="/branding/images/mash_logo.svg"
+              alt=""
+            />
+          </a>
+          {Meteor.userId() && (
+            <a href={`/profile/${Meteor.userId()}`}>Your Profile</a>
+          )}
+
+          {currentUserId ? (
+            <div className={classes.buttonsContainer}>
+              {!!currentUser &&
+              currentUser.profile.messages &&
+              currentUser.profile.messages.length > 0 ? (
+                <MessageBox />
+              ) : null}
+              <Button onClick={() => Meteor.logout()}>Logout</Button>
+            </div>
+          ) : (
+            <AccountForm />
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+>>>>>>> c19a18186a5ec0476c689bbaca98598e630a3b02
 }
 
 Menu.propTypes = {
