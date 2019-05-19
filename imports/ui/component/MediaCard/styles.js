@@ -6,7 +6,8 @@ const styles = theme => ({
       "&:hover":{
         transform: 'scale(1.1)'
       },
-      margin:20
+      margin:20,
+      width:"auto"
     },
     SongName:{
       width:'50%',

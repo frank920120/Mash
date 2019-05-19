@@ -10,46 +10,77 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import styles from "./styles";
+import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
+import { Artists } from "../../../api/artists";
+class SearchAppBar extends React.Component {
+  state = {
+    name:
+      this.props.myFilter && this.props.myFilter.fullname
+        ? this.props.myFilter.fullname
+        : ""
+  };
+  handleChange = event => {
+    this.setState({ name: event.target.value });
 
-function SearchAppBar({ classes }) {
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography
-            className={classes.title}
-            variant="h6"
-            color="inherit"
-            noWrap
-          />
-          <div className={classes.grow} /> */}
-          <div className={classes.searchContainer}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
+    const user = {
+      _id: Meteor.userId(),
+      "profile.myFilter.fullname": event.target.value
+    };
+
+    Meteor.call("artists.updateProfile", user);
+  };
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Open drawer"
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* <Typography
+              className={classes.title}
+              variant="h6"
+              color="inherit"
+              noWrap
             />
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+            <div className={classes.grow} /> */}
+            <div className={classes.searchContainer}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput
+                }}
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 SearchAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default withStyles(styles)(
+  withTracker(() => {
+    Meteor.subscribe("getFilter");
+    return {
+      myFilter: Artists.find({}).fetch()
+    };
+  })(SearchAppBar)
+);

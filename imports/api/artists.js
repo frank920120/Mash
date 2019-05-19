@@ -86,7 +86,7 @@ Meteor.methods({
 if (Meteor.isServer) {
   Meteor.publish("getProfileById", function profilePublication(userIdString) {
     console.log(userIdString);
-    return Artists.find({ _id: userIdString },{ emails: 0, services: 0 });
+    return Artists.find({ _id: userIdString }, { emails: 0, services: 0 });
   });
 }
 
@@ -125,6 +125,13 @@ Meteor.methods({
 //   }
 // });
 
+//get the filter
+if (Meteor.isServer) {
+  Meteor.publish("getFilter", function profilePublication(userIdString) {
+    console.log(userIdString);
+    return Artists.find({ _id: this.userId }, { "profile.myFilter": 1 });
+  });
+}
 /**
  * Filter all users
  *  Meteor.subscribe('filterUsers');
@@ -133,16 +140,16 @@ if (Meteor.isServer) {
   Meteor.publish("filterUsers", function profilePublication(filter) {
     console.log("filter", filter);
     const conditions = [];
-    filter.fullname
+    filter.fullname && filter.fullname.length > 0
       ? conditions.push({
           "profile.fullname": { $regex: `.*${filter.fullname}.*` }
         })
       : null;
-    filter.specialties
+    filter.specialties && filter.specialties.length > 0
       ? conditions.push({ "profile.specialties": { $all: filter.specialties } })
       : null;
-    filter.genre
-      ? conditions.push({ "profile.genre": { $all: filter.genre } })
+    filter.genres && filter.genres.length > 0
+      ? conditions.push({ "profile.genres": { $all: filter.genre } })
       : null;
     const query =
       conditions.length === 0
@@ -163,7 +170,7 @@ if (Meteor.isServer) {
 //   const filter = {
 //     fullname: "Ali",  //find the name  contain the string
 //     specialties:['dancing'],  // find specialties contain all strings in the array
-//     genre:['rock'] // find genre contain all strings in the array
+//     genres:['rock'] // find genres contain all strings in the array
 //   };
 //   Meteor.subscribe("filterUsers", filter);
 //   return {
@@ -189,7 +196,7 @@ Meteor.methods({
       {
         $push: {
           "profile.messages": {
-            type:message.type,
+            type: message.type,
             fromId: message.fromId,
             from: message.from,
             text: message.text
@@ -199,7 +206,6 @@ Meteor.methods({
     );
   }
 });
-
 
 // friend={
 //   idA:'',
@@ -220,18 +226,16 @@ Meteor.methods({
     );
     Artists.update(
       { _id: friend.idA },
-      {  $set:
-        {
-            "profile.hasNewFriend": true
+      {
+        $set: {
+          "profile.hasNewFriend": true
         }
       }
-     
     );
     Artists.update(
       { _id: friend.idB },
       {
-        $set:
-        {
+        $set: {
           "profile.hasNewFriend": true
         }
       }
@@ -253,12 +257,10 @@ Meteor.methods({
     //   throw new Meteor.Error("Please Login.");
     // }
     Artists.update(
-      { _id:this.userId },
+      { _id: this.userId },
       {
-        $set:
-        {
+        $set: {
           "profile.hasNewFriend": false
-      
         }
       }
     );

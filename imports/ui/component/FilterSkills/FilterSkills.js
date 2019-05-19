@@ -8,6 +8,9 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import styles from "./styles";
+import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
+import { Artists } from "../../../api/artists";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -39,10 +42,24 @@ const skills = [
 
 class FilterSkills extends React.Component {
   state = {
-    name: []
+    name:
+      this.props.myFilter && this.props.myFilter.specialties
+        ? this.props.myFilter.specialties
+        : []
   };
-
+  componentDidMount() {
+    Meteor.call("artists.updateProfile", {
+      _id: Meteor.userId(),
+      "profile.myFilter.specialties": [],
+      "profile.myFilter.genres": [],
+      "profile.myFilter.fullname": ""
+    });
+  }
   handleChange = event => {
+    Meteor.call("artists.updateProfile", {
+      _id: Meteor.userId(),
+      "profile.myFilter.specialties": event.target.value
+    });
     this.setState({ name: event.target.value });
   };
 
@@ -61,7 +78,6 @@ class FilterSkills extends React.Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div className={classes.root}>
         <FormControl className={classes.formControl}>
@@ -73,13 +89,15 @@ class FilterSkills extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
             input={<Input id="select-multiple-chip" />}
-            renderValue={selected => (
-              <div className={classes.chips}>
-                {selected.map(value => (
-                  <Chip key={value} label={value} className={classes.chip} />
-                ))}
-              </div>
-            )}
+            renderValue={selected => {
+              return (
+                <div className={classes.chips}>
+                  {selected.map(value => (
+                    <Chip key={value} label={value} className={classes.chip} />
+                  ))}
+                </div>
+              );
+            }}
             MenuProps={MenuProps}
           >
             {skills.map(name => (
@@ -98,4 +116,11 @@ FilterSkills.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FilterSkills);
+export default withStyles(styles)(
+  withTracker(() => {
+    Meteor.subscribe("getFilter");
+    return {
+      myFilter: Artists.find({}).fetch()
+    };
+  })(FilterSkills)
+);
