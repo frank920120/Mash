@@ -198,10 +198,7 @@ class AccountForm extends Component {
                   <FormControl fullWidth className={classes.formControl}>
                     <InputLabel htmlFor="password">Password</InputLabel>
 
-                    <Field
-                      name="password"
-                      validate={required}
-                    >
+                    <Field name="password" validate={required}>
                       {({ input, meta }) => (
                         <div>
                           <Input
@@ -252,11 +249,6 @@ class AccountForm extends Component {
                     </Grid>
                   </FormControl>
 
-                  {/* <FormSpy subscription={{ values: true }}>
-                    {({ values }) => (
-                      <pre>{JSON.stringify(values, undefined, 2)}</pre>
-                    )}
-                  </FormSpy> */}
                   <Typography>{error}</Typography>
                 </form>
               )}
