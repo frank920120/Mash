@@ -1,13 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
-/* @import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap"); */
 body,
 html {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  /* height: 100vh; */
-  /* font-family: "Inconsolata", monospace; */
 }
-
-/* body {
-  height: 100vh;
-} */
