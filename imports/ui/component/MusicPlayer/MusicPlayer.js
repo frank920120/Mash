@@ -72,7 +72,7 @@ const MusicPlayer = withSoundCloudAudio(props => {
             onClick={() => play()}
           >
             {playing ? (
-              <PauseIcon className={classes.playPauseIcon} />
+              a(<PauseIcon className={classes.playPauseIcon} />)
             ) : (
               <PlayArrowIcon className={classes.playPauseIcon} />
             )}

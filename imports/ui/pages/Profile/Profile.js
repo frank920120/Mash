@@ -81,7 +81,7 @@ class Profile extends Component {
                   <Typography
                     className={classes.whiteText}
                     gutterBottom
-                    variant="h4"
+                    variant="h3"
                     component="h1"
                   >
                     {artist[0].profile.fullname}
@@ -138,27 +138,35 @@ class Profile extends Component {
                   </Dialog>
                 </Grid>
 
-                <Grid item xs={12} className={classes.description}>
-                  <Typography component="p" className={classes.whiteText}>
+                <Grid item xs={12}>
+                  <Typography component="p" className={classes.description}>
                     {artist[0].profile.description}
                   </Typography>
                 </Grid>
 
                 <Grid item xs={7}>
-                  <Paper className={classes.music}>
-                    <Typography component="header" variant="h6">
-                      Past music works:
-                    </Typography>
-
-                    {artist[0].profile.musicWorks.map((song, index) => (
+                  <Typography
+                    component="header"
+                    variant="h6"
+                    className={classes.whiteText}
+                  >
+                    Past Music Works
+                  </Typography>
+                  <hr />
+                  {artist[0].profile.musicWorks.length > 1 ? (
+                    artist[0].profile.musicWorks.map((song, index) => (
                       <MusicPlayer
                         key={index}
                         clientId={clientId}
                         resolveUrl={song}
                         onReady={() => console.log("track is loaded!")}
                       />
-                    ))}
-                  </Paper>
+                    ))
+                  ) : (
+                    <Paper className={classes.audioCard}>
+                      No past works to display yet.{" "}
+                    </Paper>
+                  )}
                 </Grid>
 
                 <Grid item xs={5}>
@@ -169,6 +177,7 @@ class Profile extends Component {
                   >
                     Reviews:
                   </Typography>
+                  <hr />
                   {artist[0].profile.reviews.map((review, index) => (
                     <Review
                       key={index}
