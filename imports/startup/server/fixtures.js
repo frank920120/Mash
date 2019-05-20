@@ -33,7 +33,7 @@ Meteor.startup(() => {
         //ie: guitar, drums
         specialties: ["Keyboard", "Percussion", "Flute"],
         //ie: ROCK, classical
-        genres: ["ROCK", "pop", "punk"],
+        genres: ["Rock", "Pop", "Punk"],
         musicWorks: [
           "https://soundcloud.com/markzubek/pop-female-tinah-frequency",
           "https://soundcloud.com/markzubek/pop-female-lauren-haze-broken-record"
@@ -70,7 +70,7 @@ Meteor.startup(() => {
         //ie: guitar, drums
         specialties: ["Piano", "Violin", "Cello"],
         //ie: ROCK, classical
-        genres: ["ROCK", "progressive ROCK", "funk"],
+        genres: ["Rock", "World", "Funk"],
         musicWorks: [
           "https://soundcloud.com/ableton/omar-hakim-drums-ROCK",
           "https://soundcloud.com/pluginalliance/drums-ROCK"
@@ -105,9 +105,9 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Electric guitar", "Violin"],
+        specialties: ["Electric Guitar", "Violin"],
         //ie: ROCK, classical
-        genres: ["country", "folk", "ROCK"],
+        genres: ["Country", "Folk", "Rock"],
         musicWorks: [
           "https://soundcloud.com/ross-lee-shellard/mystery-train-guitar-instrumental-1",
           "https://soundcloud.com/ross-lee-shellard/12-st-rag-ukelele"
@@ -144,7 +144,7 @@ Meteor.startup(() => {
         //ie: guitar, drums
         specialties: ["Electric Guitar", "Piano"],
         //ie: ROCK, classical
-        genres: ["ROCK", "blues", "soul"],
+        genres: ["Rock", "Blues", "Soul"],
         musicWorks: [
           "https://soundcloud.com/bassplayermag/eastwood-magnum-4-bridge",
           "https://soundcloud.com/bassplayermag/sets/soundblox-pro-bass-envelope"
@@ -181,7 +181,7 @@ Meteor.startup(() => {
         //ie: guitar, drums
         specialties: ["Electric Guitar", "Piano", "Recorder"],
         //ie: ROCK, classical
-        genres: ["ROCK", "blues", "soul"],
+        genres: ["Rock", "Dance", "Pop"],
         musicWorks: [
           "https://soundcloud.com/angelo-di-marco/neo-soul-angelo-di-marco",
           "https://soundcloud.com/angelo-di-marco/zingarella-luigi-ingo"
@@ -195,7 +195,7 @@ Meteor.startup(() => {
         }
       ],
       profile: {
-        fullname: "Cindy",
+        fullname: "Cindy Louder",
         description: "Hi I am a Cindy.",
         imageurl: "https://loremflickr.com/320/240",
         location: {
