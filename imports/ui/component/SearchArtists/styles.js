@@ -43,11 +43,10 @@ const styles = {
   },
   appbar: {
     borderRadius: 10
+  },
+  inputRoot: {
+    color: "white"
   }
-  // inputRoot: {
-  //   color: "inherit",
-  //   width: "100%"
-  // },
   // inputInput: {
   //   // paddingTop: theme.spacing.unit,
   //   // paddingRight: theme.spacing.unit,
