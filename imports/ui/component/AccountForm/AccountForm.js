@@ -83,7 +83,9 @@ class AccountForm extends Component {
 
     return (
       <div>
-        <Button onClick={this.handleOpen}>Login</Button>
+        <Button className={classes.button} onClick={this.handleOpen}>
+          LOGIN | SIGN UP
+        </Button>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"

@@ -32,6 +32,13 @@ const styles = theme => ({
   formControl: {
     padding: 20
   },
+  button: {
+    backgroundColor: "#F50057",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#4f4af6"
+    }
+  },
   formToggle: {
     color: "white",
     margin: 20
