@@ -92,7 +92,7 @@ class Profile extends Component {
                     {artist[0].profile.fullname}
                   </Typography>
 
-                  <Typography component="p" className={classes.whiteText}>
+                  <Typography variant="h7" className={classes.whiteText}>
                     Specialties:
                   </Typography>
                   <div className={classes.chips}>
@@ -105,7 +105,7 @@ class Profile extends Component {
                     ))}
                   </div>
 
-                  <Typography component="p" className={classes.whiteText}>
+                  <Typography variant="h7" className={classes.whiteText}>
                     Genres:
                   </Typography>
                   <div className={classes.chips}>
@@ -136,7 +136,9 @@ class Profile extends Component {
                   >
                     <Paper className={classes.paper}>
                       <DialogTitle id="form-dialog-title">
-                        Edit your profile
+                        <Typography variant="h3" className={classes.editTitle}>
+                          Edit your profile
+                        </Typography>
                       </DialogTitle>
                       <ProfileForm user={artist[0]} action={this.handleClose} />
                     </Paper>
@@ -186,6 +188,7 @@ class Profile extends Component {
                   {artist[0].profile.reviews.map((review, index) => (
                     <Review
                       key={index}
+                      title={review.title}
                       text={review.text}
                       reviewer={review.reviewer}
                     />
