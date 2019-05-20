@@ -3,9 +3,11 @@ const styles = theme => ({
     margin: 40
   },
   label: {
+    fontSize: 20,
+    fontWeight: "bold",
     color: "white",
     "&$focusedLabel": {
-      color: "cyan"
+      color: "white"
     },
     "&$erroredLabel": {
       color: "orange"
@@ -19,7 +21,7 @@ const styles = theme => ({
       borderBottomColor: "orange"
     },
     "&:after": {
-      borderBottom: `2px solid cyan`
+      borderBottomColor: `2px solid cyan`
     }
   },
   error: {},
@@ -27,7 +29,7 @@ const styles = theme => ({
     color: "red"
   },
   test: {
-    backgroundColor: "#9b42f4",
+    background: "linear-gradient(360deg, #7239c5, #4717f6)",
     color: "white"
   },
   root: {
@@ -42,10 +44,12 @@ const styles = theme => ({
   chips: {
     display: "flex",
     flexWrap: "wrap",
-    color: "prime"
+    color: "#prime"
   },
   chip: {
-    margin: theme.spacing.unit / 4
+    margin: theme.spacing.unit / 4,
+    backgroundColor: "#3ACBA6",
+    fontWeight: "bold"
   },
   noLabel: {
     marginTop: theme.spacing.unit * 3
@@ -61,7 +65,8 @@ const styles = theme => ({
     textAlign: "center"
   },
   button: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
+    backgroundColor: "#F50057"
   },
   leftIcon: {
     marginRight: theme.spacing.unit

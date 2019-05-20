@@ -15,7 +15,11 @@ const styles = {
     borderColor: "#4717F6",
     backgroundColor: "#0E0B16"
   },
-
+  editTitle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
   audioCard: {
     display: "flex",
     padding: 10,
@@ -56,20 +60,23 @@ const styles = {
   },
   genreChip: {
     margin: 7,
-    backgroundColor: "#4717f6",
-    color: "white"
+    backgroundColor: "#3ACBA6",
+    color: "white",
+    fontWeight: "bold"
   },
   specialtyChip: {
     margin: 7,
-    backgroundColor: "#4717f6",
-    color: "white"
+    backgroundColor: "#3ACBA6",
+    color: "white",
+    fontWeight: "bold"
   },
   whiteText: {
-    color: "white"
+    color: "white",
+    fontWeight: "bold"
   },
   paper: {
     padding: 40,
-    backgroundColor: "#3acba6",
+    background: "linear-gradient(360deg, #7239c5, #4717f6)",
     borderRadius: 0
   },
   description: {
