@@ -175,7 +175,7 @@ Meteor.startup(() => {
           {
             text:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras fermentum odio eu feugiat pretium nibh. Porta non pulvinar neque laoreet suspendisse interdum. Mi sit amet mauris commodo quis. Sit amet consectetur adipiscing elit ut aliquam purus sit amet.",
-            reviewer: "Alice Mini"
+            reviewer: "Cindy Louder"
           }
         ],
         //ie: guitar, drums
@@ -205,8 +205,14 @@ Meteor.startup(() => {
         },
         reviews: [
           {
-            text: "amazing!",
-            reviewer: "Bob"
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi cras fermentum odio eu feugiat pretium nibh. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Etiam erat velit scelerisque in dictum non consectetur a.",
+            reviewer: "Dodge DG"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Varius sit amet mattis vulputate. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing.",
+            reviewer: "Bob Harley"
           }
         ],
         //ie: guitar, drums
@@ -233,8 +239,14 @@ Meteor.startup(() => {
         },
         reviews: [
           {
-            text: "amazing!",
-            reviewer: "Bob"
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Consectetur a erat nam at lectus urna. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id.",
+            reviewer: "Frank Zappier"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu turpis egestas pretium aenean pharetra. Quis commodo odio aenean sed. Convallis tellus id interdum velit laoreet id donec ultrices.",
+            reviewer: "Frank Zappier"
           }
         ],
         //ie: guitar, drums
@@ -261,8 +273,14 @@ Meteor.startup(() => {
         },
         reviews: [
           {
-            text: "amazing!",
-            reviewer: "Bob"
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Phasellus egestas tellus rutrum tellus.",
+            reviewer: "Gary Manilow"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Eu tincidunt tortor aliquam nulla facilisi. Nisl rhoncus mattis rhoncus urna neque.",
+            reviewer: "Frank Zappier"
           }
         ],
         //ie: guitar, drums
@@ -289,8 +307,14 @@ Meteor.startup(() => {
         },
         reviews: [
           {
-            text: "amazing!",
-            reviewer: "Bob"
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas integer eget aliquet nibh praesent tristique magna. Venenatis lectus magna fringilla urna porttitor. Tortor pretium viverra suspendisse potenti nullam ac tortor. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium.",
+            reviewer: "Gary Manilow"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue lacus viverra vitae congue eu consequat. Suspendisse ultrices gravida dictum fusce ut placerat orci. Ipsum nunc aliquet bibendum enim facilisis gravida.",
+            reviewer: "Alice Mini"
           }
         ],
         //ie: guitar, drums
@@ -307,7 +331,7 @@ Meteor.startup(() => {
         }
       ],
       profile: {
-        fullname: "Gary Kent",
+        fullname: "Gary Manilow",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor at auctor urna nunc id cursus metus. At in tellus integer feugiat scelerisque varius morbi. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pellentesque habitant morbi tristique senectus. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Tincidunt id aliquet risus feugiat in ante metus dictum at. Arcu dictum varius duis at consectetur lorem donec massa. At volutpat diam ut venenatis tellus. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Morbi blandit cursus risus at ultrices mi. Tellus orci ac auctor augue mauris augue neque gravida in. Pulvinar mattis nunc sed blandit libero volutpat. Malesuada nunc vel risus commodo viverra maecenas. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Dui sapien eget mi proin. Nunc mattis enim ut tellus elementum sagittis vitae et.",
         imageurl: "https://loremflickr.com/320/240",
@@ -317,8 +341,14 @@ Meteor.startup(() => {
         },
         reviews: [
           {
-            text: "amazing!",
-            reviewer: "Bob"
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida neque convallis a cras semper auctor. Integer enim neque volutpat ac tincidunt vitae semper. Volutpat sed cras ornare arcu dui vivamus arcu felis.",
+            reviewer: "Lady Baba"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec. Lacus sed turpis tincidunt id. Sed viverra tellus in hac habitasse platea. Nascetur ridiculus mus mauris vitae.",
+            reviewer: "Kate Berry"
           }
         ],
         //ie: guitar, drums
