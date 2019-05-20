@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Bounce from "react-reveal/Bounce";
 import { Parallax } from "react-scroll-parallax";
+import AccountForm from "../AccountForm";
+
 const HomeDes = ({ classes }) => {
   return (
     <Parallax className={classes.parallax} y={[-20, 20]} tagOuter="figure">
@@ -37,9 +39,10 @@ const HomeDes = ({ classes }) => {
           </Bounce>
         </div>
         <Bounce right duration={2000}>
-          <Button variant="contained" className={classes.button}>
+          {/* <Button variant="contained" className={classes.button}>
             SIGN ME UP
-          </Button>
+          </Button> */}
+          <AccountForm />
         </Bounce>
       </section>
     </Parallax>

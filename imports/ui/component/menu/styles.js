@@ -12,6 +12,13 @@ const styles = {
     background: "#9b42f4",
     height: 70
   },
+  button: {
+    backgroundColor: "#F50057",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#4f4af6"
+    }
+  },
   cover: {
     position: "absolute",
     zIndex: -1,

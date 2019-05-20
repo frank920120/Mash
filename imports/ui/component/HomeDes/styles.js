@@ -9,7 +9,8 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 50
   },
   parallax: {
     width: "100%",
@@ -39,8 +40,8 @@ const styles = {
   },
   button: {
     marginTop: 50,
-    marginBottom: 100,
-    backgroundColor: "#4f4af6",
+    marginBottom: 50,
+    backgroundColor: "#F50057",
     color: "white",
     "&:hover": {
       backgroundColor: "#4f4af6"

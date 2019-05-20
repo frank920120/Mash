@@ -85,7 +85,6 @@ class Menu extends Component {
                     vertical: "bottom",
                     horizontal: "left"
                   }}
-                  // open={this.state.openAlert}
                   open={currentUser && currentUser.profile.hasNewFriend}
                   onClose={this.handleAlertClose}
                   ContentProps={{
