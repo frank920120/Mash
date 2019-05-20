@@ -212,7 +212,7 @@ Meteor.startup(() => {
         //ie: guitar, drums
         specialties: ["Saxophone", "Electric Guitar", "Trumpet"],
         //ie: ROCK, classical
-        genres: ["ROCK"],
+        genres: ["Blues", "Jazz", "Soul"],
         musicWorks: []
       }
     });
@@ -238,9 +238,9 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Singing", "Recorder"],
+        specialties: ["Singing"],
         //ie: ROCK, classical
-        genres: ["ROCK"],
+        genres: ["Blues", "Soul", "Jazz"],
         musicWorks: []
       }
     });
@@ -266,9 +266,9 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Percussion", "Saxophone", "Recorder"],
+        specialties: ["Percussion", "Drums"],
         //ie: ROCK, classical
-        genres: ["ROCK"],
+        genres: ["Rock", "Jazz", "R&B"],
         musicWorks: []
       }
     });
@@ -294,9 +294,9 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Drums"],
+        specialties: ["Electric Guitar", "Acoustic Guitar"],
         //ie: ROCK, classical
-        genres: ["ROCK"],
+        genres: ["Rock", "Pop", "Jazz"],
         musicWorks: []
       }
     });
@@ -322,9 +322,9 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Piano", "Recorder"],
+        specialties: ["Piano", "Keyboards"],
         //ie: ROCK, classical
-        genres: ["ROCK"],
+        genres: ["Dance", "Pop", "Hip Hop"],
         musicWorks: []
       }
     });
