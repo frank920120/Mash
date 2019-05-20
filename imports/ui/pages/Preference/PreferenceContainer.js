@@ -17,7 +17,7 @@ const myOptions = [
   "Pop",
   "Jazz",
   "Folk",
-  "CLassical",
+  "Classical",
   "Hip Hop",
   "Dance",
   "World",
