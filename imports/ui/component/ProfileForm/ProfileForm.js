@@ -58,8 +58,6 @@ class ProfileForm extends Component {
   constructor(props) {
     super(props);
     const thisUser = this.props.user;
-    console.log(thisUser);
-    // const action = this.props.action;
     this.state = {
       fullname: thisUser.profile.fullname ? thisUser.profile.fullname : "",
       bio: thisUser.profile.description ? thisUser.profile.description : "",

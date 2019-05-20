@@ -79,7 +79,6 @@ class MessageBox extends Component {
             ? currentUser.profile.messages.map(message => (
                 <MenuItem
                   onClick={() => {
-                    console.log("message", message);
                     return this.setState({
                       showAcceptButton: message.type > 0 ? true : false,
                       anchorEl: null,
@@ -178,13 +177,10 @@ class MessageBox extends Component {
                       );
                     }
                   );
-                  console.log("state from id", this.state.fromId);
-                  console.log("updatedMessage", updatedMessage);
                   const user = {
                     _id: currentUserId,
                     "profile.messages": updatedMessage
                   };
-                  //console.log(user);
                   Meteor.call("artists.updateProfile", user);
                 }}
               >
@@ -207,13 +203,10 @@ class MessageBox extends Component {
                       );
                     }
                   );
-                  console.log("state from id", this.state.fromId);
-                  console.log("updatedMessage", updatedMessage);
                   const user = {
                     _id: currentUserId,
                     "profile.messages": updatedMessage
                   };
-                  //console.log(user);
                   Meteor.call("artists.updateProfile", user);
                 }}
               >

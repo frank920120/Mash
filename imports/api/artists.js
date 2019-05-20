@@ -44,7 +44,6 @@ Meteor.methods({
  */
 if (Meteor.isServer) {
   Meteor.publish("getProfileById", function profilePublication(userIdString) {
-    console.log(userIdString);
     return Artists.find({ _id: userIdString }, { emails: 0, services: 0 });
   });
 }
@@ -64,7 +63,6 @@ Meteor.methods({
 //get the filter
 if (Meteor.isServer) {
   Meteor.publish("getFilter", function profilePublication(userIdString) {
-    console.log(userIdString);
     return Artists.find({ _id: this.userId }, { "profile.myFilter": 1 });
   });
 }
@@ -74,7 +72,6 @@ if (Meteor.isServer) {
  */
 if (Meteor.isServer) {
   Meteor.publish("filterUsers", function profilePublication(filter) {
-    console.log("filter", filter);
     const conditions = [];
     filter.fullname && filter.fullname.length > 0
       ? conditions.push({
@@ -93,7 +90,6 @@ if (Meteor.isServer) {
         : {
             $and: conditions
           };
-    console.log("conditions", conditions);
     return Artists.find(query, { emails: 0, services: 0 });
   });
 }
@@ -103,7 +99,6 @@ Meteor.methods({
     if (!this.userId) {
       throw new Meteor.Error("Please Login.");
     }
-    console.log(message);
     Artists.update(
       { _id: message.toId },
       {

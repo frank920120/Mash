@@ -40,7 +40,6 @@ class Profile extends Component {
   render() {
     const { classes, artist, currentUser } = this.props;
     const clientId = "5IHUoTCYwQmJR7RbijX9OigWp2zCoiyC";
-    console.log("artist", artist);
     if (artist.length < 1 || artist == undefined || currentUser === undefined)
       return <h1>Loading...</h1>;
     else
