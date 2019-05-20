@@ -43,11 +43,25 @@ const Footer = ({ classes }) => {
       <Grid item className={classes.footerBottom} xs={12}>
         <h1 className={classes.copyRight}>©2019 MASH. All rights reserved.</h1>
         <div className={classes.iconContainer}>
-          {icons.map(icon => (
-            <a href="#0" key={icon.id}>
-              <img className={classes.socialMeida} src={icon.url} alt="logo" />
+          <div className={classes.contributor}>
+            Build with <img className={classes.heart} src="/images/like.svg" />
+            {" by "}
+            <a
+              className={classes.member}
+              href="https://github.com/amarquesmoura"
+            >
+              Andre Moura,{" "}
             </a>
-          ))}
+            <a className={classes.member} href="https://github.com/frank920120">
+              Frank Fang,{" "}
+            </a>
+            <a className={classes.member} href="https://github.com/naijizhang">
+              NaiJi Zhang,{" "}
+            </a>
+            <a className={classes.member} href="https://github.com/nancychuchu">
+              Nancy Chu
+            </a>
+          </div>
         </div>
       </Grid>
     </Grid>

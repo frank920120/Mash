@@ -24,6 +24,21 @@ const styles = {
     borderBottom: "10px solid white",
     marginLeft: 10
   },
+  heart: {
+    width: 15,
+    height: 15
+  },
+  member: {
+    color: "white",
+    textDecoration: "none",
+    fontSize: 12,
+    fontWeight: 800
+  },
+  contributor: {
+    color: "white",
+    fontSize: 12,
+    fontWeight: 800
+  },
   footerLogo: {
     width: 75,
     heigth: 75,
@@ -39,18 +54,21 @@ const styles = {
     height: 30
   },
   copyRight: {
-    fontSize: 10,
-    color: "white"
+    fontSize: 12,
+    color: "white",
+    fontWeight: 800
   },
   footerBottom: {
     display: "flex",
     justifyContent: "space-between",
-    padding: 10
+    padding: 10,
+    flexWrap: "wrap"
   },
   iconContainer: {
     display: "flex",
-    width: 200,
-    justifyContent: "space-around"
+    width: 400,
+    justifyContent: "space-around",
+    alignItems: "center"
   }
 };
 
