@@ -23,7 +23,6 @@ class SearchAppBar extends React.Component {
   handleChange = event => {
     this.setState({ name: event.target.value });
 
-<<<<<<< HEAD
     const user = {
       _id: Meteor.userId(),
       "profile.myFilter.fullname": event.target.value
@@ -50,23 +49,6 @@ class SearchAppBar extends React.Component {
               variant="h6"
               color="inherit"
               noWrap
-=======
-function SearchAppBar({ classes }) {
-  return (
-    <div className={classes.root}>
-      <AppBar className={classes.appbar} position="static">
-        <Toolbar>
-          <div className={classes.searchContainer}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
->>>>>>> 608af201731778dd08af77ab5f638497213a1587
             />
             <div className={classes.grow} /> */}
             <div className={classes.searchContainer}>
