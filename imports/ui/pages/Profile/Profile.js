@@ -55,37 +55,16 @@ class Profile extends Component {
                     src={artist[0].profile.imageurl}
                     className={classes.avatar}
                   />
-<<<<<<< HEAD
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                    disabled={
-                      currentUser &&
-                      currentUser.profile.friends &&
-                      currentUser.profile.friends.includes(artist[0]._id)
-                    }
-                    onClick={() => {
-                      const message = {
-                        type: 1,
-                        toId: artist[0]._id,
-                        text:
-                          "I went through your profile. Can I get your email for future collaboration?",
-                        fromId: currentUser._id,
-                        from: currentUser.profile.fullname
-                      };
-                      Meteor.call("artists.addMessage", message);
-                      window.alert("Sent the message!");
-                    }}
-                  >
-                    Connect
-                  </Button>
-=======
                   {Meteor.userId() !== artist[0]._id && (
                     <Button
                       variant="contained"
                       color="secondary"
                       className={classes.button}
+                      disabled={
+                        currentUser &&
+                        currentUser.profile.friends &&
+                        currentUser.profile.friends.includes(artist[0]._id)
+                      }
                       onClick={() => {
                         const message = {
                           type: 1,
@@ -102,7 +81,6 @@ class Profile extends Component {
                       Connect
                     </Button>
                   )}
->>>>>>> 0c182211465f0e3acbeebe5f595f0792c082a3f0
                 </Grid>
                 <Grid item xs={7} className={classes.artistInfo}>
                   <Typography
