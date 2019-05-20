@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 const icons = [
