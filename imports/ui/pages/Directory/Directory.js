@@ -15,11 +15,11 @@ class Directory extends Component {
     const allArtists = this.props.allUsers;
     const classes = this.props.classes;
     const currentUserId = Meteor.userId();
-    const currentUser = allArtists.filter(
-      user => user._id === currentUserId
-    )[0];
-    console.log(currentUser);
-    console.log("allArtists",allArtists);
+    // console.log(currentUserId);
+    // const currentUser = allArtists.filter(
+    //   user => user._id === currentUserId
+    // )[0];
+    console.log("allArtists", allArtists);
     // const userPrefs = allArtists.find(_id === currentUser);
     // console.log(userPrefs);
     return (
@@ -62,10 +62,13 @@ class Directory extends Component {
 
 export default withStyles(styles)(
   withTracker(() => {
-    //Meteor.subscribe("allArtists");
+    Meteor.subscribe("allArtists");
     Meteor.subscribe("getFilter");
-    const myFilter=Artists.find({}).fetch();
-    Meteor.subscribe("filterUsers",myFilter[0]?myFilter[0].profile.myFilter:null);
+    const myFilter = Artists.find({}).fetch();
+    Meteor.subscribe(
+      "filterUsers",
+      myFilter[0] ? myFilter[0].profile.myFilter : null
+    );
     return {
       allUsers: Artists.find({}).fetch(),
       filteredusers: Artists.find({}).fetch()
