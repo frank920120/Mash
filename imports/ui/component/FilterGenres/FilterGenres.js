@@ -36,8 +36,18 @@ const genres = [
 
 class FilterGenres extends React.Component {
   state = {
-    name: this.props.myFilter&&this.props.myFilter.genres?this.props.myFilter.genres:[]
+    name:
+      this.props.myFilter && this.props.myFilter.genres
+        ? this.props.myFilter.genres
+        : []
   };
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      name: nextProps.myFilter[0].profile.myFilter.genres
+        ? nextProps.myFilter[0].profile.myFilter.genres
+        : []
+    });
+  }
 
   handleChange = event => {
     this.setState({ name: event.target.value });
@@ -104,7 +114,7 @@ export default withStyles(styles)(
   withTracker(() => {
     Meteor.subscribe("getFilter");
     return {
-      myFilter: Artists.find({}).fetch(),
+      myFilter: Artists.find({}).fetch()
     };
   })(FilterGenres)
 );

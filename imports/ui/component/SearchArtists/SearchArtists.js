@@ -20,6 +20,13 @@ class SearchAppBar extends React.Component {
         ? this.props.myFilter.fullname
         : ""
   };
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      name: nextProps.myFilter[0].profile.myFilter.fullname
+        ? nextProps.myFilter[0].profile.myFilter.fullname
+        : ""
+    });
+  }
   handleChange = event => {
     this.setState({ name: event.target.value });
 

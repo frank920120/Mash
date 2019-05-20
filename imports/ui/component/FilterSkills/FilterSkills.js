@@ -47,14 +47,21 @@ class FilterSkills extends React.Component {
         ? this.props.myFilter.specialties
         : []
   };
-  componentDidMount() {
-    Meteor.call("artists.updateProfile", {
-      _id: Meteor.userId(),
-      "profile.myFilter.specialties": [],
-      "profile.myFilter.genres": [],
-      "profile.myFilter.fullname": ""
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      name: nextProps.myFilter[0].profile.myFilter.specialties
+        ? nextProps.myFilter[0].profile.myFilter.specialties
+        : []
     });
   }
+  // componentDidMount() {
+  //   Meteor.call("artists.updateProfile", {
+  //     _id: Meteor.userId(),
+  //     "profile.myFilter.specialties": [],
+  //     "profile.myFilter.genres": [],
+  //     "profile.myFilter.fullname": ""
+  //   });
+  // }
   handleChange = event => {
     Meteor.call("artists.updateProfile", {
       _id: Meteor.userId(),
