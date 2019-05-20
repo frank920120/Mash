@@ -10,18 +10,18 @@ import { Meteor } from "meteor/meteor";
 import { withRouter } from "react-router-dom";
 
 const myOptions = [
-  "ROCK",
-  "BLUES",
-  "COUNTRY",
+  "Rock",
+  "Blues",
+  "Country",
   "R&B",
-  "POP",
-  "JAZZ",
-  "FOLK",
-  "CLASSICAL",
-  "HIP HOP",
-  "GRAVY",
-  "WORLD",
-  "PUNK"
+  "Pop",
+  "Jazz",
+  "Folk",
+  "CLassical",
+  "Hip Hop",
+  "Dance",
+  "World",
+  "Punk"
 ];
 
 function PreferenceContainer({ classes, history }) {
