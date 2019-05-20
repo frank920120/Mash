@@ -219,7 +219,10 @@ Meteor.startup(() => {
         specialties: ["Saxophone", "Electric Guitar", "Trumpet"],
         //ie: ROCK, classical
         genres: ["Blues", "Jazz", "Soul"],
-        musicWorks: []
+        musicWorks: [
+          "https://soundcloud.com/greg-chambers/all-of-me-saxophone-cover",
+          "https://soundcloud.com/richardianjacinto/ed-sheeran-thinking-out-loud-saxophone-cover-by-ian-jacinto"
+        ]
       }
     });
     Artists.insert({
@@ -253,7 +256,10 @@ Meteor.startup(() => {
         specialties: ["Singing"],
         //ie: ROCK, classical
         genres: ["Blues", "Soul", "Jazz"],
-        musicWorks: []
+        musicWorks: [
+          "https://soundcloud.com/therealbuddyguy/crawlin-kingsnake?in=therealbuddyguy/sets/blues-singer-1",
+          "https://soundcloud.com/therealbuddyguy/lucy-mae-blues?in=therealbuddyguy/sets/blues-singer-1"
+        ]
       }
     });
     Artists.insert({
@@ -287,7 +293,10 @@ Meteor.startup(() => {
         specialties: ["Percussion", "Drums"],
         //ie: ROCK, classical
         genres: ["Rock", "Jazz", "R&B"],
-        musicWorks: []
+        musicWorks: [
+          "https://soundcloud.com/brutdeprod-recording/jazz-drums",
+          "https://soundcloud.com/benbiver/jazz-drums"
+        ]
       }
     });
     Artists.insert({
@@ -321,7 +330,10 @@ Meteor.startup(() => {
         specialties: ["Electric Guitar", "Acoustic Guitar"],
         //ie: ROCK, classical
         genres: ["Rock", "Pop", "Jazz"],
-        musicWorks: []
+        musicWorks: [
+          "https://soundcloud.com/nik_davies/autumn-leaves-solo-jazz-guitar",
+          "https://soundcloud.com/hgascon/smooth-jazz-champ"
+        ]
       }
     });
     Artists.insert({
@@ -355,7 +367,10 @@ Meteor.startup(() => {
         specialties: ["Piano", "Keyboards"],
         //ie: ROCK, classical
         genres: ["Dance", "Pop", "Hip Hop"],
-        musicWorks: []
+        musicWorks: [
+          "https://soundcloud.com/izik-shtemer/roland-e-a7-dance-demo-with-slicer-effect",
+          "https://soundcloud.com/pgorges/classic-keyboards-demo-roland"
+        ]
       }
     });
   }
