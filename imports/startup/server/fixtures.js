@@ -198,7 +198,7 @@ Meteor.startup(() => {
         fullname: "Cindy Louder",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At elementum eu facilisis sed odio morbi quis commodo odio. Mattis enim ut tellus elementum sagittis vitae et leo. Pellentesque habitant morbi tristique senectus et netus et malesuada. Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Odio eu feugiat pretium nibh ipsum consequat. Leo vel orci porta non. Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Tellus pellentesque eu tincidunt tortor. Metus aliquam eleifend mi in nulla posuere. Porta nibh venenatis cras sed felis eget. Bibendum at varius vel pharetra vel. Condimentum vitae sapien pellentesque habitant morbi. Neque convallis a cras semper auctor neque vitae tempus. Metus vulputate eu scelerisque felis imperdiet. Sed sed risus pretium quam vulputate dignissim. Dui vivamus arcu felis bibendum ut. Eget gravida cum sociis natoque penatibus. Ultrices in iaculis nunc sed augue lacus. Porttitor rhoncus dolor purus non.",
-        imageurl: "https://loremflickr.com/320/240",
+        imageurl: "https://randomuser.me/api/portraits/women/3.jpg",
         location: {
           lat: 49.270425,
           lng: -123.133033
@@ -235,7 +235,7 @@ Meteor.startup(() => {
         fullname: "Dodge DG",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue. Laoreet suspendisse interdum consectetur libero id. Elementum nibh tellus molestie nunc non blandit massa. Augue lacus viverra vitae congue eu consequat ac felis. Viverra nibh cras pulvinar mattis. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Faucibus interdum posuere lorem ipsum. Augue neque gravida in fermentum. Molestie a iaculis at erat pellentesque adipiscing. Cursus euismod quis viverra nibh cras. Lobortis mattis aliquam faucibus purus in. Arcu felis bibendum ut tristique et egestas quis. Ornare massa eget egestas purus viverra accumsan in.",
-        imageurl: "https://loremflickr.com/320/240",
+        imageurl: "https://randomuser.me/api/portraits/men/16.jpg",
         location: {
           lat: 49.273284,
           lng: -123.079001
@@ -272,7 +272,7 @@ Meteor.startup(() => {
         fullname: "Elena Desea",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis. Diam ut venenatis tellus in metus vulputate eu scelerisque felis. Consequat id porta nibh venenatis cras sed. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Sed nisi lacus sed viverra tellus in hac. Sit amet dictum sit amet justo donec enim diam vulputate. Lacus vel facilisis volutpat est velit egestas dui id ornare. Nulla at volutpat diam ut venenatis tellus in metus. Molestie nunc non blandit massa enim. Massa ultricies mi quis hendrerit dolor magna eget. Eget aliquet nibh praesent tristique magna sit amet. Aliquet eget sit amet tellus cras adipiscing enim. Odio facilisis mauris sit amet massa. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam.",
-        imageurl: "https://loremflickr.com/320/240",
+        imageurl: "https://randomuser.me/api/portraits/women/20.jpg",
         location: {
           lat: 49.283793,
           lng: -123.131142
@@ -309,7 +309,7 @@ Meteor.startup(() => {
         fullname: "Frank Zappier",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum integer enim neque volutpat ac tincidunt vitae. Arcu bibendum at varius vel pharetra. Quisque non tellus orci ac auctor augue mauris augue neque. Neque vitae tempus quam pellentesque nec. Egestas maecenas pharetra convallis posuere morbi. Sit amet facilisis magna etiam. Vulputate ut pharetra sit amet. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Maecenas accumsan lacus vel facilisis volutpat est. Id neque aliquam vestibulum morbi. Scelerisque eu ultrices vitae auctor eu augue. Lectus magna fringilla urna porttitor rhoncus dolor. Id aliquet risus feugiat in ante metus dictum. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed pulvinar proin gravida hendrerit. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Arcu bibendum at varius vel pharetra vel turpis nunc. Sit amet tellus cras adipiscing enim eu turpis egestas pretium.",
-        imageurl: "https://loremflickr.com/320/240",
+        imageurl: "https://randomuser.me/api/portraits/women/20.jpg",
         location: {
           lat: 49.26175,
           lng: -123.247995
@@ -346,7 +346,7 @@ Meteor.startup(() => {
         fullname: "Gary Manilow",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor at auctor urna nunc id cursus metus. At in tellus integer feugiat scelerisque varius morbi. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pellentesque habitant morbi tristique senectus. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Tincidunt id aliquet risus feugiat in ante metus dictum at. Arcu dictum varius duis at consectetur lorem donec massa. At volutpat diam ut venenatis tellus. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Morbi blandit cursus risus at ultrices mi. Tellus orci ac auctor augue mauris augue neque gravida in. Pulvinar mattis nunc sed blandit libero volutpat. Malesuada nunc vel risus commodo viverra maecenas. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Dui sapien eget mi proin. Nunc mattis enim ut tellus elementum sagittis vitae et.",
-        imageurl: "https://loremflickr.com/320/240",
+        imageurl: "https://randomuser.me/api/portraits/men/20.jpg",
         location: {
           lat: 49.225476,
           lng: -123.160795
