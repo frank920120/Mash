@@ -42,7 +42,7 @@ const skills = [
 
 class FilterSkills extends React.Component {
   state = {
-    name:[]
+    name: []
   };
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -51,14 +51,7 @@ class FilterSkills extends React.Component {
         : []
     });
   }
-  // componentDidMount() {
-  //   Meteor.call("artists.updateProfile", {
-  //     _id: Meteor.userId(),
-  //     "profile.myFilter.specialties": [],
-  //     "profile.myFilter.genres": [],
-  //     "profile.myFilter.fullname": ""
-  //   });
-  // }
+
   handleChange = event => {
     Meteor.call("artists.updateProfile", {
       _id: Meteor.userId(),
