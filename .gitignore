@@ -29,6 +29,10 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
+# Ignore meteor #
+# =============== #
+.meteor
+
 # Ignore environment #
 # ================== #
 .env 
