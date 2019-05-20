@@ -15,13 +15,10 @@ class Directory extends Component {
     const allArtists = this.props.allUsers;
     const classes = this.props.classes;
     const currentUserId = Meteor.userId();
-    // console.log(currentUserId);
-    // const currentUser = allArtists.filter(
-    //   user => user._id === currentUserId
-    // )[0];
-    console.log("allArtists", allArtists);
+    const currentUser = allArtists.filter(
+      user => user._id === currentUserId
+    )[0];
     // const userPrefs = allArtists.find(_id === currentUser);
-    // console.log(userPrefs);
     return (
       <React.Fragment>
         <div className={classes.filters}>
@@ -30,13 +27,6 @@ class Directory extends Component {
           <FilterGenres />
         </div>
         <Grid container className={classes.root} spacing={8}>
-          {/* get genres preferences from current user */}
-          {/* {const prefs = "";} */}
-          {/* get allArtists but current user */}
-          {/* {const allOtherArtists = filter(allArtists._id !== currentUser)} */}
-          {/* set the initial state for genres with current user preferences */}
-          {/* {setState(prefs)} */}
-          {/* map filteredArtists */}
           {allArtists
             .filter(user => user._id != currentUserId)
             .map((artist, i) => {
@@ -62,7 +52,7 @@ class Directory extends Component {
 
 export default withStyles(styles)(
   withTracker(() => {
-    Meteor.subscribe("allArtists");
+    //Meteor.subscribe("allArtists");
     Meteor.subscribe("getFilter");
     const myFilter = Artists.find({}).fetch();
     Meteor.subscribe(
