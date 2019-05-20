@@ -4,7 +4,8 @@ const styles = {
     justifyContent: "space-between",
     backgroundColor: "#0E0B16",
     paddingBottom: 100,
-    paddingTop: 60
+    paddingTop: 60,
+    minHeight: "100vh"
   },
   filters: {
     display: "flex",

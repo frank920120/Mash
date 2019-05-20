@@ -5,14 +5,14 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import styles from "./styles";
 
-function Review({ classes, text, reviewer }) {
+function Review({ classes, title, text, reviewer }) {
   return (
     <div className={classes.reviewCard}>
-      <h4 className={classes.whiteText}>A dream to work with</h4>
+      <h4 className={classes.whiteText}>{!!title && title}</h4>
       <div className={classes.review}>
         <p>{text}</p>
       </div>
-      <p className={classes.whiteText}>{reviewer}</p>
+      <p className={classes.reviewer}>{reviewer}</p>
     </div>
   );
 }

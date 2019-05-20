@@ -17,6 +17,7 @@ const styles = {
   // },
   searchContainer: {
     display: "flex"
+
     // position: "relative",
     // borderRadius: theme.shape.borderRadius,
     // backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -42,11 +43,10 @@ const styles = {
   },
   appbar: {
     borderRadius: 10
+  },
+  inputRoot: {
+    color: "white"
   }
-  // inputRoot: {
-  //   color: "inherit",
-  //   width: "100%"
-  // },
   // inputInput: {
   //   // paddingTop: theme.spacing.unit,
   //   // paddingRight: theme.spacing.unit,

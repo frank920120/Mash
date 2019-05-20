@@ -14,8 +14,18 @@ const styles = {
     borderRadius: 4,
     borderColor: "#4717F6",
     backgroundColor: "#0E0B16"
+  },
 
-    // background: "linear-gradient(90deg, #5E239D 0%, rgba(196, 196, 196, 0) 70%);"
+  audioCard: {
+    display: "flex",
+    padding: 10,
+    alignItems: "center",
+    width: "100%",
+    borderTopWidth: 2,
+    borderColor: "#e7dfdd",
+    backgroundColor: "#e7dfdd",
+    height: 92,
+    marginTop: 10
   },
   cover: {
     zIndex: -1,
@@ -63,11 +73,18 @@ const styles = {
     borderRadius: 0
   },
   description: {
+    fontSize: 18,
     paddingTop: 40,
-    paddingBottom: 40
+    paddingBottom: 60,
+    color: "white"
   },
   chips: {
     minHeight: 52
+  },
+  music: {
+    backgroundColor: "white",
+    opacity: 0.5,
+    marginTop: 16
   }
 };
 

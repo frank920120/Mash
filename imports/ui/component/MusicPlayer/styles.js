@@ -11,7 +11,8 @@ const styles = theme => ({
     borderTopWidth: 2,
     borderColor: "#e7dfdd",
     backgroundColor: "#e7dfdd",
-    height: 92
+    height: 92,
+    marginTop: 10
   },
   button: {
     backgroundColor: "white",
@@ -24,11 +25,8 @@ const styles = theme => ({
   },
   trackTitle: {
     textOverflow: "ellipsis",
-
-    /* Required for text-overflow to do anything */
     whiteSpace: "nowrap",
-    overflow: "auto",
-    flexShrink: 1
+    overflow: "auto"
   },
   controls: {
     display: "flex",
@@ -36,7 +34,8 @@ const styles = theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    alignContent: "center"
+    alignContent: "center",
+    flexGrow: 0
   },
   details: {
     display: "flex",
@@ -63,6 +62,9 @@ const styles = theme => ({
   },
   audioPlaceholder: {
     alignSelf: "center"
+  },
+  trackInfo: {
+    flexShrink: 1
   }
 });
 
