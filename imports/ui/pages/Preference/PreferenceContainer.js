@@ -26,6 +26,11 @@ const myOptions = [
 
 function PreferenceContainer({ classes, history }) {
   const onSubmit = values => {
+    const userFilter = {
+      _id: Meteor.userId(),
+      "profile.myFilter.genres": values.genres
+    };
+    Meteor.call("artists.updateProfile", userFilter);
     const user = {
       _id: Meteor.userId(),
       "profile.genres": values.genres
