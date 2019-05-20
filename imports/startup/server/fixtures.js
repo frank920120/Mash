@@ -31,7 +31,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Keyboard", "Percussion", "Flute"],
+        specialties: ["Singing", "Backing Vocals"],
         //ie: ROCK, classical
         genres: ["Rock", "Pop", "Punk"],
         musicWorks: [
@@ -68,7 +68,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Piano", "Violin", "Cello"],
+        specialties: ["Drums", "Percussion"],
         //ie: ROCK, classical
         genres: ["Rock", "World", "Funk"],
         musicWorks: [
@@ -142,7 +142,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Electric Guitar", "Piano"],
+        specialties: ["Bass", "Upright Bass"],
         //ie: ROCK, classical
         genres: ["Rock", "Blues", "Soul"],
         musicWorks: [
@@ -179,7 +179,7 @@ Meteor.startup(() => {
           }
         ],
         //ie: guitar, drums
-        specialties: ["Electric Guitar", "Piano", "Recorder"],
+        specialties: ["Keyboards", "Piano", "Recorder"],
         //ie: ROCK, classical
         genres: ["Rock", "Dance", "Pop"],
         musicWorks: [
@@ -309,7 +309,7 @@ Meteor.startup(() => {
         fullname: "Frank Zappier",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum integer enim neque volutpat ac tincidunt vitae. Arcu bibendum at varius vel pharetra. Quisque non tellus orci ac auctor augue mauris augue neque. Neque vitae tempus quam pellentesque nec. Egestas maecenas pharetra convallis posuere morbi. Sit amet facilisis magna etiam. Vulputate ut pharetra sit amet. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Maecenas accumsan lacus vel facilisis volutpat est. Id neque aliquam vestibulum morbi. Scelerisque eu ultrices vitae auctor eu augue. Lectus magna fringilla urna porttitor rhoncus dolor. Id aliquet risus feugiat in ante metus dictum. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed pulvinar proin gravida hendrerit. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Arcu bibendum at varius vel pharetra vel turpis nunc. Sit amet tellus cras adipiscing enim eu turpis egestas pretium.",
-        imageurl: "https://randomuser.me/api/portraits/women/20.jpg",
+        imageurl: "https://randomuser.me/api/portraits/men/23.jpg",
         location: {
           lat: 49.26175,
           lng: -123.247995
@@ -370,6 +370,80 @@ Meteor.startup(() => {
         musicWorks: [
           "https://soundcloud.com/izik-shtemer/roland-e-a7-dance-demo-with-slicer-effect",
           "https://soundcloud.com/pgorges/classic-keyboards-demo-roland"
+        ]
+      }
+    });
+    Artists.insert({
+      emails: [
+        {
+          address: "chris@red.com"
+        }
+      ],
+      profile: {
+        fullname: "Chris Austin",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor at auctor urna nunc id cursus metus. At in tellus integer feugiat scelerisque varius morbi. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pellentesque habitant morbi tristique senectus. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Tincidunt id aliquet risus feugiat in ante metus dictum at. Arcu dictum varius duis at consectetur lorem donec massa. At volutpat diam ut venenatis tellus. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Morbi blandit cursus risus at ultrices mi. Tellus orci ac auctor augue mauris augue neque gravida in. Pulvinar mattis nunc sed blandit libero volutpat. Malesuada nunc vel risus commodo viverra maecenas. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Dui sapien eget mi proin. Nunc mattis enim ut tellus elementum sagittis vitae et.",
+        imageurl: "https://randomuser.me/api/portraits/men/22.jpg",
+        location: {
+          lat: 49.232476,
+          lng: -123.168795
+        },
+        reviews: [
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida neque convallis a cras semper auctor. Integer enim neque volutpat ac tincidunt vitae semper. Volutpat sed cras ornare arcu dui vivamus arcu felis.",
+            reviewer: "Justin Loglake"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec. Lacus sed turpis tincidunt id. Sed viverra tellus in hac habitasse platea. Nascetur ridiculus mus mauris vitae.",
+            reviewer: "Dodge DG"
+          }
+        ],
+        //ie: guitar, drums
+        specialties: ["Piano", "Keyboards"],
+        //ie: ROCK, classical
+        genres: ["Dance", "Pop"],
+        musicWorks: [
+          "https://soundcloud.com/izik-shtemer/funk-open",
+          "https://soundcloud.com/izik-shtemer/la-isla-bonita-start-demo"
+        ]
+      }
+    });
+    Artists.insert({
+      emails: [
+        {
+          address: "bilboquet@red.com"
+        }
+      ],
+      profile: {
+        fullname: "Bilboquet Ma",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum integer enim neque volutpat ac tincidunt vitae. Arcu bibendum at varius vel pharetra. Quisque non tellus orci ac auctor augue mauris augue neque. Neque vitae tempus quam pellentesque nec. Egestas maecenas pharetra convallis posuere morbi. Sit amet facilisis magna etiam. Vulputate ut pharetra sit amet. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Maecenas accumsan lacus vel facilisis volutpat est. Id neque aliquam vestibulum morbi. Scelerisque eu ultrices vitae auctor eu augue. Lectus magna fringilla urna porttitor rhoncus dolor. Id aliquet risus feugiat in ante metus dictum. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed pulvinar proin gravida hendrerit. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Arcu bibendum at varius vel pharetra vel turpis nunc. Sit amet tellus cras adipiscing enim eu turpis egestas pretium.",
+        imageurl: "https://randomuser.me/api/portraits/men/21.jpg",
+        location: {
+          lat: 49.25875,
+          lng: -123.256995
+        },
+        reviews: [
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas integer eget aliquet nibh praesent tristique magna. Venenatis lectus magna fringilla urna porttitor. Tortor pretium viverra suspendisse potenti nullam ac tortor. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium.",
+            reviewer: "Gary Manilow"
+          },
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue lacus viverra vitae congue eu consequat. Suspendisse ultrices gravida dictum fusce ut placerat orci. Ipsum nunc aliquet bibendum enim facilisis gravida.",
+            reviewer: "Alice Mini"
+          }
+        ],
+        //ie: guitar, drums
+        specialties: ["Violin", "Cello"],
+        //ie: ROCK, classical
+        genres: ["Classical", "World", "Jazz"],
+        musicWorks: [
+          "https://soundcloud.com/marvillousbeats/leave-me-alone-violin-cover",
+          "https://soundcloud.com/stringplayergamer/star-wars-medley-electric-violinelectronic-style-work-in-progress"
         ]
       }
     });
