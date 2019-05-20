@@ -26,8 +26,8 @@ export default class SlideShow extends Component {
         </Fade>
         <div className="cover" />
         <ItemsCarousel
+          className="SlideShowContainer"
           placeholderItem={<div style={{ height: 200, background: "#EEE" }} />}
-          enablePlaceholder={true}
           numberOfPlaceholderItems={3}
           numberOfCars={3}
           gutter={12}
