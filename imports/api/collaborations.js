@@ -6,11 +6,3 @@ if (Meteor.isServer) {
     return Collaborations.find({});
   });
 }
-// import { withTracker } from "meteor/react-meteor-data";
-// import {Collaborations} from "../../../api/collaborations";
-// export default withTracker(() => {
-//   Meteor.subscribe('allCollaborations');
-//   return {
-//     allCollaborations: Collaborations.find({}).fetch(),
-//   };
-// })(...);
