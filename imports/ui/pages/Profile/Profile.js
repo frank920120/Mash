@@ -59,6 +59,11 @@ class Profile extends Component {
                     variant="contained"
                     color="secondary"
                     className={classes.button}
+                    disabled={
+                      currentUser &&
+                      currentUser.profile.friends &&
+                      currentUser.profile.friends.includes(artist[0]._id)
+                    }
                     onClick={() => {
                       const message = {
                         type: 1,

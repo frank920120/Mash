@@ -62,9 +62,13 @@ class Directory extends Component {
 
 export default withStyles(styles)(
   withTracker(() => {
-    Meteor.subscribe("allArtists");
+    //Meteor.subscribe("allArtists");
+    Meteor.subscribe("getFilter");
+    const myFilter=Artists.find({}).fetch();
+    Meteor.subscribe("filterUsers",myFilter[0]?myFilter[0].profile.myFilter:null);
     return {
-      allUsers: Artists.find({}).fetch()
+      allUsers: Artists.find({}).fetch(),
+      filteredusers: Artists.find({}).fetch()
     };
   })(Directory)
 );

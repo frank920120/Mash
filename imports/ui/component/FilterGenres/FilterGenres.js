@@ -8,6 +8,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import styles from "../FilterSkills/styles";
+import { withTracker } from "meteor/react-meteor-data";
+import { Artists } from "../../../api/artists";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,11 +36,16 @@ const genres = [
 
 class FilterGenres extends React.Component {
   state = {
-    name: []
+    name: this.props.myFilter&&this.props.myFilter.genres?this.props.myFilter.genres:[]
   };
 
   handleChange = event => {
     this.setState({ name: event.target.value });
+    const user = {
+      _id: Meteor.userId(),
+      "profile.myFilter.genres": this.state.name
+    };
+    return Meteor.call("artists.updateProfile", user);
   };
 
   handleChangeMultiple = event => {
@@ -93,4 +100,11 @@ FilterGenres.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FilterGenres);
+export default withStyles(styles)(
+  withTracker(() => {
+    Meteor.subscribe("getFilter");
+    return {
+      myFilter: Artists.find({}).fetch(),
+    };
+  })(FilterGenres)
+);
