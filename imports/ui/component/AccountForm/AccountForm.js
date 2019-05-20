@@ -28,7 +28,13 @@ const required = value => (value ? undefined : "Required");
 const newUser = {
   imageurl: "https://i.pravatar.cc/300",
   description: "No bio yet but just wait... it will blow your mind",
-  reviews: [{ text: "No reviews yet", reviewer: null }],
+  reviews: [
+    {
+      title: "No reviews yet",
+      text: "In the meantime, give me the benefit of the doubt.",
+      reviewer: null
+    }
+  ],
   specialties: [],
   genres: [],
   musicWorks: []

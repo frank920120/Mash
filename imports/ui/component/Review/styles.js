@@ -7,19 +7,17 @@ const styles = theme => ({
   review: {
     fontStyle: "italic",
     margin: 2,
-    padding: 5,
+    padding: 15,
     backgroundColor: "white",
     opacity: "0.5",
     borderRadius: 4
   },
-
   reviewer: {
-    alignSelf: "flex-end"
-  },
-  whiteText: {
+    alignSelf: "flex-end",
     color: "white"
   },
-  h4: {
+  whiteText: {
+    color: "white",
     margin: 3
   }
 });
