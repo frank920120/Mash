@@ -105,10 +105,7 @@ class AccountForm extends Component {
                       values.email,
                       values.password,
                       err => {
-                        console.log(err);
                         err ? this.setState({ error: err.reason }) : null;
-                      },
-                      () => {
                         this.props.history.push("/directory");
                       }
                     )
