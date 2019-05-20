@@ -23,23 +23,23 @@ const MenuProps = {
 };
 
 const genres = [
-  "ROCK",
-  "BLUES",
-  "COUNTRY",
+  "Rock",
+  "Blues",
+  "Country",
   "R&B",
-  "POP",
-  "JAZZ",
-  "FOLK",
-  "CLASSICAL",
-  "HIP HOP",
-  "GRAVY",
-  "WORLD",
-  "PUNK"
+  "Pop",
+  "Jazz",
+  "Folk",
+  "Classical",
+  "Hip Hop",
+  "Dance",
+  "World",
+  "Punk"
 ];
 
 class FilterGenres extends React.Component {
   state = {
-    name:[]
+    name: []
   };
   componentWillReceiveProps(nextProps) {
     this.setState({
