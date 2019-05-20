@@ -42,10 +42,7 @@ const skills = [
 
 class FilterSkills extends React.Component {
   state = {
-    name:
-      this.props.myFilter && this.props.myFilter.specialties
-        ? this.props.myFilter.specialties
-        : []
+    name:[]
   };
   componentWillReceiveProps(nextProps) {
     this.setState({

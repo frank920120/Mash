@@ -15,10 +15,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Artists } from "../../../api/artists";
 class SearchAppBar extends React.Component {
   state = {
-    name:
-      this.props.myFilter && this.props.myFilter.fullname
-        ? this.props.myFilter.fullname
-        : ""
+    name:""
   };
   componentWillReceiveProps(nextProps) {
     this.setState({

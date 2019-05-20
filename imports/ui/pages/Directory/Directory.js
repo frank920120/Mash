@@ -19,7 +19,7 @@ class Directory extends Component {
       user => user._id === currentUserId
     )[0];
     console.log(currentUser);
-    // console.log(allArtists);
+    console.log("allArtists",allArtists);
     // const userPrefs = allArtists.find(_id === currentUser);
     // console.log(userPrefs);
     return (

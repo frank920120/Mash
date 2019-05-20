@@ -32,8 +32,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Keyboard", "Percussion", "Flute"],
-        //ie: rock, classical
-        genres: ["rock", "pop", "punk"],
+        //ie: ROCK, classical
+        genres: ["ROCK", "pop", "punk"],
         musicWorks: [
           "https://soundcloud.com/markzubek/pop-female-tinah-frequency",
           "https://soundcloud.com/markzubek/pop-female-lauren-haze-broken-record"
@@ -69,11 +69,11 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Piano", "Violin", "Cello"],
-        //ie: rock, classical
-        genres: ["rock", "progressive rock", "funk"],
+        //ie: ROCK, classical
+        genres: ["ROCK", "progressive ROCK", "funk"],
         musicWorks: [
-          "https://soundcloud.com/ableton/omar-hakim-drums-rock",
-          "https://soundcloud.com/pluginalliance/drums-rock"
+          "https://soundcloud.com/ableton/omar-hakim-drums-ROCK",
+          "https://soundcloud.com/pluginalliance/drums-ROCK"
         ]
       }
     });
@@ -106,8 +106,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Electric guitar", "Violin"],
-        //ie: rock, classical
-        genres: ["country", "folk", "rock"],
+        //ie: ROCK, classical
+        genres: ["country", "folk", "ROCK"],
         musicWorks: [
           "https://soundcloud.com/ross-lee-shellard/mystery-train-guitar-instrumental-1",
           "https://soundcloud.com/ross-lee-shellard/12-st-rag-ukelele"
@@ -143,8 +143,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Electric Guitar", "Piano"],
-        //ie: rock, classical
-        genres: ["rock", "blues", "soul"],
+        //ie: ROCK, classical
+        genres: ["ROCK", "blues", "soul"],
         musicWorks: [
           "https://soundcloud.com/bassplayermag/eastwood-magnum-4-bridge",
           "https://soundcloud.com/bassplayermag/sets/soundblox-pro-bass-envelope"
@@ -180,8 +180,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Electric Guitar", "Piano", "Recorder"],
-        //ie: rock, classical
-        genres: ["rock", "blues", "soul"],
+        //ie: ROCK, classical
+        genres: ["ROCK", "blues", "soul"],
         musicWorks: [
           "https://soundcloud.com/angelo-di-marco/neo-soul-angelo-di-marco",
           "https://soundcloud.com/angelo-di-marco/zingarella-luigi-ingo"
@@ -210,8 +210,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Saxophone", "Electric Guitar", "Trumpet"],
-        //ie: rock, classical
-        genres: ["rock"],
+        //ie: ROCK, classical
+        genres: ["ROCK"],
         musicWorks: []
       }
     });
@@ -237,8 +237,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Singing", "Recorder"],
-        //ie: rock, classical
-        genres: ["rock"],
+        //ie: ROCK, classical
+        genres: ["ROCK"],
         musicWorks: []
       }
     });
@@ -264,8 +264,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Percussion", "Saxophone", "Recorder"],
-        //ie: rock, classical
-        genres: ["rock"],
+        //ie: ROCK, classical
+        genres: ["ROCK"],
         musicWorks: []
       }
     });
@@ -291,8 +291,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Drums"],
-        //ie: rock, classical
-        genres: ["rock"],
+        //ie: ROCK, classical
+        genres: ["ROCK"],
         musicWorks: []
       }
     });
@@ -318,8 +318,8 @@ Meteor.startup(() => {
         ],
         //ie: guitar, drums
         specialties: ["Piano", "Recorder"],
-        //ie: rock, classical
-        genres: ["rock"],
+        //ie: ROCK, classical
+        genres: ["ROCK"],
         musicWorks: []
       }
     });

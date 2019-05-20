@@ -149,7 +149,7 @@ if (Meteor.isServer) {
       ? conditions.push({ "profile.specialties": { $all: filter.specialties } })
       : null;
     filter.genres && filter.genres.length > 0
-      ? conditions.push({ "profile.genres": { $all: filter.genre } })
+      ? conditions.push({ "profile.genres": { $all: filter.genres } })
       : null;
     const query =
       conditions.length === 0

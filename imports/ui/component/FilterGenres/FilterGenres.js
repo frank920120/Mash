@@ -23,23 +23,23 @@ const MenuProps = {
 };
 
 const genres = [
-  "Rock",
-  "Pop",
-  "Punk",
-  "Progressive Rock",
-  "Funk",
-  "Country",
-  "Folk",
-  "Blues",
-  "Soul"
+  "ROCK",
+  "BLUES",
+  "COUNTRY",
+  "R&B",
+  "POP",
+  "JAZZ",
+  "FOLK",
+  "CLASSICAL",
+  "HIP HOP",
+  "GRAVY",
+  "WORLD",
+  "PUNK"
 ];
 
 class FilterGenres extends React.Component {
   state = {
-    name:
-      this.props.myFilter && this.props.myFilter.genres
-        ? this.props.myFilter.genres
-        : []
+    name:[]
   };
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -50,12 +50,11 @@ class FilterGenres extends React.Component {
   }
 
   handleChange = event => {
-    this.setState({ name: event.target.value });
-    const user = {
+    Meteor.call("artists.updateProfile", {
       _id: Meteor.userId(),
-      "profile.myFilter.genres": this.state.name
-    };
-    return Meteor.call("artists.updateProfile", user);
+      "profile.myFilter.genres": event.target.value
+    });
+    this.setState({ name: event.target.value });
   };
 
   handleChangeMultiple = event => {
