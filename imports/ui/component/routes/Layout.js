@@ -4,7 +4,7 @@ import DirectoryContainer from "../../pages/Directory";
 import LandingPageContainer from "../../pages/LangingPage";
 import Profile from "../../pages/Profile";
 import PreferenceContainer from "../../pages/Preference";
-import Menu from "../menu";
+import Menu from "../Menu";
 import { withRouter } from "react-router";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
