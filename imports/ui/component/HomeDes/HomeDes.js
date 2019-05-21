@@ -29,12 +29,13 @@ const HomeDes = ({ classes }) => {
               variant="body2"
               gutterBottom
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+              Mash is a platform to connect musicians with other complementary
+              musicians so they can mash their art together. No mater if it is
+              for a serious collaboration on songwriting the next top 40 hit
+              song or just to have fun jamming with friends, here at Mash every
+              contribution is welcome. And on top of it all, you will be able to
+              create collaboration terms and save it to a smart contract on the
+              blockchain!
             </Typography>
           </Bounce>
         </div>

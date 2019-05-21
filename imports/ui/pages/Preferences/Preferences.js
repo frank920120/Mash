@@ -44,7 +44,7 @@ function Preferences({ classes, history }) {
         <button className={classes.skip}>Skip</button>
       </a>
       <Fade right duration={2000}>
-        <img className={classes.guitor} src="/images/.png" alt="guitor" />
+        <img className={classes.guitar} src="/images/guitar.png" alt="guitar" />
       </Fade>
       <div className={classes.cover} />
       <div className={classes.formContainer}>

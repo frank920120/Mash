@@ -46,7 +46,7 @@ const styles = {
     zIndex: 999999999999
   },
 
-  guitor: {
+  guitar: {
     position: "absolute",
     bottom: 0,
     right: -20,
