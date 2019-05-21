@@ -20,7 +20,7 @@ class SlideShow extends Component {
       <div className={classes.SlideShowWrapper}>
         <Fade top duration={2000}>
           <h1 className={classes.CollaborationHeading}>
-            COLLAORATIONS
+            COLLABORATIONS
             <span className={classes.underline} />
           </h1>
         </Fade>
