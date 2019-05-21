@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styles, { MapsStyles } from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
@@ -154,6 +155,11 @@ class HomeMap extends Component {
     );
   }
 }
+
+HomeMap.propTypes = {
+  classes: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired
+};
 
 export default withStyles(styles)(
   GoogleApiWrapper({

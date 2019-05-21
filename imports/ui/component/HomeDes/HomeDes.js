@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import Bounce from "react-reveal/Bounce";
 import { Parallax } from "react-scroll-parallax";
 import AccountForm from "../AccountForm";
@@ -48,6 +48,10 @@ const HomeDes = ({ classes }) => {
       </section>
     </Parallax>
   );
+};
+
+HomeDes.propTypes = {
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(HomeDes);

@@ -108,7 +108,9 @@ class Menu extends Component {
 }
 
 Menu.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
+  currentUserId: PropTypes.string
 };
 
 export default compose(
