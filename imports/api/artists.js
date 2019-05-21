@@ -73,15 +73,15 @@ if (Meteor.isServer) {
 if (Meteor.isServer) {
   Meteor.publish("filterUsers", function profilePublication(filter) {
     const conditions = [];
-    filter.fullname && filter.fullname.length > 0
+    filter && filter.fullname && filter.fullname.length > 0
       ? conditions.push({
           "profile.fullname": { $regex: `.*${filter.fullname}.*` }
         })
       : null;
-    filter.specialties && filter.specialties.length > 0
+    filter && filter.specialties && filter.specialties.length > 0
       ? conditions.push({ "profile.specialties": { $all: filter.specialties } })
       : null;
-    filter.genres && filter.genres.length > 0
+    filter && filter.genres && filter.genres.length > 0
       ? conditions.push({ "profile.genres": { $all: filter.genres } })
       : null;
     const query =
