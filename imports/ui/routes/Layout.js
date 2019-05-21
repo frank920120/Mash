@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import DirectoryContainer from "../pages/Directory";
-import LandingPageContainer from "../pages/LangingPage";
+import LandingPageContainer from "../pages/LandingPage";
 import Profile from "../pages/Profile";
 import PreferenceContainer from "../pages/Preference";
 import Menu from "../component/Menu";
