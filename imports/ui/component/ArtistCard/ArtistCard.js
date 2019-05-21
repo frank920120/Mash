@@ -49,7 +49,8 @@ const ArtistCard = ({ classes, artist }) => {
 };
 
 ArtistCard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  artist: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ArtistCard);

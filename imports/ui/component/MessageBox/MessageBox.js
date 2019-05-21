@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { compose } from "recompose";
 import { withTracker } from "meteor/react-meteor-data";
 import { withStyles } from "@material-ui/core/styles";
@@ -230,6 +231,10 @@ class MessageBox extends Component {
     );
   }
 }
+
+MessageBox.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
 export default compose(
   withStyles(styles),

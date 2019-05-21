@@ -1,4 +1,5 @@
 import React, { PureComponent, Component } from "react";
+import PropTypes from "prop-types";
 import MediaCard from "../../component/MediaCard";
 import ItemsCarousel from "react-items-carousel";
 import ChevronLeft from "rmdi/lib/ChevronLeft";
@@ -64,4 +65,9 @@ class SlideShow extends Component {
     );
   }
 }
+
+SlideShow.propTypes = {
+  classes: PropTypes.object.isRequired,
+  media: PropTypes.array.isRequired
+};
 export default withStyles(styles)(SlideShow);

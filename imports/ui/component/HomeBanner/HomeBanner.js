@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { useTransition, animated, config } from "react-spring";
 import Fade from "react-reveal/Fade";
-import Jump from "react-reveal/Jump";
-import { Parallax } from "react-scroll-parallax";
 import ExpandMore from "rmdi/lib/ExpandMore";
 const items = [
   { id: 0, url: "/images/HomeBanner.png" },
@@ -66,6 +65,10 @@ const HomeBanner = ({ classes }) => {
       </div>
     </section>
   );
+};
+
+HomeBanner.propTypes = {
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(HomeBanner);
