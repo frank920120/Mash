@@ -34,12 +34,6 @@ function SmartContract(props) {
                 <Typography className={classes.subpara} variant="h5">
                   Search for the artists in your area and find that matching
                   talent that will take your gigs to the next level!
-                  {/* {
-                    "From the latest trendy boutique hotel to the iconic palace with XXL pool"
-                  }
-                  {
-                    ", go for a mini-vacation just a few subway stops away from your home."
-                  } */}
                 </Typography>
               </div>
             </Fade>
@@ -60,10 +54,6 @@ function SmartContract(props) {
                 <Typography className={classes.subpara} variant="h5">
                   Create a network of like-minded artists to collaborate, jam
                   together or simple have lots of fun!
-                  {/* {
-                    "Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… "
-                  }
-                  {"your Sundays will not be alike."} */}
                 </Typography>
               </div>
             </Fade>
@@ -84,10 +74,6 @@ function SmartContract(props) {
                 <Typography className={classes.subpara} variant="h5">
                   Mash helps you to write collaboration agreements in simple
                   terms and have them registered on immutable blockchain!
-                  {/* {
-                    "By registering, you will access specially negotiated rates "
-                  }
-                  {"that you will not find anywhere else."} */}
                 </Typography>
               </div>
             </Fade>
