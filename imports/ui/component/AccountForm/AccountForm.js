@@ -123,7 +123,7 @@ class AccountForm extends Component {
                         }
                       },
                       () => {
-                        this.props.history.push("/preference");
+                        this.props.history.push("/preferences");
                       }
                     );
               }}

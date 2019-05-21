@@ -49,7 +49,7 @@ class Menu extends Component {
                 <a className={classes.link} href={"/"}>
                   Welcome
                 </a>
-                <a className={classes.link} href={"/preference"}>
+                <a className={classes.link} href={"/preferences"}>
                   Preferences
                 </a>
                 <a className={classes.link} href={"/directory"}>
