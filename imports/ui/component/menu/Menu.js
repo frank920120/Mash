@@ -1,17 +1,17 @@
-import React, { Component } from "./node_modules/react";
-import PropTypes from "./node_modules/prop-types";
-import { withStyles } from "./node_modules/@material-ui/core/styles";
-import AppBar from "./node_modules/@material-ui/core/AppBar";
-import Toolbar from "./node_modules/@material-ui/core/Toolbar";
-import Button from "./node_modules/@material-ui/core/Button";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import styles from "./styles";
 import AccountForm from "../AccountForm";
 import { compose } from "recompose";
-import { withTracker } from "./node_modules/meteor/react-meteor-data";
+import { withTracker } from "meteor/react-meteor-data";
 import MessageBox from "../MessageBox";
 import { Meteor } from "meteor/meteor";
-import Snackbar from "./node_modules/@material-ui/core/Snackbar";
-import SnackbarContent from "./node_modules/@material-ui/core/SnackbarContent";
+import Snackbar from "@material-ui/core/Snackbar";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
 
 class Menu extends Component {
   constructor(props) {
