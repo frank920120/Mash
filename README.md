@@ -21,7 +21,7 @@ Naiji Zhang is a gifted Computer Scientist, with a MS in Information, Network & 
 
 Frank Fang is a talented , with a BCIT Technical Web Design Certificate. He is a master of CSS and creative styling and in this project focused mainly on the front end.
 
-Nancy Chu holds a BS in Mechanical Engineering from BCIT and is an experienced designer in the robotics industry. She takes the credit for the design of the project, plus many lines of code.
+Nancy Chu holds a BS in Mechanical Engineering from UBC and is an experienced designer in the robotics industry. She takes the credit for the design of the project, plus many lines of code.
 
 Andre Moura an experienced Product Manager working in the Tech Industry. He was the project manager, focusing on the value proposition, quality and delivery.
 
