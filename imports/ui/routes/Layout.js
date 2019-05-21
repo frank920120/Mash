@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router";
-import DirectoryContainer from "../../pages/Directory";
-import LandingPageContainer from "../../pages/LangingPage";
-import Profile from "../../pages/Profile";
-import PreferenceContainer from "../../pages/Preference";
-import Menu from "../Menu";
+import DirectoryContainer from "../pages/Directory";
+import LandingPageContainer from "../pages/LangingPage";
+import Profile from "../pages/Profile";
+import PreferenceContainer from "../pages/Preference";
+import Menu from "../component/Menu";
 import { withRouter } from "react-router";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
