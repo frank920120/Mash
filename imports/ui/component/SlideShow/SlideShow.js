@@ -1,6 +1,5 @@
 import React, { PureComponent, Component } from "react";
 import MediaCard from "../../component/MediaCard";
-import "./styles.css";
 import ItemsCarousel from "react-items-carousel";
 import ChevronLeft from "rmdi/lib/ChevronLeft";
 import ChevronRight from "rmdi/lib/ChevronRight";
@@ -15,7 +14,7 @@ class SlideShow extends Component {
     });
   }
   render() {
-    const { media,classes } = this.props;
+    const { media, classes } = this.props;
     const { activeItemIndex } = this.state;
     return (
       <div className={classes.SlideShowWrapper}>
