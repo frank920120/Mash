@@ -12,6 +12,7 @@ import TextField from "@material-ui/core/TextField";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
+import PropTypes from "prop-types";
 const genres = [
   "Rock",
   "Blues",
@@ -261,5 +262,9 @@ class ProfileForm extends Component {
     );
   }
 }
+
+ProfileForm.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles, { withTheme: true })(ProfileForm);

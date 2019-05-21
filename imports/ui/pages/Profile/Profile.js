@@ -90,7 +90,7 @@ class Profile extends Component {
                     {artist[0].profile.fullname}
                   </Typography>
 
-                  <Typography variant="h7" className={classes.whiteText}>
+                  <Typography variant="h6" className={classes.whiteText}>
                     Specialties:
                   </Typography>
                   <div className={classes.chips}>
@@ -103,7 +103,7 @@ class Profile extends Component {
                     ))}
                   </div>
 
-                  <Typography variant="h7" className={classes.whiteText}>
+                  <Typography variant="h6" className={classes.whiteText}>
                     Genres:
                   </Typography>
                   <div className={classes.chips}>
@@ -201,7 +201,9 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  artist: PropTypes.array,
+  currentUser: PropTypes.object
 };
 
 Profile.defaultProps = {
