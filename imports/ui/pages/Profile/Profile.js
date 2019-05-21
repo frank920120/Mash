@@ -73,7 +73,7 @@ class Profile extends Component {
                           from: currentUser.profile.fullname
                         };
                         Meteor.call("artists.addMessage", message);
-                        window.alert("Sent the message!");
+                        window.alert("Message Sent!");
                       }}
                     >
                       Connect
