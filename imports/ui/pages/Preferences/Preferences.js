@@ -24,7 +24,7 @@ const myOptions = [
   "Punk"
 ];
 
-function PreferenceContainer({ classes, history }) {
+function Preferences({ classes, history }) {
   const onSubmit = values => {
     const userFilter = {
       _id: Meteor.userId(),
@@ -44,11 +44,7 @@ function PreferenceContainer({ classes, history }) {
         <button className={classes.skip}>Skip</button>
       </a>
       <Fade right duration={2000}>
-        <img
-          className={classes.guitor}
-          src="/images/Preference.png"
-          alt="guitor"
-        />
+        <img className={classes.guitor} src="/images/.png" alt="guitor" />
       </Fade>
       <div className={classes.cover} />
       <div className={classes.formContainer}>
@@ -79,4 +75,4 @@ function PreferenceContainer({ classes, history }) {
   );
 }
 
-export default withRouter(withStyles(styles)(PreferenceContainer));
+export default withRouter(withStyles(styles)(Preferences));

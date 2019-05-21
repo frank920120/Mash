@@ -18,7 +18,6 @@ class Directory extends Component {
     const currentUser = allArtists.filter(
       user => user._id === currentUserId
     )[0];
-    // const userPrefs = allArtists.find(_id === currentUser);
     return (
       <React.Fragment>
         <div className={classes.filters}>
@@ -52,7 +51,6 @@ class Directory extends Component {
 
 export default withStyles(styles)(
   withTracker(() => {
-    //Meteor.subscribe("allArtists");
     Meteor.subscribe("getFilter");
     const myFilter = Artists.find({}).fetch();
     Meteor.subscribe(

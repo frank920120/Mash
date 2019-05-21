@@ -8,7 +8,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Collaborations } from "../../../api/collaborations";
 import { Artists } from "../../../api/artists";
 import SlideShow from "../../component/SlideShow";
-const LandingPageContainer = ({ collaborations, users }) => {
+const LandingPage = ({ collaborations, users }) => {
   return (
     <Fragment>
       <HomeBanner />
@@ -28,4 +28,4 @@ export default withTracker(() => {
     collaborations: Collaborations.find({}).fetch(),
     users: Artists.find({}).fetch()
   };
-})(LandingPageContainer);
+})(LandingPage);
