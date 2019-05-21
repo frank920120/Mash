@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router";
 import DirectoryContainer from "../pages/Directory";
 import LandingPageContainer from "../pages/LandingPage";
 import Profile from "../pages/Profile";
-import PreferenceContainer from "../pages/Preference";
+import Preferences from "../pages/Preferences";
 import Menu from "../component/Menu";
 import { withRouter } from "react-router";
 import { withTracker } from "meteor/react-meteor-data";
@@ -28,13 +28,13 @@ const Layout = ({ match, location, history, currentUserId }) => {
   } else {
     return (
       <Fragment>
-        {location.pathname !== "/preference" && <Menu />}
+        {location.pathname !== "/preferences" && <Menu />}
         <Switch>
           <Route
             exact
-            path="/preference"
-            name="preference"
-            component={PreferenceContainer}
+            path="/preferences"
+            name="preferences"
+            component={Preferences}
           />
 
           <Route
