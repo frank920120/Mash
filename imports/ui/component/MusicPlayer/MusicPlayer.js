@@ -91,7 +91,15 @@ const MusicPlayer = withSoundCloudAudio(props => {
   );
 });
 
-MusicPlayer.propTypes = {};
+MusicPlayer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  artists: PropTypes.array.isRequired,
+  playing: PropTypes.bool,
+  track: PropTypes.object,
+  currentTime: PropTypes.number,
+  duration: PropTypes.number,
+  location: PropTypes.object.isRequired
+};
 
 export default withRouter(
   withStyles(styles, { withTheme: true })(
