@@ -1,30 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {
-  PlayButton,
-  Timer,
-  Progress,
-  Icons,
-  VolumeControl
-} from "react-soundplayer/components";
+import { Timer } from "react-soundplayer/components";
 import { withSoundCloudAudio } from "react-soundplayer/addons";
 import PropTypes from "prop-types";
 import styles from "./styles";
 
-import { Meteor } from "meteor/meteor";
 import { Artists } from "../../../api/artists.js";
 import { withTracker } from "meteor/react-meteor-data";
 import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 const MusicPlayer = withSoundCloudAudio(props => {

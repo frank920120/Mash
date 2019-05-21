@@ -13,18 +13,18 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 const genres = [
-  "ROCK",
-  "BLUES",
-  "COUNTRY",
+  "Rock",
+  "Blues",
+  "Country",
   "R&B",
-  "POP",
-  "JAZZ",
-  "FOLK",
-  "CLASSICAL",
-  "HIP HOP",
-  "GRAVY",
-  "WORLD",
-  "PUNK"
+  "Pop",
+  "Jazz",
+  "Folk",
+  "Classical",
+  "Hip Hop",
+  "Dance",
+  "World",
+  "Punk"
 ];
 const specialties = [
   "Singing",
