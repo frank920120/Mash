@@ -6,27 +6,28 @@ import ChevronLeft from "rmdi/lib/ChevronLeft";
 import ChevronRight from "rmdi/lib/ChevronRight";
 import IconButton from "@material-ui/core/IconButton";
 import Fade from "react-reveal/Fade";
-
-export default class SlideShow extends Component {
+import styles from "./styles";
+import { withStyles } from "@material-ui/core/styles";
+class SlideShow extends Component {
   componentWillMount() {
     this.setState({
       activeItemIndex: 0
     });
   }
   render() {
-    const { media } = this.props;
+    const { media,classes } = this.props;
     const { activeItemIndex } = this.state;
     return (
-      <div className="SlideShowWrapper">
+      <div className={classes.SlideShowWrapper}>
         <Fade top duration={2000}>
-          <h1 className="CollaborationHeading">
+          <h1 className={classes.CollaborationHeading}>
             COLLAORATIONS
-            <span className="underline" />
+            <span className={classes.underline} />
           </h1>
         </Fade>
-        <div className="cover" />
+        <div className={classes.cover} />
         <ItemsCarousel
-          className="SlideShowContainer"
+          className={classes.SlideShowContainer}
           placeholderItem={<div style={{ height: 200, background: "#EEE" }} />}
           numberOfPlaceholderItems={3}
           numberOfCars={3}
@@ -53,7 +54,7 @@ export default class SlideShow extends Component {
         >
           {media.map(music => (
             <MediaCard
-              className="eachCard"
+              className={classes.eachCard}
               key={music._id}
               clientId="nJEgYbVDhjykb4wrNgX7LS7PM82wc0KI"
               resolveUrl={music.musicurl}
@@ -64,3 +65,4 @@ export default class SlideShow extends Component {
     );
   }
 }
+export default withStyles(styles)(SlideShow);
