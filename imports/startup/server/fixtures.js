@@ -311,8 +311,8 @@ Meteor.startup(() => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum integer enim neque volutpat ac tincidunt vitae. Arcu bibendum at varius vel pharetra. Quisque non tellus orci ac auctor augue mauris augue neque. Neque vitae tempus quam pellentesque nec. Egestas maecenas pharetra convallis posuere morbi. Sit amet facilisis magna etiam. Vulputate ut pharetra sit amet. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Maecenas accumsan lacus vel facilisis volutpat est. Id neque aliquam vestibulum morbi. Scelerisque eu ultrices vitae auctor eu augue. Lectus magna fringilla urna porttitor rhoncus dolor. Id aliquet risus feugiat in ante metus dictum. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sed pulvinar proin gravida hendrerit. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Arcu bibendum at varius vel pharetra vel turpis nunc. Sit amet tellus cras adipiscing enim eu turpis egestas pretium.",
         imageurl: "https://randomuser.me/api/portraits/men/23.jpg",
         location: {
-          lat: 49.26175,
-          lng: -123.247995
+          lat: 49.261311,
+          lng: -123.192132
         },
         reviews: [
           {
@@ -348,8 +348,8 @@ Meteor.startup(() => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor at auctor urna nunc id cursus metus. At in tellus integer feugiat scelerisque varius morbi. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pellentesque habitant morbi tristique senectus. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Tincidunt id aliquet risus feugiat in ante metus dictum at. Arcu dictum varius duis at consectetur lorem donec massa. At volutpat diam ut venenatis tellus. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Morbi blandit cursus risus at ultrices mi. Tellus orci ac auctor augue mauris augue neque gravida in. Pulvinar mattis nunc sed blandit libero volutpat. Malesuada nunc vel risus commodo viverra maecenas. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Dui sapien eget mi proin. Nunc mattis enim ut tellus elementum sagittis vitae et.",
         imageurl: "https://randomuser.me/api/portraits/men/20.jpg",
         location: {
-          lat: 49.225476,
-          lng: -123.160795
+          lat: 49.246546,
+          lng: -123.087385
         },
         reviews: [
           {
