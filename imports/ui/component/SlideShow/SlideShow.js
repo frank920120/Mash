@@ -20,7 +20,7 @@ export default class SlideShow extends Component {
       <div className="SlideShowWrapper">
         <Fade top duration={2000}>
           <h1 className="CollaborationHeading">
-            COLLAORATIONS
+            COLLABORATIONS
             <span className="underline" />
           </h1>
         </Fade>

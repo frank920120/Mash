@@ -73,7 +73,7 @@ class HomeMap extends Component {
             variant="display3"
             gutterBottom
           >
-            COLLAORATIONS AT YOUR AREA
+            COLLABORATIONS IN YOUR AREA
             <span className={classes.underline} />
           </Typography>
         </Fade>
