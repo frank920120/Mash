@@ -147,17 +147,11 @@ class MessageBox extends Component {
                   };
                   Meteor.call("artists.addMessage", message);
 
-
-                  const friend={
-                      idA:this.state.fromId,
-                       idB:currentUserId
-                  }
+                  const friend = {
+                    idA: this.state.fromId,
+                    idB: currentUserId
+                  };
                   Meteor.call("artists.addFriend", friend);
-                  // this.setState({
-                  //   openAlert: true,
-                  //   alertMessage: `You are connecting with ${this.state.from}!`
-                  // });
-                  //window.alert(`You are connecting with ${this.state.from}!`);
                 }}
                 color="primary"
               >
@@ -169,7 +163,7 @@ class MessageBox extends Component {
                   this.setState({
                     openPopup: false
                   });
-                   const updatedMessage = currentUser.profile.messages.filter(
+                  const updatedMessage = currentUser.profile.messages.filter(
                     message => {
                       return (
                         message.type !== 1 ||
