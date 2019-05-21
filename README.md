@@ -6,58 +6,54 @@ This is a full stack group project at RED Academy App Developer Program. It is a
 
 ![Site Demo](/public/images/site-demo.gif)
 
-## About the Author
+## Back-End Functionalities
 
-I am an experienced Product Manager working in the Tech Industry. I participated in the initiation and launch of 4 startups. I am currently sharpening my skills by learning about the latest Web Technologies at RED Academy - Vancouver.
+- Get Profiles: User can visit profile page by providing a user id String.
+- Send Message: The message include "from name", "from id", "to id", "text" information. When sending the message, the message will push to the user's message box. And a messageBox button will show up on the menu bar. The new message also has an alert to tell the user to read the new message.
+- Connection: Each user has a "friends" list to add friends. When click the connect button on someone's profile page, it will send a message to the target user and waiting for his acceptance. When the user accepts,the following events will happen. Send back a message with an email address for future connection -> add a userId to the friend list in both users' profile -> Alert the two users about they have a new friend.
+- Filter users: Whenever the filter make changes on the front-end, the filter information will be updated to the user's profile. Before loading the directory page, the filter menu will automatically loading the filter information in the profile, which means when the user refreshes the page, the filter information cannot be discarded by accident. The directory page can automatically filter the artists' information according to the filter input, and update the content on the page.
+
+---
+
+## About the Authors
+
+Naiji Zhang is a gifted Computer Scientist, with a MS in Information, Network & Computer Security. He is proficient in full-stack web technologies and in this project focused mainly on the back end.
+
+Frank Fang is a talented , with a BCIT Technical Web Design Certificate. He is a master of CSS and creative styling and in this project focused mainly on the front end.
+
+Nancy Chu holds a BS in Mechanical Engineering from BCIT and is an experienced designer in the robotics industry. She takes the credit for the design of the project, plus many lines of code.
+
+Andre Moura an experienced Product Manager working in the Tech Industry. He was the project manager, focusing on the value proposition, quality and delivery.
 
 ## Main Takeaways
 
-In this project, I learned modern techonologies for integrating the back-end. Here are some of the main takeaways:
+In this project, we learned how Meteor can be a powerful tool for creating modern websites with less effort. Here are some of the main takeaways:
 
-- Although not a new technology, SQL is a solid, tried and true way to create, read, update and delete (CRUD) data.
-- Node.js brings the flexibility of Javascript to the server side. In conjunction with libraries like Express, it is very easy to instantiate a web server.
-- RESTful APIs are a straightforward method to add and retrieve data from an HTTP server. However, they present limitations when the complexity of the data or the queries is high.
-- To deal with more complex database interactions, GraphQL is a powerful tool. One can use a library like Apollo to integrate GraphQL into a web server as a middleware.
-- React uses functional programing to dynamically create pages where state is used to control behaviour and manipulate data. The flexibility its component-based programming gives you opens a new dimension in Web Programming.
-- Redux allows you to centralize the storage of states for all React components, becoming the single source of truth.
-- Appolo works on the client side enabling GraphQL queries.
-- Material UI makes Web and App development much more productive by provinding you with a library of components to be used to create common interface elements.
-- JSX (XHTML in JavaScript) and JSS (CSS in JavaScript) gives ypu the opportunity to use XHTML and CSS in a much more programmatic way.
+- Meteor provides the environment both for the server and the client. One of its main features is the shared code between server and client. It also eliminates the need to manage context and states in React applications.
+- Meteor implements MongoDB in the back end with a synchronised database on the client using Minimongo. This allows for instant CRUDs on the client side, since it happens locally first and then synchs with the server.
+- MongoDB is a flexible database, using non-SQL and non-relational collections. This can be especially useful when the data to be colleted is not yet totally defined. You can insert new data fields to the database with ease.
+- For the above reasons, Meteor is a good option as a tool for prototyping or in Hackathons.
 
-## Instructions for running the server
+---
 
-Commands must be run from the `server` directory:
+## Technologies Used
 
-### Installation
+- Meteor
+- React
+- Material-UI
+- Final Form
+- Google Maps React
+
+## Instructions for Running
+
+### Installation of required modules
 
 ```bash
-npm install
+meteor npm install
 ```
 
 ### Run
 
 ```bash
-npm run start:dev
-```
-
-## Instructions for running the Client
-
-Commands must be run from the `client` directory:
-
-### Installation
-
-```bash
-npm install
-```
-
-### Run
-
-```bash
-npm start
-```
-
-### Build
-
-```bash
-npm run build
+meteor
 ```
