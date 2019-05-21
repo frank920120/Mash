@@ -19,7 +19,6 @@ import Review from "../../component/Review";
 import ProfileForm from "../../component/ProfileForm";
 import { withTracker } from "meteor/react-meteor-data";
 import { Artists } from "../../../api/artists";
-import { compose } from "recompose";
 import { Meteor } from "meteor/meteor";
 
 class Profile extends Component {
