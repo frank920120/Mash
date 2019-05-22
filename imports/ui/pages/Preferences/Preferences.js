@@ -8,7 +8,7 @@ import Fade from "react-reveal/Fade";
 import { withStyles } from "@material-ui/core/styles";
 import { Meteor } from "meteor/meteor";
 import { withRouter } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const myOptions = [
   "Rock",
   "Blues",
@@ -74,5 +74,8 @@ function Preferences({ classes, history }) {
     </div>
   );
 }
-
+Preferences.propTypes = {
+  classes: PropTypes.object.isRequired,
+  history: PropTypes.object
+};
 export default withRouter(withStyles(styles)(Preferences));
