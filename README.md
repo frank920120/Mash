@@ -17,13 +17,13 @@ This is a full stack group project at RED Academy App Developer Program. It is a
 
 ## About the Authors
 
-Naiji Zhang is a gifted Computer Scientist, with a MS in Information, Network & Computer Security. He is proficient in full-stack web technologies and in this project focused mainly on the back end.
+[Naiji Zhang](https://www.linkedin.com/in/naiji-zhang-8ab433168/) is a gifted Computer Scientist, with a MS in Information, Network & Computer Security. He is proficient in full-stack web technologies and in this project focused mainly on the back end.
 
-Frank Fang is a talented , with a BCIT Technical Web Design Certificate. He is a master of CSS and creative styling and in this project focused mainly on the front end.
+[Frank Fang](https://www.linkedin.com/in/jun-fang-945397167/) is a talented Web Developer, with a BCIT Technical Web Design Certificate. He is a master of CSS and creative styling and in this project focused mainly on the front end.
 
-Nancy Chu holds a BS in Mechanical Engineering from UBC and is an experienced designer in the robotics industry. She takes the credit for the design of the project, plus many lines of code.
+[Nancy Chu](https://www.linkedin.com/in/chunancy/) holds a BS in Mechanical Engineering from UBC and is an experienced designer in the robotics industry. She takes the credit for the design of the project, plus many lines of code.
 
-Andre Moura an experienced Product Manager working in the Tech Industry. He was the project manager, focusing on the value proposition, quality and delivery.
+[Andre Moura](https://www.linkedin.com/in/andre-marques-moura/) an experienced Product Manager working in the Tech Industry. He was the project manager, focusing on the value proposition, quality and delivery.
 
 ## Main Takeaways
 
