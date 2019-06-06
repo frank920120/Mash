@@ -163,6 +163,6 @@ HomeMap.propTypes = {
 
 export default withStyles(styles)(
   GoogleApiWrapper({
-    apiKey: "AIzaSyDndK-4FUhnuwdo6bnVMKLSMHlgS8qjZIU"
+    apiKey: "IzaSyDYKoHKviQVpYRrpgHSdWRHDS_ikv8YTnQ"
   })(HomeMap)
 );

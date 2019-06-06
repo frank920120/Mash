@@ -1,7 +1,7 @@
 const styles = {
   desContainer: {
     width: "100%",
-    backgroundImage: "url('/images/HomeDes.png')",
+    backgroundImage: "url('/images/HomeDescription.png')",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",

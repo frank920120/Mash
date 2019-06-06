@@ -7,7 +7,7 @@ import Bounce from "react-reveal/Bounce";
 import { Parallax } from "react-scroll-parallax";
 import AccountForm from "../AccountForm";
 
-const HomeDes = ({ classes }) => {
+const HomeDescription = ({ classes }) => {
   return (
     <Parallax className={classes.parallax} y={[-20, 20]} tagOuter="figure">
       <section className={classes.desContainer}>
@@ -50,8 +50,8 @@ const HomeDes = ({ classes }) => {
   );
 };
 
-HomeDes.propTypes = {
+HomeDescription.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(HomeDes);
+export default withStyles(styles)(HomeDescription);
