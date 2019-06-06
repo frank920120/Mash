@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import HomeBanner from "../../component/HomeBanner";
-import HomeDes from "../../component/HomeDes";
+import HomeDescription from "../../component/HomeDescription";
 import HomeMap from "../../component/HomeMap";
 import Footer from "../../component/Footer";
 import SmartContract from "../../component/SmartContract";
@@ -12,7 +12,7 @@ const LandingPage = ({ collaborations, users }) => {
   return (
     <Fragment>
       <HomeBanner />
-      <HomeDes />
+      <HomeDescription />
       <SmartContract />
       <SlideShow media={collaborations} />
       <HomeMap users={users} />
